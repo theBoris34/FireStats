@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.BL", "FireStats.BL\FireStats.BL.csproj", "{BB1652D7-E48C-40DE-B14D-666165949629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.CMD", "FireStats.CMD\FireStats.CMD.csproj", "{4E1E2AB4-1535-4703-8574-927577F59D45}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB1652D7-E48C-40DE-B14D-666165949629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB1652D7-E48C-40DE-B14D-666165949629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB1652D7-E48C-40DE-B14D-666165949629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1652D7-E48C-40DE-B14D-666165949629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E1E2AB4-1535-4703-8574-927577F59D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E1E2AB4-1535-4703-8574-927577F59D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E1E2AB4-1535-4703-8574-927577F59D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E1E2AB4-1535-4703-8574-927577F59D45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
