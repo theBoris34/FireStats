@@ -1,0 +1,6 @@
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\FireStats.BL.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\FireStats.BL.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.CoreCompileInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.pdb

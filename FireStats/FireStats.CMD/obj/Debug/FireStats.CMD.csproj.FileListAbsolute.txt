@@ -1,0 +1,10 @@
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\FireStats.CMD.exe.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\FireStats.CMD.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\FireStats.CMD.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\FireStats.BL.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\FireStats.BL.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.csproj.CoreCompileInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.csproj.CopyComplete
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.pdb
