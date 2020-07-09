@@ -5,6 +5,7 @@ namespace FireStats.BL.Model
 {    /// <summary>
      /// Тип пользователя.
      /// </summary>
+    [Serializable]
     public class UserType
     {
         /// <summary>
