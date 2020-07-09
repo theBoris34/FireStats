@@ -18,12 +18,12 @@ namespace FireStats.BL.Model
         /// <summary>
         /// Тип пользователя ПСЧ/ЕДДС (обычный), ЦУКС (админ).
         /// </summary>
-        public UserType UserType { get; }
+        public UserType UserType { get; set; }
 
         /// <summary>
         /// Адрес пользователя(объекта). Формат: ??? обл., г/д.???, ул/пер. ???, д. ???.
         /// </summary>
-        public string Adress {get;}
+        public string Adress {get; set; }
 
         /// <summary>
         /// Количество личного состава.
@@ -80,9 +80,18 @@ namespace FireStats.BL.Model
             FireTruck = fireTruck;            
         }
 
+        public User (string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Имя объекта не может быть пустым или null", nameof(name));
+            }
+            Name = name;
+        }
+
         public override string ToString()
         {
-            return Name;
+            return Name + " " + Adress;
         }
 
     }

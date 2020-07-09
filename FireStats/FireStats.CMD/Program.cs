@@ -28,23 +28,43 @@ namespace FireStats.CMD
             Console.Write("Введите имя пользователя(объекта): ");
             var name = Console.ReadLine();
             
-            Console.Write("Введите тип пользователя: ");
-            var type = Console.ReadLine();
-            
-            Console.Write("Введите адрес объекта (Формат: ??? обл., г/д.???, ул/пер. ???, д. ?) :");
-            var adress = Console.ReadLine();
-            
-            Console.Write("Введите количество личного состава: ");
-            var personnel = int.Parse(Console.ReadLine());
+            var userController = new UserController(name);
+            if(userController.IsNewUser)
+            {
+                Console.Write("Введите тип объекта: ");
+                var typeUser = Console.ReadLine();
+                Console.Write("Введите адрес объекта(Формат: ??? обл., г/д.???, ул/пер. ???, д. ???): ");//разделить на область город улицу...
+                var adress = Console.ReadLine();
+                var personnel = ParseInt("личного состава");
+                var fireTruck = ParseInt("пожарной техники");
 
-            Console.Write("Введите количество техники: ");
-            var fireTruck = int.Parse(Console.ReadLine());
+                userController.SetNewUserData(typeUser,adress, personnel,fireTruck);                
+            }
 
-            var userController = new UserController(name, type, adress, personnel, fireTruck);
+            Console.WriteLine(userController.CurrentUser);
+            Console.ReadLine();
 
-            userController.Save();
+        }
 
-
+        /// <summary>
+        /// Получение формата INT
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        private static int ParseInt(string name)
+        {
+            while(true)
+            {
+                Console.Write($"Введите количество {name}: ");
+                if(int.TryParse(Console.ReadLine(), out int value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine($"Количество {name} должно быть больше 0!");
+                }
+            }
         }
     }
 }
