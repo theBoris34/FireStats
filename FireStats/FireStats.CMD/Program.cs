@@ -32,13 +32,13 @@ namespace FireStats.CMD
             if(userController.IsNewUser)
             {
                 Console.Write("Введите тип объекта: ");
-                var typeUser = Console.ReadLine();
+                var userType = Console.ReadLine();
                 Console.Write("Введите адрес объекта(Формат: ??? обл., г/д.???, ул/пер. ???, д. ???): ");//разделить на область город улицу...
                 var adress = Console.ReadLine();
                 var personnel = ParseInt("личного состава");
                 var fireTruck = ParseInt("пожарной техники");
 
-                userController.SetNewUserData(typeUser,adress, personnel,fireTruck);                
+                userController.SetNewUserData(userType, adress, personnel,fireTruck);                
             }
 
             Console.WriteLine(userController.CurrentUser);
