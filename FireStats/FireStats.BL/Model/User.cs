@@ -3,6 +3,9 @@
 
 namespace FireStats.BL.Model
 {
+    //разные типы с помощью интерфейсов?
+
+
     /// <summary>
     /// Пользователь.
     /// </summary>
