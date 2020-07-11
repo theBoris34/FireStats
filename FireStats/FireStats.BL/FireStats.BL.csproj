@@ -42,8 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\ControllerBase.cs" />
-    <Compile Include="Controller\FireController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Controller\WorkShiftController.cs" />
+    <Compile Include="Model\Emergency.cs" />
     <Compile Include="Model\Fire.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserType.cs" />

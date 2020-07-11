@@ -4,7 +4,7 @@
 namespace FireStats.BL.Model
 {
     //TODO: Принимает автоматом заданную дату, а дольше только часы и минуты для всех оперативных моментов.
-    class WorkTime
+    public class WorkTime
     {
         /// <summary>
         /// Время вызова.

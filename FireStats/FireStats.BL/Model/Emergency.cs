@@ -6,9 +6,9 @@ namespace FireStats.BL.Model
 {
     [Serializable]
     /// <summary>
-    /// Пожар.
+    /// Чрезвычайная ситуация.
     /// </summary>
-    public class Fire
+    public class Emergency
     {
 
         #region Свойства
@@ -18,9 +18,9 @@ namespace FireStats.BL.Model
         public string Adress { get; }
 
         /// <summary>
-        /// Ранг пожара.
+        /// Критерий ЧС.
         /// </summary>
-        public byte FireRank { get; }
+        public bool СriterionEmergency { get; }
 
         /// <summary>
         /// Время работ.
@@ -38,7 +38,7 @@ namespace FireStats.BL.Model
         public string Applicant { get; } //отдельный класс заявителей?
 
         /// <summary>
-        /// Объект пожара.
+        /// Объект ЧС.
         /// </summary>
         public string FireObject { get; }
 
@@ -48,65 +48,42 @@ namespace FireStats.BL.Model
         public string Owner { get; }
 
         /// <summary>
-        /// Результат пожара.
+        /// Результат ЧС.
         /// </summary>
         public string DamageResult { get; }
 
         /// <summary>
-        /// Причина пожара.
-        /// </summary>
-        public string CauseOfFire { get; }
-
-        /// <summary>
-        /// Ущерб.
-        /// </summary>
-        public int CostOfDamage { get; }
-
-        /// <summary>
-        /// Спасено
-        /// </summary>
-        public int CostOfSalvage { get; }
-
-        /// <summary>
-        /// Руководитель тушения пожара (РТП).
+        /// Руководитель ликвидации ЧС.
         /// </summary>
         public string Leader { get; }
 
         /// <summary>
-        /// Разбирался инспектор.
+        /// Пострадавшие.
         /// </summary>
-        public string FireInspector { get; }
+        public List<String> Injured { get; }
         #endregion
 
         /// <summary>
-        /// Зарегистрировать новый пожар.
+        /// Зарегистрировать чрезвычайную ситуацию.
         /// </summary>
-        /// <param name="adress">Адрес пожара.</param>
-        /// <param name="fireRank">Ранг пожара.</param>
-        /// <param name="workTime">Время работы на пожаре.</param>
+        /// <param name="adress">Адрес ЧС.</param>
+        /// <param name="workTime">Время работ.</param>
         /// <param name="fieldUnits">Задействованные подразделения.</param>
         /// <param name="applicant">Заявитель.</param>
-        /// <param name="fireObject">Объект пожара.</param>
+        /// <param name="fireObject">Объект ЧС.</param>
         /// <param name="owner">Владелец объекта.</param>
-        /// <param name="damageResult">Результат пожара.</param>
-        /// <param name="causeOfFire">Причина пожара.</param>
-        /// <param name="costOfDamage">Ущерб.</param>
-        /// <param name="costOfSalvage">Спасено.</param>
-        /// <param name="leader">Руководитель тушения пожара (РТП).</param>
-        /// <param name="fireInspector">Инспектор.</param>
-        public Fire(string adress,
-                    byte fireRank,
+        /// <param name="damageResult">Результат ЧС.</param>
+        /// <param name="leader">Руководитель ликвидацией ЧС.</param>
+        /// <param name="injured">Пострадавшие.</param>
+        public Emergency(string adress,
                     WorkTime workTime,
                     List<User> fieldUnits,
                     string applicant,
                     string fireObject,
                     string owner,
                     string damageResult,
-                    string causeOfFire,
-                    int costOfDamage,
-                    int costOfSalvage,
                     string leader,
-                    string fireInspector)
+                    List<String> injured)
         {
             #region Проверка
             if (string.IsNullOrWhiteSpace(adress))
@@ -121,15 +98,10 @@ namespace FireStats.BL.Model
             {
                 throw new ArgumentException("Подразделения не могут быть пустыми или null.", nameof(fieldUnits));
             }
-            if (costOfDamage < 0)
+            if (injured == null)
             {
-                throw new ArgumentException("message", nameof(costOfDamage));
+                throw new ArgumentNullException("Пострадавшие не могут быть null.", nameof(injured));
             }
-            if (costOfSalvage < 0)
-            {
-                throw new ArgumentException("message", nameof(costOfSalvage));
-            }
-
             if (string.IsNullOrWhiteSpace(applicant))
             {
                 throw new ArgumentException("Заявитель не может быть пустым или null.", nameof(applicant));
@@ -148,39 +120,26 @@ namespace FireStats.BL.Model
             if (string.IsNullOrWhiteSpace(damageResult))
             {
                 throw new ArgumentException("Результат пожара не может быть пустым или null.", nameof(damageResult));
-            }
-
-            if (string.IsNullOrWhiteSpace(causeOfFire))
-            {
-                throw new ArgumentException("Причина пожара не может быть пустой или null.", nameof(causeOfFire));
-            }
+            }          
 
             if (string.IsNullOrWhiteSpace(leader))
             {
                 throw new ArgumentException("РТП не может быть пустым или null.", nameof(leader));
-            }
-
-            if (string.IsNullOrWhiteSpace(fireInspector))
-            {
-                throw new ArgumentException("Инстпектор не может быть пустым или null.", nameof(fireInspector));
-            }
+            }            
             #endregion
           
             Adress = adress;
-            FireRank = fireRank;
             WorkTime = workTime;
             FieldUnits = fieldUnits;
             Applicant = applicant;
             FireObject = fireObject;
             Owner = owner;
             DamageResult = damageResult;
-            CauseOfFire = causeOfFire;
-            CostOfDamage = costOfDamage;
-            CostOfSalvage = costOfSalvage;
             Leader = leader;
-            FireInspector = fireInspector;
+            Injured = injured ;
         }
 
+        /*
         public override string ToString()
         {
             return Adress + ". " + 
@@ -195,5 +154,6 @@ namespace FireStats.BL.Model
                     + $"РТП: {Leader}"
                     + $"Разбирался: {FireInspector}"; 
         }
+        */
     }
 }
