@@ -108,8 +108,8 @@ namespace FireStats.BL.Controller
 
         private void Save()
         {
-            //Save(FIRES_FILE_NAME, Fires);
-            //Save(EMERGANCY_FILE_NAME, Emergencies);
+            Save(FIRES_FILE_NAME, WorkShift.Fires);
+            Save(EMERGANCY_FILE_NAME, WorkShift.Emergencies);
             Save(WORKSHIFT_FILE_NAME, WorkShift);
         }
  

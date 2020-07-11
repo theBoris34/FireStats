@@ -8,6 +8,10 @@ namespace FireStats.BL.Model
     public class WorkTime
     {
         /// <summary>
+        /// Текущая/выбранная дата.
+        /// </summary>
+        public DateTime CurrentData { get; set; }
+        /// <summary>
         /// Время вызова.
         /// </summary>
         public DateTime CallTime { get; set; }
