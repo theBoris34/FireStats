@@ -2,6 +2,8 @@
 using FireStats.BL.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Resources;
 
 namespace FireStats.CMD
 {
@@ -10,6 +12,8 @@ namespace FireStats.CMD
       
         static void Main(string[] args)
         {
+            
+
             Greeting();
 
             Console.ReadLine();
@@ -21,12 +25,12 @@ namespace FireStats.CMD
         /// </summary>
         static void Greeting()
         {
-            Console.WriteLine("##################################################################");
-            Console.WriteLine("########\t     ВАС  ПРИВЕТСТВУЕТ  ПРИЛОЖЕНИЕ \t  ########");
-            Console.WriteLine("########\t\t       FIRESTATS \t\t  ########");
-            Console.WriteLine("##################################################################");
-            
-            Console.Write("Введите имя пользователя(объекта): ");
+
+            var culture = CultureInfo.CreateSpecificCulture("en-us");
+            var resourseManager = new ResourceManager("FireStats.CMD.Language.Message", typeof(Program).Assembly);
+
+            Console.WriteLine(resourseManager.GetString("Hello"), culture);
+            Console.Write(resourseManager.GetString("EnterName"), culture);
             var name = Console.ReadLine();
             
             var userController = new UserController(name);

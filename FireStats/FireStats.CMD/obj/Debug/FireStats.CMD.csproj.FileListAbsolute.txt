@@ -8,3 +8,9 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.exe
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.csproj.GenerateResource.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.Language.Message.resources
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.Language.Message_ru-ru.resources
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\en-us\FireStats.CMD.resources.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.Language.Message.en-us.resources
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\en-us\FireStats.CMD.resources.dll

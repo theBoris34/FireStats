@@ -15,7 +15,7 @@ namespace FireStats.BL.Controller.Tests
         [TestMethod()]
         public void AddTest()
         {
-            //Arrange
+            //Arrange 
             var userName = Guid.NewGuid().ToString();
             List<User> fieldUnits = new List<User>();
             fieldUnits.Add(new User("pch1"));
