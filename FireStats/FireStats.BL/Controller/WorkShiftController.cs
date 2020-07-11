@@ -30,7 +30,7 @@ namespace FireStats.BL.Controller
         /// <summary>
         /// Список пожаров за сутки.
         /// </summary>
-        public List<Fire> Fires { get; }
+        //public List<Fire> Fires { get; }
 
 
         /// <summary>
@@ -42,9 +42,10 @@ namespace FireStats.BL.Controller
         {
             this.user = user ?? throw new ArgumentNullException("Пользователь не может быть пустым.", nameof(user));
 
-            Fires = GetAllFires();
-            Emergencies = GetAllEmergencies();
             WorkShift = GetWorkShift();
+            WorkShift.Fires = GetAllFires();
+            WorkShift.Emergencies = GetAllEmergencies();
+            
 
         }
 
@@ -54,9 +55,9 @@ namespace FireStats.BL.Controller
         /// <param name="fire">Пожар</param>
         public void Add(Fire fire)
         {
-            if (Fires.Find(f => string.Equals(f.Adress, fire.Adress, StringComparison.CurrentCultureIgnoreCase)) == null)
+            if (WorkShift.Fires.Find(f => string.Equals(f.Adress, fire.Adress, StringComparison.CurrentCultureIgnoreCase)) == null)
             {
-                Fires.Add(fire);
+                WorkShift.Fires.Add(fire);                
                 Save();
             }
             else
@@ -71,9 +72,9 @@ namespace FireStats.BL.Controller
         /// <param name="emergency">ЧС.</param>
         public void Add(Emergency emergency)
         {
-            if (Emergencies.Find(e => string.Equals(e.Adress, emergency.Adress, StringComparison.CurrentCultureIgnoreCase)) == null)
+            if (WorkShift.Emergencies.Find(e => string.Equals(e.Adress, emergency.Adress, StringComparison.CurrentCultureIgnoreCase)) == null)
             {
-                Emergencies.Add(emergency);
+                WorkShift.Emergencies.Add(emergency);
                 Save();
             }
             else
@@ -107,8 +108,8 @@ namespace FireStats.BL.Controller
 
         private void Save()
         {
-            Save(FIRES_FILE_NAME, Fires);
-            Save(EMERGANCY_FILE_NAME, Emergencies);
+            //Save(FIRES_FILE_NAME, Fires);
+            //Save(EMERGANCY_FILE_NAME, Emergencies);
             Save(WORKSHIFT_FILE_NAME, WorkShift);
         }
  

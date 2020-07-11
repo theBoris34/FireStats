@@ -18,8 +18,8 @@ namespace FireStats.BL.Controller.Tests
             //Arrange
             var userName = Guid.NewGuid().ToString();
             List<User> fieldUnits = new List<User>();
-                fieldUnits.Add(new User("pch1"));
-                fieldUnits.Add(new User("pch2"));
+            fieldUnits.Add(new User("pch1"));
+            fieldUnits.Add(new User("pch2"));
             List<string> injured = new List<string>();
             injured.Add( "postr1");
             injured.Add("postr2");
@@ -39,7 +39,8 @@ namespace FireStats.BL.Controller.Tests
             workShiftController.Add(emergancy);
 
             //Assert
-
+            Assert.IsTrue(workShiftController.WorkShift.Fires.Count > 0);
+            //Assert.AreEqual(fire.FireRank.ToString(), workShiftController.WorkShift.Fires.Count);
         }
     }
 }
