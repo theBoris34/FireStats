@@ -35,10 +35,11 @@ namespace FireStats.BL.Controller.Tests
 
 
             //Act
-           // workShiftController.Add(fire);
-           workShiftController.Add(emergancy);
+            workShiftController.Add(fire);
+            workShiftController.Add(emergancy);
 
             //Assert
+
         }
     }
 }

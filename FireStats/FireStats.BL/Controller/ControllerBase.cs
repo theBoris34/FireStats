@@ -26,7 +26,7 @@ namespace FireStats.BL.Controller
                 {
                     return items;
                 }
-                else;
+                else
                 {
                     return default(T);
                 }

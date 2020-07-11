@@ -3,6 +3,7 @@
 
 namespace FireStats.BL.Model
 {
+    [Serializable]
     //TODO: Принимает автоматом заданную дату, а дольше только часы и минуты для всех оперативных моментов.
     public class WorkTime
     {

@@ -42,7 +42,7 @@ namespace FireStats.BL.Controller
         {
             this.user = user ?? throw new ArgumentNullException("Пользователь не может быть пустым.", nameof(user));
 
-           // Fires = GetAllFires();
+            Fires = GetAllFires();
             Emergencies = GetAllEmergencies();
             WorkShift = GetWorkShift();
 
