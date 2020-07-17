@@ -26,15 +26,17 @@ namespace FireStats.CMD
         static void Greeting()
         {
 
-            var culture = CultureInfo.CreateSpecificCulture("en-us");
-            var resourseManager = new ResourceManager("FireStats.CMD.Language.Message", typeof(Program).Assembly);
+            var cul = CultureInfo.CreateSpecificCulture("en-us"); ;
+            var resourseManager = new ResourceManager("FireStats.CMD.Language.Text", typeof(Program).Assembly);
 
-            Console.WriteLine(resourseManager.GetString("Hello"), culture);
-            Console.Write(resourseManager.GetString("EnterName"), culture);
+            Console.WriteLine(resourseManager.GetString("Hello"), cul);
+            Console.Write(resourseManager.GetString("EnterName"), cul);
             var name = Console.ReadLine();
             
             var userController = new UserController(name);
-            var workShiftController = new WorkShiftController(userController.CurrentUser);
+            Console.Write("Введите дату:");
+            var date = Console.ReadLine();
+            var workShiftController = new WorkShiftController(date);
 
             if (userController.IsNewUser)
             {

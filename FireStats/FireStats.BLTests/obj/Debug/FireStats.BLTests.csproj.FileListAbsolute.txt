@@ -17,3 +17,11 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\obj
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\obj\Debug\FireStats.BLTests.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\obj\Debug\FireStats.BLTests.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\obj\Debug\FireStats.BLTests.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\bin\Debug\FireStats.BLTests.dll.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\bin\Debug\EntityFramework.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\bin\Debug\FireStats.BL.dll.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\bin\Debug\EntityFramework.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\obj\Debug\FireStats.BLTests.Message.resources
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BLTests\obj\Debug\FireStats.BLTests.csproj.GenerateResource.cache

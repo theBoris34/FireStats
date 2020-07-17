@@ -1,52 +1,50 @@
 ﻿using FireStats.BL.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FireStats.BL.Controller
 {
     public class WorkShiftController : ControllerBase
     {
-        /// <summary>
-        ///  Имя файла с данными о пожарах.
-        /// </summary>
-        private const string WORKSHIFT_FILE_NAME = "workshift.dat";
-        /// <summary>
-        ///  Имя файла с данными о ЧС.
-        /// </summary>
-        private const string EMERGANCY_FILE_NAME = "emergency.dat";
-        /// <summary>
-        ///  Имя файла с данными о пожарах.
-        /// </summary>
-        private const string FIRES_FILE_NAME = "fires.dat";
+        bool IsNewWorkShift = false;
         /// <summary>
         /// Пользователь.
         /// </summary>
         private readonly User user;
-       
+
         /// <summary>
         /// Рабочая смена (сутки).
         /// </summary>
-        public WorkShift WorkShift { get; }
+        public WorkShift WorkShift { get; set; }
+
         /// <summary>
-        /// Список пожаров за сутки.
+        /// Список суток.
         /// </summary>
-        //public List<Fire> Fires { get; }
+        public List<WorkShift> WorkShifts { get; set; }
 
-
+        public WorkShift CurrentWorkShift { get; set; }
         /// <summary>
         /// Список чрезвычаайных ситуаций за сутки.
         /// </summary> 
         public List<Emergency> Emergencies { get; }
 
-        public WorkShiftController(User user)
+        public WorkShiftController(DateTime date)
         {
             this.user = user ?? throw new ArgumentNullException("Пользователь не может быть пустым.", nameof(user));
 
-            WorkShift = GetWorkShift();
-            WorkShift.Fires = GetAllFires();
-            WorkShift.Emergencies = GetAllEmergencies();
-            
+            WorkShifts = GetWorkShift();
 
+            //CurrentWorkShift = WorkShifts.SingleOrDefault(w => w == date);
+            if (CurrentWorkShift == null)
+            {
+                CurrentWorkShift = new WorkShift();
+                WorkShifts.Add(CurrentWorkShift);
+                IsNewWorkShift = true;
+                Save();
+            }
+            CurrentWorkShift.Fires = GetAllFires();
+            CurrentWorkShift.Emergencies = GetAllEmergencies();
         }
 
         /// <summary>
@@ -83,9 +81,9 @@ namespace FireStats.BL.Controller
             }
         }
 
-        private WorkShift GetWorkShift()
+        private List<WorkShift> GetWorkShift()
         {
-            return Load<WorkShift>(WORKSHIFT_FILE_NAME) ?? new WorkShift(user, DateTime.Now);
+            return Load<WorkShift>() ?? new List<WorkShift>();
         }
 
         /// <summary>
@@ -94,7 +92,7 @@ namespace FireStats.BL.Controller
         /// <returns>Список ЧС.</returns>
         private List<Emergency> GetAllEmergencies()
         {
-            return Load<List<Emergency>>(EMERGANCY_FILE_NAME) ?? new List<Emergency>();
+            return Load<Emergency>() ?? new List<Emergency>();
         }
 
         /// <summary>
@@ -103,14 +101,12 @@ namespace FireStats.BL.Controller
         /// <returns>Список пожаров.</returns>
         private List<Fire> GetAllFires()
         {
-            return Load<List<Fire>>(FIRES_FILE_NAME) ?? new List<Fire>();           
+            return Load<Fire>() ?? new List<Fire>();           
         }
 
         private void Save()
         {
-            Save(FIRES_FILE_NAME, WorkShift.Fires);
-            Save(EMERGANCY_FILE_NAME, WorkShift.Emergencies);
-            Save(WORKSHIFT_FILE_NAME, WorkShift);
+            Save();
         }
  
     }

@@ -12,6 +12,12 @@ namespace FireStats.BL.Model
     [Serializable]
     public class User
     {
+        public int Id { get; set; }
+        public int UserTypeId { get; set; }
+        public User()
+        {
+
+        }
         #region Свойства пользователя
         /// <summary>
         /// Имя пользователя (объекта).

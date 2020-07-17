@@ -9,15 +9,22 @@ namespace FireStats.BL.Model
     /// </summary>
     public class WorkShift
     {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public WorkShift()
+        {
+
+        }
+
         /// <summary>
         /// Пользователь.
         /// </summary>
-        public User User { get; }
+        public User User { get; set; }
        
         /// <summary>
         /// Дата суток.
         /// </summary>
-        public DateTime CurrentData { get; } // Console.WriteLine(dateOnly.ToString("d")) == 6/1/2008 
+        public DateTime CurrentData { get; set; } // Console.WriteLine(dateOnly.ToString("d")) == 6/1/2008 
 
         /// <summary>
         /// Список пожаров за сутки.

@@ -10,22 +10,29 @@ namespace FireStats.BL.Model
     /// </summary>
     public class Emergency
     {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int WorkShiftId { get; set; }
+
+        public Emergency()
+        {
+        }
 
         #region Свойства
         /// <summary>
         /// Адрес пожара.
         /// </summary>
-        public string Adress { get; }
+        public string Adress { get; set; }
 
         /// <summary>
         /// Критерий ЧС.
         /// </summary>
-        public bool СriterionEmergency { get; }
+        public bool СriterionEmergency { get; set; }
 
         /// <summary>
         /// Время работ.
         /// </summary>
-        public WorkTime WorkTime { get; }
+        public WorkTime WorkTime { get; set; }
 
         /// <summary>
         /// Задействованные подразделения.
@@ -35,32 +42,32 @@ namespace FireStats.BL.Model
         /// <summary>
         /// Заявитель.
         /// </summary>
-        public string Applicant { get; } //отдельный класс заявителей?
+        public string Applicant { get; set; } //отдельный класс заявителей?
 
         /// <summary>
         /// Объект ЧС.
         /// </summary>
-        public string FireObject { get; }
+        public string FireObject { get; set; }
 
         /// <summary>
         /// Владелец объекта.
         /// </summary>
-        public string Owner { get; }
+        public string Owner { get; set; }
 
         /// <summary>
         /// Результат ЧС.
         /// </summary>
-        public string DamageResult { get; }
+        public string DamageResult { get; set; }
 
         /// <summary>
         /// Руководитель ликвидации ЧС.
         /// </summary>
-        public string Leader { get; }
+        public string Leader { get; set; }
 
         /// <summary>
         /// Пострадавшие.
         /// </summary>
-        public List<String> Injured { get; }
+        public List<String> Injured { get; set; }
         #endregion
 
         /// <summary>

@@ -10,22 +10,29 @@ namespace FireStats.BL.Model
     /// </summary>
     public class Fire
     {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int WorkShiftId { get; set; }
 
+        public Fire()
+        {
+
+        }
         #region Свойства
         /// <summary>
         /// Адрес пожара.
         /// </summary>
-        public string Adress { get; }
+        public string Adress { get; set; }
 
         /// <summary>
         /// Ранг пожара.
         /// </summary>
-        public byte FireRank { get; }
+        public byte FireRank { get; set; }
 
         /// <summary>
         /// Время работ.
         /// </summary>
-        public WorkTime WorkTime { get; }
+        public WorkTime WorkTime { get; set; }
 
         /// <summary>
         /// Задействованные подразделения.
@@ -35,47 +42,47 @@ namespace FireStats.BL.Model
         /// <summary>
         /// Заявитель.
         /// </summary>
-        public string Applicant { get; } //отдельный класс заявителей?
+        public string Applicant { get; set; } //отдельный класс заявителей?
 
         /// <summary>
         /// Объект пожара.
         /// </summary>
-        public string FireObject { get; }
+        public string FireObject { get; set; }
 
         /// <summary>
         /// Владелец объекта.
         /// </summary>
-        public string Owner { get; }
+        public string Owner { get; set; }
 
         /// <summary>
         /// Результат пожара.
         /// </summary>
-        public string DamageResult { get; }
+        public string DamageResult { get; set; }
 
         /// <summary>
         /// Причина пожара.
         /// </summary>
-        public string CauseOfFire { get; }
+        public string CauseOfFire { get; set; }
 
         /// <summary>
         /// Ущерб.
         /// </summary>
-        public int CostOfDamage { get; }
+        public int CostOfDamage { get; set; }
 
         /// <summary>
         /// Спасено
         /// </summary>
-        public int CostOfSalvage { get; }
+        public int CostOfSalvage { get; set; }
 
         /// <summary>
         /// Руководитель тушения пожара (РТП).
         /// </summary>
-        public string Leader { get; }
+        public string Leader { get; set; }
 
         /// <summary>
         /// Разбирался инспектор.
         /// </summary>
-        public string FireInspector { get; }
+        public string FireInspector { get; set; }
         #endregion
 
         /// <summary>

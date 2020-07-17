@@ -7,6 +7,11 @@ namespace FireStats.BL.Model
     //TODO: Принимает автоматом заданную дату, а дольше только часы и минуты для всех оперативных моментов.
     public class WorkTime
     {
+        public WorkTime()
+        {
+
+        }
+        public int Id { get; set; }
         /// <summary>
         /// Текущая/выбранная дата.
         /// </summary>
