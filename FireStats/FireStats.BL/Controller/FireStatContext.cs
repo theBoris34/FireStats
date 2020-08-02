@@ -16,7 +16,6 @@ namespace FireStats.BL.Controller
 
         public DbSet<UserType> UserTypes { get; set; }
 
-        public DbSet<WorkShift> WorkShifts { get; set; }
 
         public DbSet<WorkTime> WorkTimes { get; set; }
 

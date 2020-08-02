@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 
 
@@ -12,13 +12,11 @@ namespace FireStats.BL.Model
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int WorkShiftId { get; set; }
 
-        public Fire()
-        {
-
-        }
+        public Fire() { }
         #region Свойства
+        
+        
         /// <summary>
         /// Адрес пожара.
         /// </summary>
@@ -83,6 +81,11 @@ namespace FireStats.BL.Model
         /// Разбирался инспектор.
         /// </summary>
         public string FireInspector { get; set; }
+
+        /// <summary>
+        /// Пользователь внесший пожар/изменения.
+        /// </summary>
+        public string UserName { get; set; }
         #endregion
 
         /// <summary>
@@ -113,7 +116,8 @@ namespace FireStats.BL.Model
                     int costOfDamage,
                     int costOfSalvage,
                     string leader,
-                    string fireInspector)
+                    string fireInspector,
+                    string userName)
         {
             #region Проверка
             if (string.IsNullOrWhiteSpace(adress))
@@ -169,10 +173,15 @@ namespace FireStats.BL.Model
 
             if (string.IsNullOrWhiteSpace(fireInspector))
             {
-                throw new ArgumentException("Инстпектор не может быть пустым или null.", nameof(fireInspector));
+                throw new ArgumentException("Инспектор не может быть пустым или null.", nameof(fireInspector));
+            }
+
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                throw new ArgumentException("Имя пользователя не может быть пустым или null", nameof(userName));
             }
             #endregion
-          
+
             Adress = adress;
             FireRank = fireRank;
             WorkTime = workTime;
@@ -186,21 +195,27 @@ namespace FireStats.BL.Model
             CostOfSalvage = costOfSalvage;
             Leader = leader;
             FireInspector = fireInspector;
+            UserName = userName;
         }
 
+        /// <summary>
+        /// Вывод пожара в виде отчета.
+        /// </summary>
+        /// <returns>Описание пожара.</returns>
         public override string ToString()
         {
-            return Adress + ". " + 
-                    $"Ранг пожара \"{FireRank}\". "     
-                    + $"В {WorkTime.CallTime} в ЦУКС по Какой-то области от заявителя ({Applicant}) поступило сообщение о пожаре {FireObject}, владелец: {Owner}. "  
-                    + $"В результате пожара: {DamageResult}. " 
-                    + $"Причина пожара - {CauseOfFire}. "
-                    + $"Ущерб - {CostOfDamage}. "
-                    + $"Спасено имущество на сумму {CostOfSalvage}. "
-                    + $"Выезжали: {FieldUnits}. "
-                    + $"Время: {WorkTime.CheckOutTime}/{WorkTime.ArrivalTime}/{WorkTime.BarrelFeedTime}/{WorkTime.LocalizationTime}/{WorkTime.LiquidationTime}/{WorkTime.CollectionTime}. "
-                    + $"РТП: {Leader}"
-                    + $"Разбирался: {FireInspector}"; 
+            return "------------" + $"\n{WorkTime.CurrentDate.ToString("dd.MM.yy")}  {Adress}. " + 
+                    $"РАНГ ПОЖАРА: \"{FireRank}\". "     
+                    + $"\nВ {WorkTime.CallTime:HH:mm} в ЦУКС по Какой-то области от заявителя ({Applicant}) \nпоступило сообщение о пожаре {FireObject}. \nВладелец объекта: {Owner}. "  
+                    + $"\nВ результате пожара - {DamageResult}. " 
+                    + $"\nПричина пожара - {CauseOfFire}. "
+                    + $"\nУщерб на сумму {CostOfDamage} руб. "
+                    + $"\nСпасено имущество на сумму {CostOfSalvage} руб. "
+                    + $"\nВыезжали: {FieldUnits}. "
+                    + $"\nВремя: выезд {WorkTime.CheckOutTime:HH:mm}/ прибыте {WorkTime.ArrivalTime:HH:mm}/ подача ствола {WorkTime.BarrelFeedTime:HH:mm}/ локализации {WorkTime.LocalizationTime:HH:mm}/ ликвидации {WorkTime.LiquidationTime:HH:mm}/ сбор ПТВ {WorkTime.CollectionTime:HH:mm}. "
+                    + $"\nРТП: {Leader}. "
+                    + $"\nРазбирался: {FireInspector}."
+                    + $"\nДанные внес: {UserName}"; 
         }
     }
 }

@@ -65,7 +65,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controller\UserControllerTests.cs" />
-    <Compile Include="Controller\WorkShiftControllerTests.cs" />
     <Compile Include="Message.Designer.cs">
       <DependentUpon>Message.resx</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 
 namespace FireStats.BL.Model
 {
@@ -13,26 +14,17 @@ namespace FireStats.BL.Model
     public class User
     {
         public int Id { get; set; }
-        public int UserTypeId { get; set; }
-        public User()
-        {
 
-        }
-        #region Свойства пользователя
+       #region Свойства пользователя
         /// <summary>
         /// Имя пользователя (объекта).
         /// </summary>
         public string Name { get; }
 
         /// <summary>
-        /// Тип пользователя ПСЧ/ЕДДС (обычный), ЦУКС (админ).
-        /// </summary>
-        public UserType UserType { get; set; }
-
-        /// <summary>
         /// Адрес пользователя(объекта). Формат: ??? обл., г/д.???, ул/пер. ???, д. ???.
         /// </summary>
-        public string Adress {get; set; }
+        public string Adress { get; set; }
 
         /// <summary>
         /// Количество личного состава.
@@ -43,7 +35,43 @@ namespace FireStats.BL.Model
         /// Количество боевой пожарной/специальной техники.
         /// </summary>
         public int FireTruck { get; set; }
+
+        /// <summary>
+        /// Список пожаров.
+        /// </summary>
+        public List<Fire> Fires { get; set; }
+
+        /// <summary>
+        /// Список чрезвычайных ситуаций.
+        /// </summary>
+        public List<Emergency> Emergencies { get; set; }
+
+        /// <summary>
+        ///Тип пользователя
+        /// </summary>
+        public string UserType { get; set; }
+
+        /// <summary>
+        /// Название типа (НЦУКС, ЦУКС ФО, ЦУКС Региона, ЕДДС, ПСЧ).
+        /// </summary>
+        public string[] ArrayUserTypes = new string[] {"NCUKS", "CUKS FO", "CUKC", "EDDS", "PSCH"};
         #endregion
+
+        public User() { }
+
+        /// <summary>
+        /// Создать нового пользователя.
+        /// </summary>
+        /// <param name="name">Имя пользователя.</param>
+        public User(string name)
+            :this(name,4,"Адрес не задан!",1,1)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException("Имя объекта не может быть пустым или null", nameof(name));
+            }
+            Name = name;
+        }
 
         /// <summary>
         /// Создать нового пользователя.
@@ -54,7 +82,7 @@ namespace FireStats.BL.Model
         /// <param name="personnel">Личный состав.</param>
         /// <param name="fireTruck">Боевая техника.</param>
         public User(string name,
-                    UserType userType, 
+                    int userType, 
                     string adress, 
                     int personnel,
                     int fireTruck)
@@ -64,9 +92,9 @@ namespace FireStats.BL.Model
             {
                 throw new ArgumentNullException("Имя объекта не может быть пустым или null", nameof(name));
             }
-            if (userType == null)
+            if (userType < 0 && userType > 4)
             {
-                throw new ArgumentNullException("Тип пользователя не может быть null", nameof(userType));
+                throw new ArgumentNullException("Неверный тип объекта (Типы от 0 до 4)", nameof(name));
             }
             if (string.IsNullOrWhiteSpace(adress))
             {
@@ -83,24 +111,17 @@ namespace FireStats.BL.Model
             #endregion
 
             Name = name;
-            UserType = userType;
+            UserType = ArrayUserTypes[userType];
             Adress = adress;
             Personnel = personnel;
-            FireTruck = fireTruck;            
-        }
-
-        public User (string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                throw new ArgumentNullException("Имя объекта не может быть пустым или null", nameof(name));
-            }
-            Name = name;
+            FireTruck = fireTruck;
+            Fires = new List<Fire>();
+            Emergencies = new List<Emergency>();
         }
 
         public override string ToString()
         {
-            return Name + " " + Adress;
+            return $"Имя пользователя: {Name}. Тип пользователя: {UserType}";
         }
 
     }

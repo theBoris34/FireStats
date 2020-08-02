@@ -8,15 +8,14 @@ namespace FireStats.BL.Model
     [Serializable]
     public class UserType
     {
-        public int Id { get; set; }
         /// <summary>
-        /// Название.
+        /// ID типа пользователя
         /// </summary>
+        public int Id { get; set; }
+        
         public string Name { get; set; }
-        public UserType()
-        {
+        public UserType() { }
 
-        }
         /// <summary>
         /// Создать новый тип.
         /// </summary>

@@ -57,7 +57,6 @@
     <Compile Include="Controller\IDataSaver.cs" />
     <Compile Include="Controller\SerilaizeDataSaver.cs" />
     <Compile Include="Controller\UserController.cs" />
-    <Compile Include="Controller\WorkShiftController.cs" />
     <Compile Include="Migrations\202007171323029_InitialCreate.cs" />
     <Compile Include="Migrations\202007171323029_InitialCreate.designer.cs">
       <DependentUpon>202007171323029_InitialCreate.cs</DependentUpon>
@@ -67,7 +66,6 @@
     <Compile Include="Model\Fire.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserType.cs" />
-    <Compile Include="Model\WorkShift.cs" />
     <Compile Include="Model\WorkTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

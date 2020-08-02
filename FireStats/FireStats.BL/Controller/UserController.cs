@@ -1,8 +1,6 @@
 ﻿using FireStats.BL.Model;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Linq;
 
 namespace FireStats.BL.Controller
@@ -12,22 +10,34 @@ namespace FireStats.BL.Controller
     /// </summary>
     public class UserController : ControllerBase
     {
-        private const string USER_FILE_NAME = "users.dat";
         /// <summary>
         /// Список пользователей.
         /// </summary>
-        public List<User> Users { get; }   //небезопасно, заменить!
+        public List<User> Users { get; set; }   //небезопасно, заменить!
+        
+        /// <summary>
+        /// Список пожаров.
+        /// </summary>
+        public List<Fire> Fires { get; set; }
+
+        /// <summary>
+        /// Список чрезвычайных ситуаций.
+        /// </summary>
+        public List<Emergency> Emergencies { get; set; }
+
         /// <summary>
         /// Текущий пользователь.
         /// </summary>
-        public User CurrentUser { get; }
-
-        public bool IsNewUser { get; } = false;
+        public User CurrentUser { get; set; }
+        /// <summary>
+        /// Это новый пользователь.
+        /// </summary>
+        public bool IsNewUser { get; set; } = false;
 
         /// <summary>
-        /// Создание нового контроллера.
+        /// Установка пользователя.
         /// </summary>
-        /// <param name="user"></param>
+        /// <param name="user">Имя пользователя.</param>
         public UserController(string userName)
         {
             if (string.IsNullOrWhiteSpace(userName))
@@ -35,17 +45,15 @@ namespace FireStats.BL.Controller
                 throw new ArgumentNullException("Имя пользователя не может быть пустым.",nameof(userName));
             }
             Users = GetUsersData();
-
             CurrentUser = Users.SingleOrDefault(u => u.Name == userName);
 
             if (CurrentUser == null)
-            {
+            {                
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
                 IsNewUser = true;
                 Save();
             }
-
         }
 
         /// <summary>
@@ -54,14 +62,20 @@ namespace FireStats.BL.Controller
         /// <returns>Пользователи приложения.</returns>
         private List<User> GetUsersData()
         {
-            return Load<User>() ?? new List<User>();
-           
+            return Load<User>() ?? new List<User>();           
         }
 
-        public void SetNewUserData(string userType, string adress, int personnel, int fireTruck)
+        /// <summary>
+        /// Установить данные пользователя.
+        /// </summary>
+        /// <param name="userType">Тип пользователя.</param>
+        /// <param name="adress">Адрес пользователя(объекта).</param>
+        /// <param name="personnel">Личный состав.</param>
+        /// <param name="fireTruck">Боевая техника.</param>
+        public void SetNewUserData(int userType, string adress, int personnel, int fireTruck)
         {
             //проверка 
-            CurrentUser.UserType = new UserType(userType);
+            CurrentUser.UserType = CurrentUser.ArrayUserTypes[userType];
             CurrentUser.Adress = adress;
             CurrentUser.Personnel = personnel;
             CurrentUser.FireTruck = fireTruck;
@@ -69,13 +83,79 @@ namespace FireStats.BL.Controller
         }
 
         /// <summary>
-        /// Сохранить данные пользователя.
+        /// Добавить пожар в список.
         /// </summary>
-        public void Save()
+        /// <param name="fire">Пожар</param>
+        public void Add(Fire fire)
         {
-            Save(Users);
+            if (CurrentUser.Fires.Find(f => string.Equals(f.Adress, fire.Adress, StringComparison.CurrentCultureIgnoreCase)) == null)
+            {
+                CurrentUser.Fires.Add(fire);
+                Save();
+            }
+            else
+            {
+                throw new ArgumentException("Пожар по этому адресу уже зарегистрирован!", nameof(fire));
+            }
         }
 
+        /// <summary>
+        /// Добавить ЧС в список.
+        /// </summary>
+        /// <param name="emergency">ЧС.</param>
+        public void Add(Emergency emergency)
+        {
+            if (CurrentUser.Emergencies.Find(e => string.Equals(e.Adress, emergency.Adress, StringComparison.CurrentCultureIgnoreCase)) == null)
+            {
+                CurrentUser.Emergencies.Add(emergency);
+                Save();
+            }
+            else
+            {
+                throw new ArgumentException("ЧС по этому адресу ужке зарегистрирована!", nameof(emergency));
+            }
+        }
+
+        /// <summary>
+        /// Изменить тип пользователя.
+        /// </summary>
+        public void SetTypeUser()
+        {
+            //Убрать после тестов.
+            Console.Write("\tВведите тип объекта(0-НЦУКС, 1-ЦУКС по ФО, 2-ЦУКС, 3-ЕДДС, 4-ПСЧ): ");
+            CurrentUser.UserType = CurrentUser.ArrayUserTypes[Int32.Parse(Console.ReadLine())];
+            Console.Write("==Тип пользователя успешно изменён!==\n");
+
+        }
+
+        /// <summary>
+        /// Загрузить все ЧС из файла.
+        /// </summary>
+        /// <returns>Список ЧС.</returns>
+        public List<Emergency> GetAllEmergencies()
+        {
+            return Load<Emergency>() ?? new List<Emergency>();
+        }
+
+        /// <summary>
+        /// Загрузить все пожары из файла.
+        /// </summary>
+        /// <returns>Список пожаров.</returns>
+        public List<Fire> GetAllFires()
+        {
+            return Load<Fire>() ?? new List<Fire>();
+        }
+
+        /// <summary>
+        /// Сохранить данные.
+        /// </summary>
+        public void Save()
+        { 
+            Save(Users);
+            Save(CurrentUser.Fires);
+            Save(CurrentUser.Emergencies);
+        }
       
+
     }
 }

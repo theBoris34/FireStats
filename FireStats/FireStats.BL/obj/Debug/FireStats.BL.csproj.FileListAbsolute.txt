@@ -12,3 +12,17 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debu
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.Migrations.InitialCreate.resources
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.GenerateResource.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\FireStats.BL.dll.config
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\FireStats.BL.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\FireStats.BL.pdb
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.xml
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csprojAssemblyReference.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.Migrations.InitialCreate.resources
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.GenerateResource.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.CoreCompileInputs.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.CopyComplete
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.pdb

@@ -1,21 +1,17 @@
 ﻿using System;
 
-
 namespace FireStats.BL.Model
 {
     [Serializable]
     //TODO: Принимает автоматом заданную дату, а дольше только часы и минуты для всех оперативных моментов.
     public class WorkTime
     {
-        public WorkTime()
-        {
-
-        }
+        #region Свойства времени работы.
         public int Id { get; set; }
         /// <summary>
         /// Текущая/выбранная дата.
         /// </summary>
-        public DateTime CurrentData { get; set; }
+        public DateTime CurrentDate { get; set; }
         /// <summary>
         /// Время вызова.
         /// </summary>
@@ -50,20 +46,31 @@ namespace FireStats.BL.Model
         /// Время сбора ПТВ и возвращения в часть.
         /// </summary>
         public DateTime CollectionTime { get; set; }
+#endregion
 
-        public WorkTime(DateTime callTime)
+        public WorkTime() { }
+        /// <summary>
+        /// Установить время.
+        /// </summary>
+        /// <param name="callTime">Время вызова.</param>
+        public WorkTime(DateTime currentDate)
         {
             //проверка
-            CallTime = callTime;
-            
+            CurrentDate = currentDate;
         }
 
-        //public WorkTime(DateTime callTime)
-        //{
-        //    CallTime = callTime;
-        //}
-
-        public WorkTime(DateTime callTime, 
+        /// <summary>
+        /// Установить время.
+        /// </summary>
+        /// <param name="callTime">Время вызова.</param>
+        /// <param name="checkOutTime">Время выезда.</param>
+        /// <param name="arrivalTime">Время прибытия.</param>
+        /// <param name="barrelFeedTime">Время подачи первого ствола.</param>
+        /// <param name="localizationTime">Время локализации.</param>
+        /// <param name="liquidationTime">Время ликвидации.</param>
+        /// <param name="collectionTime">Время полной ликвидации пожара. Отправление в часть.</param>
+        public WorkTime(DateTime currentDate,
+                        DateTime callTime, 
                         DateTime checkOutTime, 
                         DateTime arrivalTime, 
                         DateTime barrelFeedTime, 
@@ -72,6 +79,7 @@ namespace FireStats.BL.Model
                         DateTime collectionTime)
         {
             //проверка
+            CurrentDate = currentDate;
             CallTime = callTime;
             CheckOutTime = checkOutTime;
             ArrivalTime = arrivalTime;
@@ -80,6 +88,15 @@ namespace FireStats.BL.Model
             LiquidationTime = liquidationTime;
             CollectionTime = collectionTime;
         }
+
+        public override string ToString()
+        {
+            return "Временные характеристики: " + CurrentDate.ToString("dd.MM.yy") + " " + CallTime.ToString("HH:mm") +'/'+ CheckOutTime.ToString("HH:mm") + '/' + ArrivalTime.ToString("HH:mm") + '/' + BarrelFeedTime.ToString("HH:mm") + '/' + LocalizationTime.ToString("HH:mm") + '/' + LiquidationTime.ToString("HH:mm") + '/' + CollectionTime.ToString("HH:mm");
+             //'\t' + CallTime.ToString("dd.MM.yy HH:mm") + "\nВремя выезда подразделений: " + CheckOutTime.ToString("HH:mm") + "\nВремя прибытия: " + ArrivalTime.ToString("HH:mm") + "\nВремя подачи первого ствола: " + BarrelFeedTime.ToString("HH:mm") + "\nВремя локализации: " + LocalizationTime.ToString("HH:mm") + "\nВремя ликвидации: " + LiquidationTime.ToString("HH:mm") + "\nВремя полной ликвидации пожара, сбор ПТВ: " + CollectionTime.ToString("HH:mm");
+
+        }
+
+
     }
 
 }
