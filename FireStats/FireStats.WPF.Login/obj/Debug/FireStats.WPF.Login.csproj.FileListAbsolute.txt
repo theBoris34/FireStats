@@ -1,0 +1,15 @@
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\App.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login_MarkupCompile.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\FireStats.WPF.Login.exe.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\FireStats.WPF.Login.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\FireStats.WPF.Login.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\MainWindow.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login_MarkupCompile.lref
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\MainWindow.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.g.resources
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.Properties.Resources.resources
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.csproj.GenerateResource.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.csproj.CoreCompileInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.pdb
