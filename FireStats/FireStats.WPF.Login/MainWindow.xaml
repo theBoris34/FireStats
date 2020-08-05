@@ -553,7 +553,7 @@
             </Border.Style>
 
 
-            <Button Content="Авторизоваться" FontSize="16" Foreground="White">
+            <Button x:Name="buttonLogin" Content="Авторизоваться" FontSize="16" Foreground="White" Click="ButtonLogin_Click">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="OverridesDefaultStyle" Value="True"/>
