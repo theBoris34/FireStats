@@ -1,9 +1,5 @@
-﻿using FireStats.BL.Model;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FireStats.BL.Controller
 {
@@ -25,7 +21,7 @@ namespace FireStats.BL.Controller
             {
                 db.Set<T>().AddRange(item);
                 db.SaveChanges();
-            }                        
+            }
         }
     }
 }

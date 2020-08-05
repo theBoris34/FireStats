@@ -10,7 +10,7 @@ namespace FireStats.BL.Model
     /// </summary>
     public class Emergency
     {
-        
+
 
         public Emergency() { }
 
@@ -139,35 +139,35 @@ namespace FireStats.BL.Model
             if (string.IsNullOrWhiteSpace(damageResult))
             {
                 throw new ArgumentException("Результат происшествия не может быть пустым или null.", nameof(damageResult));
-            }          
+            }
 
             if (string.IsNullOrWhiteSpace(leader))
             {
                 throw new ArgumentException("Руководитель ликвидацией ЧС не может быть пустым или null.", nameof(leader));
-            }            
+            }
             #endregion
-          
+
             Adress = adress;
             WorkTime = workTime;
-            Description = description; 
+            Description = description;
             FieldUnits = fieldUnits;
             Applicant = applicant;
             EmergencyObject = emergencyObject;
             Owner = owner;
             DamageResult = damageResult;
             Leader = leader;
-            Injured = injured ;
+            Injured = injured;
         }
 
-        
+
         public override string ToString()
         {
-           return "============" + $"\n{WorkTime.CurrentDate.ToString("dd.MM.yy")}  {Adress}. " 
-                    + $"\nВ {WorkTime.CallTime:HH:mm} в ЦУКС по Какой-то области от заявителя ({Applicant}) \nпоступило сообщение о происшествии: {Description}. \nВладелец объекта: {Owner}. "
-                    + $"\nВ результате пожара - {DamageResult}. " 
-                    + $"\nВыезжали: {FieldUnits}. "
-                    + $"\nВремя: выезд {WorkTime.CheckOutTime:HH:mm}/ прибыте {WorkTime.ArrivalTime:HH:mm}/ подача ствола {WorkTime.BarrelFeedTime:HH:mm}/ локализации {WorkTime.LocalizationTime:HH:mm}/ ликвидации {WorkTime.LiquidationTime:HH:mm}/ сбор ПТВ {WorkTime.CollectionTime:HH:mm}. "
-                    + $"\nРТП: {Leader}. ";
+            return "============" + $"\n{WorkTime.CurrentDate.ToString("dd.MM.yy")}  {Adress}. "
+                     + $"\nВ {WorkTime.CallTime:HH:mm} в ЦУКС по Какой-то области от заявителя ({Applicant}) \nпоступило сообщение о происшествии: {Description}. \nВладелец объекта: {Owner}. "
+                     + $"\nВ результате пожара - {DamageResult}. "
+                     + $"\nВыезжали: {FieldUnits}. "
+                     + $"\nВремя: выезд {WorkTime.CheckOutTime:HH:mm}/ прибыте {WorkTime.ArrivalTime:HH:mm}/ подача ствола {WorkTime.BarrelFeedTime:HH:mm}/ локализации {WorkTime.LocalizationTime:HH:mm}/ ликвидации {WorkTime.LiquidationTime:HH:mm}/ сбор ПТВ {WorkTime.CollectionTime:HH:mm}. "
+                     + $"\nРТП: {Leader}. ";
         }
     }
 }

@@ -46,7 +46,7 @@ namespace FireStats.BL.Model
         /// Время сбора ПТВ и возвращения в часть.
         /// </summary>
         public DateTime CollectionTime { get; set; }
-#endregion
+        #endregion
 
         public WorkTime() { }
         /// <summary>
@@ -70,12 +70,12 @@ namespace FireStats.BL.Model
         /// <param name="liquidationTime">Время ликвидации.</param>
         /// <param name="collectionTime">Время полной ликвидации пожара. Отправление в часть.</param>
         public WorkTime(DateTime currentDate,
-                        DateTime callTime, 
-                        DateTime checkOutTime, 
-                        DateTime arrivalTime, 
-                        DateTime barrelFeedTime, 
-                        DateTime localizationTime, 
-                        DateTime liquidationTime, 
+                        DateTime callTime,
+                        DateTime checkOutTime,
+                        DateTime arrivalTime,
+                        DateTime barrelFeedTime,
+                        DateTime localizationTime,
+                        DateTime liquidationTime,
                         DateTime collectionTime)
         {
             //проверка
@@ -91,8 +91,8 @@ namespace FireStats.BL.Model
 
         public override string ToString()
         {
-            return "Временные характеристики: " + CurrentDate.ToString("dd.MM.yy") + " " + CallTime.ToString("HH:mm") +'/'+ CheckOutTime.ToString("HH:mm") + '/' + ArrivalTime.ToString("HH:mm") + '/' + BarrelFeedTime.ToString("HH:mm") + '/' + LocalizationTime.ToString("HH:mm") + '/' + LiquidationTime.ToString("HH:mm") + '/' + CollectionTime.ToString("HH:mm");
-             //'\t' + CallTime.ToString("dd.MM.yy HH:mm") + "\nВремя выезда подразделений: " + CheckOutTime.ToString("HH:mm") + "\nВремя прибытия: " + ArrivalTime.ToString("HH:mm") + "\nВремя подачи первого ствола: " + BarrelFeedTime.ToString("HH:mm") + "\nВремя локализации: " + LocalizationTime.ToString("HH:mm") + "\nВремя ликвидации: " + LiquidationTime.ToString("HH:mm") + "\nВремя полной ликвидации пожара, сбор ПТВ: " + CollectionTime.ToString("HH:mm");
+            return "Временные характеристики: " + CurrentDate.ToString("dd.MM.yy") + " " + CallTime.ToString("HH:mm") + '/' + CheckOutTime.ToString("HH:mm") + '/' + ArrivalTime.ToString("HH:mm") + '/' + BarrelFeedTime.ToString("HH:mm") + '/' + LocalizationTime.ToString("HH:mm") + '/' + LiquidationTime.ToString("HH:mm") + '/' + CollectionTime.ToString("HH:mm");
+            //'\t' + CallTime.ToString("dd.MM.yy HH:mm") + "\nВремя выезда подразделений: " + CheckOutTime.ToString("HH:mm") + "\nВремя прибытия: " + ArrivalTime.ToString("HH:mm") + "\nВремя подачи первого ствола: " + BarrelFeedTime.ToString("HH:mm") + "\nВремя локализации: " + LocalizationTime.ToString("HH:mm") + "\nВремя ликвидации: " + LiquidationTime.ToString("HH:mm") + "\nВремя полной ликвидации пожара, сбор ПТВ: " + CollectionTime.ToString("HH:mm");
 
         }
 

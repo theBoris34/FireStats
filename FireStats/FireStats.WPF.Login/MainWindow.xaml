@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FireStats.WPF.Login"
         mc:Ignorable="d"
         Title="MainWindow" Height="515" Width="365
-        " WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        " WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>
@@ -113,7 +113,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>        
+        </Style>
         <Style x:Key="PB" TargetType="PasswordBox">
             <Setter Property="Background" Value="#FF115089"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -157,7 +157,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="300" />
+            <RowDefinition Height="73" />
+            <RowDefinition Height="227"/>
             <RowDefinition Height="90" />
         </Grid.RowDefinitions>
         <Grid Name ="ToolBar" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
@@ -287,7 +288,7 @@
         </Border>
 
         <Grid Name="LeftGrid" Panel.ZIndex="999"  Grid.Row="2" Height="160" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"
-              Margin="25,42,0,0" Visibility="Hidden">
+              Margin="25,42,0,0" Visibility="Hidden" Grid.RowSpan="2">
             <Polygon Fill="Black" StrokeThickness="3" Stroke="#FF001429"
                      Points="0,8,
                             0,145,
@@ -386,7 +387,7 @@
         </Border>
 
         <Grid Name="RightGrid" Panel.ZIndex="999"  Grid.Row="2" Height="125" Width="310" HorizontalAlignment="Right" VerticalAlignment="Top"
-              Margin="0,42,20,0" Visibility="Hidden">
+              Margin="0,42,20,0" Visibility="Hidden" Grid.RowSpan="2">
             <Polygon Fill="Black" StrokeThickness="3" Stroke="#FF001429" HorizontalAlignment="Center"
                      Points="0,8,
                             0,120,
@@ -435,9 +436,9 @@
             </Grid>
         </Grid>
 
-        <TextBox Name="tb1" Grid.Row="2" Style="{StaticResource TB}" Margin="25,55,25,0" VerticalAlignment="Top"/>
+        <TextBox Name="tb1" Grid.Row="2" Style="{StaticResource TB}" Margin="25,55,25,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
         <TextBlock IsHitTestVisible="False" FontSize="14" Text="Логин"
-                   Grid.Row="2" Margin="37,63,0,0" VerticalAlignment="Top" Foreground="#FF8C8E93">
+                   Grid.Row="2" Margin="37,63,0,0" VerticalAlignment="Top" Foreground="#FF8C8E93" Grid.RowSpan="2">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -449,15 +450,15 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <PasswordBox Name="tb2" Grid.Row="2" Style="{StaticResource PB}" Margin="25,100,25,0" VerticalAlignment="Top"/>
+        <PasswordBox Name="tb2" Grid.Row="3" Style="{StaticResource PB}" Margin="25,27,25,0" VerticalAlignment="Top"/>
         <TextBlock Name ="WaterMark" IsHitTestVisible="False" FontSize="14" Text="Пароль"
-                   Grid.Row="2" Margin="37,107,0,0" VerticalAlignment="Top" Foreground="#FF8C8E93">
-           
+                   Grid.Row="3" Margin="37,34,0,0" VerticalAlignment="Top" Foreground="#FF8C8E93">
+
         </TextBlock>
 
-        <ToggleButton Name="ToggleB" Grid.Row="2" Height="30" Width="140"
+        <ToggleButton Name="ToggleB" Grid.Row="3" Height="30" Width="140"
                       HorizontalAlignment="Left" VerticalAlignment="Top"
-                      Margin="25,145,0,0" Content="Запомнить меня" Foreground="#FF9CCAFF" FontSize="14">
+                      Margin="25,72,0,0" Content="Запомнить меня" Foreground="#FF9CCAFF" FontSize="14">
             <ToggleButton.Template>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <StackPanel Orientation="Horizontal">
@@ -509,8 +510,8 @@
             </ToggleButton.Template>
         </ToggleButton>
 
-        <Image Name="HelpIcon" Grid.Row="2" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center"
-               Margin="0,23,20,0">
+        <Image Name="HelpIcon" Grid.Row="3" Width="15" Height="15" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Margin="165,81,185,131">
             <Image.Style>
                 <Style TargetType="{x:Type Image}">
                     <Setter Property="Source" Value ="Source/вопрос.png"/>
@@ -525,7 +526,7 @@
         </Image>
 
 
-        <Border Name ="EnterBtn"  Grid.Row="2" Height="35" Margin="25,105,25,0"
+        <Border Name ="EnterBtn"  Grid.Row="3" Height="35" Margin="25,112,25,80"
                 BorderThickness="1" Background="#FF7C6700" BorderBrush="#FFEEC600">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
@@ -551,8 +552,6 @@
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-
-
             <Button x:Name="buttonLogin" Content="Авторизоваться" FontSize="16" Foreground="White" Click="ButtonLogin_Click">
                 <Button.Style>
                     <Style TargetType="Button">
@@ -597,16 +596,86 @@
             </Button>
         </Border>
 
-        <Polygon Grid.Row="2" HorizontalAlignment="Center" 
+        <Border Name ="RegBtn"  Grid.Row="3" Margin="25,186,25,6"
+                BorderThickness="1" Background="#FF7C6700" BorderBrush="#FFEEC600">
+            <Border.Style>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="#FFEEC600"></Setter>
+                    <Style.Triggers>
+
+                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                            Duration="0:0:0.100" To ="#FF7C6700"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                            Duration="0:0:0.100" To ="#FF70A8E4"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <Button x:Name="buttonReg" Content="Зарегистрироваться" FontSize="16" Foreground="White" Click="buttonReg_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="OverridesDefaultStyle" Value="True"/>
+                        <Setter Property="Background" Value="#FFEEC600"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name ="border" BorderThickness="0" BorderBrush="Black" 
+                                Background ="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFEAD25E"/>
+                                        </Trigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseDown">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="2,2,0,0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFCBA900" Duration="0:0:0.0002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="PreviewMouseUp">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="0"/>
+                                                    <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFEEC600" Duration="0:0:0.0002"/>
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+
+        <Polygon Grid.Row="3" HorizontalAlignment="Center" 
                  VerticalAlignment="Bottom" Stroke="#FF9CCAFF" 
-                 Points="0,0,330,0" Margin="25,0,263,53" Width="88" Height="7"/>
-        <Polygon Grid.Row="2" HorizontalAlignment="Center" 
+                 Points="0,0,330,0" Margin="20,0,257,53" Width="88" Height="7"/>
+        <Polygon Grid.Row="3" HorizontalAlignment="Center" 
                  VerticalAlignment="Bottom" Stroke="#FF9CCAFF" 
                  Points="0,0,330,0" Margin="262,0,25,53" Width="78" Height="7"/>
 
-        <TextBlock Grid.Row="2" Text="ИЛИ ВОЙТИ ЧЕРЕЗ" VerticalAlignment="Bottom" 
+        <TextBlock Grid.Row="3" Text="ИЛИ" VerticalAlignment="Bottom" 
                    HorizontalAlignment="Center" Foreground="#FF9CCAFF"
-                   FontSize="13" TextAlignment="Center" Margin="0,0,0,53"
+                   FontSize="13" TextAlignment="Center" Margin="102,0,103,52"
                    Width="160" FontWeight="DemiBold"/>
 
 

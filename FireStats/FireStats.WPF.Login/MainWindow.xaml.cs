@@ -1,10 +1,9 @@
-﻿using System;
+﻿using FireStats.BL.Model;
+using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Input;
-using FireStats.BL.Controller;
-using FireStats.BL.Model;
-using MySql.Data.MySqlClient;
 
 namespace FireStats.WPF.Login
 {
@@ -30,7 +29,7 @@ namespace FireStats.WPF.Login
 
         private void ToolBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(e.ChangedButton == MouseButton.Left)
+            if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
             }
@@ -64,10 +63,10 @@ namespace FireStats.WPF.Login
             else
                 RightGrid.Visibility = Visibility.Hidden;
         }
-        
+
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            if(tb2.Password.Length>0)
+            if (tb2.Password.Length > 0)
             {
                 WaterMark.Visibility = Visibility.Collapsed;
             }
@@ -80,17 +79,26 @@ namespace FireStats.WPF.Login
             String loginUser = tb1.Text;
             String pasUser = tb2.Password;
 
-            DataBase dataBase = new DataBase();
+            DataBase DataBase = new DataBase();
 
-            DataTable table = new DataTable();
+            DataTable Table = new DataTable();
 
-            MySqlDataAdapter apapter = new MySqlDataAdapter();
+            MySqlDataAdapter Adapter = new MySqlDataAdapter();
+
+            MySqlCommand Command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL AND `password` = @uP", DataBase.GetConnection());
+
+            Command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+            Command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = pasUser;
+
+            Adapter.SelectCommand = Command;
+            Adapter.Fill(Table);
+
+            if (Table.Rows.Count > 0)
+                MessageBox.Show("Авторизован");
+            else
+                MessageBox.Show("Не авторизован");
 
 
-
-           // Новое окно.
-            Window1 win1 = new Window1();
-           win1.Show();
 
             /*Console.Title = $"FIRESTAT. Изменение пользователя.";
             Console.Clear();
@@ -113,6 +121,11 @@ namespace FireStats.WPF.Login
             Console.ReadLine();
             return userController;*/
         }
-        
+
+        private void buttonReg_Click(object sender, RoutedEventArgs e)
+        {
+            CheckInWindow CheckIn = new CheckInWindow();
+            CheckIn.Show();
+        }
     }
 }

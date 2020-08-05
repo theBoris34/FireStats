@@ -35,5 +35,5 @@ namespace FireStats.BL.Controller
                 formatter.Serialize(fs, item);
             }
         }
-    }         
+    }
 }

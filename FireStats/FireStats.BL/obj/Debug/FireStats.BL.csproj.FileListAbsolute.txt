@@ -8,7 +8,6 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debu
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csprojAssemblyReference.cache
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.Migrations.InitialCreate.resources
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csproj.GenerateResource.cache

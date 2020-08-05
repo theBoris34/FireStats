@@ -1,17 +1,14 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FireStats.BL.Controller;
+﻿using FireStats.BL.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FireStats.BL.Model;
 
 namespace FireStats.BL.Controller.Tests
 {
     [TestClass()]
     public class UserControllerTests
-    {       
+    {
         [TestMethod()]
         public void SetNewUserDataTest()
         {
@@ -19,7 +16,7 @@ namespace FireStats.BL.Controller.Tests
             Random rnd = new Random();
             //Arrange
             var userName = Guid.NewGuid().ToString();
-            var userType = rnd.Next(0,4);
+            var userType = rnd.Next(0, 4);
             var adress = "Адрес";
             var personnel = 13;
             var fireTruck = 8;
@@ -64,13 +61,13 @@ namespace FireStats.BL.Controller.Tests
             var workTime = new WorkTime();
             User us1 = new User(userName);
             User us2 = new User(userName + "asd");
-            List <User> UserList = new List<User>();
+            List<User> UserList = new List<User>();
             UserList.Add(us1);
             UserList.Add(us2);
 
             //Act
             var controller = new UserController(userName);
-            Fire fire = new Fire(adress, 3,workTime, UserList,applicant,fireObject,owner,damageResult,causeOfFire, 7000,9000,leader,fireInspector,"пользователь");
+            Fire fire = new Fire(adress, 3, workTime, UserList, applicant, fireObject, owner, damageResult, causeOfFire, 7000, 9000, leader, fireInspector, "пользователь");
             controller.Add(fire);
 
 
@@ -99,24 +96,24 @@ namespace FireStats.BL.Controller.Tests
             var workTime = new WorkTime();
             User us1 = new User(userName);
             User us2 = new User(userName + "asd");
-            List<string> inList = new List<string>() { "Пострадавший_1","Пострадавший_2"};
-            List <User> UserList = new List<User>() { us1, us2 };
-            
+            List<string> inList = new List<string>() { "Пострадавший_1", "Пострадавший_2" };
+            List<User> UserList = new List<User>() { us1, us2 };
+
             //Act
             var controller = new UserController(userName);
-            Emergency emergency = new Emergency(adress,"ЧС как ЧС, ничего особенного",workTime, UserList, applicant, fireObject, owner,damageResult, leader,inList);
+            Emergency emergency = new Emergency(adress, "ЧС как ЧС, ничего особенного", workTime, UserList, applicant, fireObject, owner, damageResult, leader, inList);
             controller.Add(emergency);
 
 
             //Assert
             Assert.AreEqual(userName, controller.CurrentUser.Name);
             Assert.AreEqual(adress, controller.CurrentUser.Emergencies.First().Adress);
-            Assert.AreEqual(applicant, controller.CurrentUser.Emergencies.First().Applicant);            
+            Assert.AreEqual(applicant, controller.CurrentUser.Emergencies.First().Applicant);
             Assert.AreEqual(fireObject, controller.CurrentUser.Emergencies.First().EmergencyObject);
             Assert.AreEqual(owner, controller.CurrentUser.Emergencies.First().Owner);
             Assert.AreEqual(damageResult, controller.CurrentUser.Emergencies.First().DamageResult);
             Assert.AreEqual(leader, controller.CurrentUser.Emergencies.First().Leader);
-        }        
+        }
 
 
     }

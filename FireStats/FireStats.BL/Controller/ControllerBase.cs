@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Collections.Generic;
 
 namespace FireStats.BL.Controller
 {
-    public abstract class  ControllerBase
+    public abstract class ControllerBase
     {
-        private readonly  IDataSaver manager = new SerilaizeDataSaver();
+        private readonly IDataSaver manager = new SerilaizeDataSaver();
 
         protected void Save<T>(List<T> item) where T : class
         {
@@ -20,4 +17,3 @@ namespace FireStats.BL.Controller
         }
     }
 }
- 

@@ -14,7 +14,7 @@ namespace FireStats.BL.Controller
         /// Список пользователей.
         /// </summary>
         public List<User> Users { get; set; }   //небезопасно, заменить!
-        
+
         /// <summary>
         /// Список пожаров.
         /// </summary>
@@ -42,13 +42,13 @@ namespace FireStats.BL.Controller
         {
             if (string.IsNullOrWhiteSpace(userName))
             {
-                throw new ArgumentNullException("Имя пользователя не может быть пустым.",nameof(userName));
+                throw new ArgumentNullException("Имя пользователя не может быть пустым.", nameof(userName));
             }
             Users = GetUsersData();
             CurrentUser = Users.SingleOrDefault(u => u.Name == userName);
 
             if (CurrentUser == null)
-            {                
+            {
                 CurrentUser = new User(userName);
                 Users.Add(CurrentUser);
                 IsNewUser = true;
@@ -62,7 +62,7 @@ namespace FireStats.BL.Controller
         /// <returns>Пользователи приложения.</returns>
         private List<User> GetUsersData()
         {
-            return Load<User>() ?? new List<User>();           
+            return Load<User>() ?? new List<User>();
         }
 
         /// <summary>
@@ -150,12 +150,12 @@ namespace FireStats.BL.Controller
         /// Сохранить данные.
         /// </summary>
         public void Save()
-        { 
+        {
             Save(Users);
             Save(CurrentUser.Fires);
             Save(CurrentUser.Emergencies);
         }
-      
+
 
     }
 }

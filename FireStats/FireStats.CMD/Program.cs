@@ -2,7 +2,6 @@
 using FireStats.BL.Model;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
 using System.Resources;
 
@@ -22,7 +21,7 @@ namespace FireStats.CMD
 
     class Program
     {
-        static DateTime CurrentDate = DateTime.Now;       
+        static DateTime CurrentDate = DateTime.Now;
         /// <summary>
         /// Флаг для повторения меню. Пока true меню будет постоянно появляться. 
         /// Когда false программа попрощается с пользователем. 
@@ -47,7 +46,7 @@ namespace FireStats.CMD
             Console.ReadLine();
         }
 
-         /// <summary>
+        /// <summary>
         /// Изменить пользователя.
         /// </summary>
         /// <returns>Текущий пользователь.</returns>
@@ -59,7 +58,7 @@ namespace FireStats.CMD
             var name = Console.ReadLine();
             var userController = new UserController(name);
 
-            if(userController.IsNewUser)
+            if (userController.IsNewUser)
             {
                 Console.WriteLine("Такого пользователя не существует. Зарегистрируйтесь.");
                 Console.Title = $"FIRESTAT. Изменение пользователя. Регистрация нового пользователя.";
@@ -69,7 +68,7 @@ namespace FireStats.CMD
                 var adress = Console.ReadLine();//проверка
                 var personnel = ParseInt("личного состава");
                 var fireTruck = ParseInt("пожарной техники");
-                userController.SetNewUserData(userType, adress, personnel, fireTruck);                
+                userController.SetNewUserData(userType, adress, personnel, fireTruck);
             }
             Console.Title = $"FIRESTAT. Изменение пользователя.";
             Console.WriteLine(userController.CurrentUser);
@@ -140,7 +139,7 @@ namespace FireStats.CMD
                     userController.Save();
                     break;
                 case ConsoleKey.Q:
-                    userController.CurrentUser = UserChange().CurrentUser;                    
+                    userController.CurrentUser = UserChange().CurrentUser;
                     break;
                 case ConsoleKey.H:
                     Headler(userController.CurrentUser.Name);
@@ -179,7 +178,7 @@ namespace FireStats.CMD
             Console.WriteLine("Санкт-Петербург, 2020 г.");
             Console.ReadLine();
         }
-       
+
         /// <summary>
         /// Показать список всех пользователей.
         /// </summary>
@@ -209,7 +208,7 @@ namespace FireStats.CMD
                 Console.WriteLine($"{item.Adress} - {item.Applicant}");
             Console.ReadLine();
         }
-       
+
         /// <summary>
         /// Показать список пожаров.
         /// </summary>
@@ -217,7 +216,7 @@ namespace FireStats.CMD
         private static void GetListFires(User currentUser)
         {
             Console.Title = $"FIRESTAT. Список пожаров. {currentUser.Name}.";
-            
+
             Headler(currentUser.Name);
             Console.WriteLine($"Список пожаров внесенных пользователем {currentUser.Name}");
 
@@ -286,7 +285,7 @@ namespace FireStats.CMD
                                 causeOfFire, costOfDamage, costOfSalvage, leader, fireInspector, currentUser.Name);
             return fire;
         }
-     
+
         /// <summary>
         /// Установка времени работ.
         /// </summary>
@@ -309,7 +308,7 @@ namespace FireStats.CMD
             workTime.CallTime = workTime.CallTime.AddHours(Double.Parse(Console.ReadLine()));
             Console.Write("\tВведите время полступления вызова (минуты): ");
             workTime.CallTime = workTime.CallTime.AddMinutes(Double.Parse(Console.ReadLine()));
-            
+
             workTime.CheckOutTime = workTime.CallTime.AddMinutes(1.0);
 
             Console.Write("\tВведите время прибытия первого подразделения(часы): ");
@@ -344,7 +343,7 @@ namespace FireStats.CMD
         /// </summary>
         /// <param name="name">Имя параметра для ввода.</param>
         /// <returns>Значение введеное с кавиатуры. </returns>
-        public static object EnterData(string name, Type type) 
+        public static object EnterData(string name, Type type)
         {
 
             if (type == typeof(DateTime))
@@ -374,7 +373,7 @@ namespace FireStats.CMD
                 Console.WriteLine($"Поле {name} успешно внесено!");
                 return digital;
             }
-            else 
+            else
             {
                 string text;
                 do
@@ -384,7 +383,7 @@ namespace FireStats.CMD
                 return text;
             }
         }
-                
+
         /// <summary>
         /// Получение формата INT
         /// </summary>
@@ -392,10 +391,10 @@ namespace FireStats.CMD
         /// <returns></returns>
         private static int ParseInt(string name)
         {
-            while(true)
+            while (true)
             {
                 Console.Write($"Введите количество {name}: ");
-                if(int.TryParse(Console.ReadLine(), out int value))
+                if (int.TryParse(Console.ReadLine(), out int value))
                 {
                     return value;
                 }

@@ -19,6 +19,6 @@ namespace FireStats.BL.Controller
 
         public DbSet<WorkTime> WorkTimes { get; set; }
 
-        
+
     }
 }

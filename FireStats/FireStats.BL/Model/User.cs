@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
 
 namespace FireStats.BL.Model
 {
@@ -15,7 +14,7 @@ namespace FireStats.BL.Model
     {
         public int Id { get; set; }
 
-       #region Свойства пользователя
+        #region Свойства пользователя
         /// <summary>
         /// Имя пользователя (объекта).
         /// </summary>
@@ -54,7 +53,7 @@ namespace FireStats.BL.Model
         /// <summary>
         /// Название типа (НЦУКС, ЦУКС ФО, ЦУКС Региона, ЕДДС, ПСЧ).
         /// </summary>
-        public string[] ArrayUserTypes = new string[] {"NCUKS", "CUKS FO", "CUKC", "EDDS", "PSCH"};
+        public string[] ArrayUserTypes = new string[] { "NCUKS", "CUKS FO", "CUKC", "EDDS", "PSCH" };
         #endregion
 
         public User() { }
@@ -64,7 +63,7 @@ namespace FireStats.BL.Model
         /// </summary>
         /// <param name="name">Имя пользователя.</param>
         public User(string name)
-            :this(name,4,"Адрес не задан!",1,1)
+            : this(name, 4, "Адрес не задан!", 1, 1)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -82,8 +81,8 @@ namespace FireStats.BL.Model
         /// <param name="personnel">Личный состав.</param>
         /// <param name="fireTruck">Боевая техника.</param>
         public User(string name,
-                    int userType, 
-                    string adress, 
+                    int userType,
+                    string adress,
                     int personnel,
                     int fireTruck)
         {

@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 
 
@@ -15,8 +15,8 @@ namespace FireStats.BL.Model
 
         public Fire() { }
         #region Свойства
-        
-        
+
+
         /// <summary>
         /// Адрес пожара.
         /// </summary>
@@ -204,10 +204,10 @@ namespace FireStats.BL.Model
         /// <returns>Описание пожара.</returns>
         public override string ToString()
         {
-            return "------------" + $"\n{WorkTime.CurrentDate.ToString("dd.MM.yy")}  {Adress}. " + 
-                    $"РАНГ ПОЖАРА: \"{FireRank}\". "     
-                    + $"\nВ {WorkTime.CallTime:HH:mm} в ЦУКС по Какой-то области от заявителя ({Applicant}) \nпоступило сообщение о пожаре {FireObject}. \nВладелец объекта: {Owner}. "  
-                    + $"\nВ результате пожара - {DamageResult}. " 
+            return "------------" + $"\n{WorkTime.CurrentDate.ToString("dd.MM.yy")}  {Adress}. " +
+                    $"РАНГ ПОЖАРА: \"{FireRank}\". "
+                    + $"\nВ {WorkTime.CallTime:HH:mm} в ЦУКС по Какой-то области от заявителя ({Applicant}) \nпоступило сообщение о пожаре {FireObject}. \nВладелец объекта: {Owner}. "
+                    + $"\nВ результате пожара - {DamageResult}. "
                     + $"\nПричина пожара - {CauseOfFire}. "
                     + $"\nУщерб на сумму {CostOfDamage} руб. "
                     + $"\nСпасено имущество на сумму {CostOfSalvage} руб. "
@@ -215,7 +215,7 @@ namespace FireStats.BL.Model
                     + $"\nВремя: выезд {WorkTime.CheckOutTime:HH:mm}/ прибыте {WorkTime.ArrivalTime:HH:mm}/ подача ствола {WorkTime.BarrelFeedTime:HH:mm}/ локализации {WorkTime.LocalizationTime:HH:mm}/ ликвидации {WorkTime.LiquidationTime:HH:mm}/ сбор ПТВ {WorkTime.CollectionTime:HH:mm}. "
                     + $"\nРТП: {Leader}. "
                     + $"\nРазбирался: {FireInspector}."
-                    + $"\nДанные внес: {UserName}"; 
+                    + $"\nДанные внес: {UserName}";
         }
     }
 }

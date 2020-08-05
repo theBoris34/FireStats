@@ -1,9 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FireStats.BL.Model
 {
@@ -16,7 +11,7 @@ namespace FireStats.BL.Model
         static string serverNameDataBase = "firestats";
 
         MySqlConnection connection = new MySqlConnection($"server={serverHost};port={serverPort};username={serverUserName};password={serverUserPassword};database={serverNameDataBase}");
-        
+
         public void OpenConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)

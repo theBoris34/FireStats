@@ -12,7 +12,7 @@ namespace FireStats.BL.Model
         /// ID типа пользователя
         /// </summary>
         public int Id { get; set; }
-        
+
         public string Name { get; set; }
         public UserType() { }
 
@@ -22,14 +22,14 @@ namespace FireStats.BL.Model
         /// <param name="name"> Имя типа. </param>
         public UserType(string name)
         {
-            if(string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
                 throw new ArgumentException("Тип пользователя не может быть пустым", nameof(name));
             }
-            
+
             Name = name;
         }
-       
+
         public override string ToString()
         {
             return Name;

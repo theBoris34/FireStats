@@ -23,8 +23,6 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\b
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\EntityFramework.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\en-us\FireStats.CMD.resources.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\ru\FireStats.CMD.resources.dll
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\Window1.g.cs
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\Window1.baml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\MySql.Data.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\Google.Protobuf.dll
@@ -41,3 +39,5 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\b
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\MySql.Data.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.exe.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\CheckInWindow.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\CheckInWindow.baml
