@@ -50,5 +50,26 @@ namespace FireStats.WPF.Login
                 this.DragMove();
             }
         }
+
+        private void Button_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (LeftGrid.Visibility == Visibility.Hidden)
+                LeftGrid.Visibility = Visibility.Visible;
+            else
+                LeftGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (RightGrid.Visibility == Visibility.Hidden)
+                RightGrid.Visibility = Visibility.Visible;
+            else
+                RightGrid.Visibility = Visibility.Hidden;
+        }
     }
 }
