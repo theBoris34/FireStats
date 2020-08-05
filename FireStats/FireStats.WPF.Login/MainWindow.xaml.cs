@@ -71,5 +71,14 @@ namespace FireStats.WPF.Login
             else
                 RightGrid.Visibility = Visibility.Hidden;
         }
+        
+        private void OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if(tb2.Password.Length>0)
+            {
+                WaterMark.Visibility = Visibility.Collapsed;
+            }
+            else WaterMark.Visibility = Visibility.Visible;
+        }
     }
 }
