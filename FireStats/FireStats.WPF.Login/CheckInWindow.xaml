@@ -113,7 +113,7 @@
                         249,7,
                         257,0"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Image Name ="MinButton"  Height="15" Width="15" Margin="5" MouseDown="MinButton_MouseDown">
+                <Image x:Name ="MinButton"  Height="15" Width="15" Margin="5,11,5,29" MouseDown="MinButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="Source/черта.png"/>
@@ -130,7 +130,7 @@
                     </Image.Effect>
 
                 </Image>
-                <Image Name ="ExitButton" Height="15" Width="15" Margin="5,5,10,5" MouseDown="ExitButton_MouseDown">
+                <Image x:Name ="ExitButton" Height="15" Width="15" Margin="5,11,10,29" MouseDown="ExitButton_MouseDown">
                     <Image.Style>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Source" Value="Source/крест.png"/>

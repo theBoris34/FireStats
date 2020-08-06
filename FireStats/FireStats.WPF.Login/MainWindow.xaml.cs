@@ -1,4 +1,5 @@
-﻿using FireStats.BL.Model;
+﻿using FireStats.BL.Controller;
+using FireStats.BL.Model;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -76,6 +77,27 @@ namespace FireStats.WPF.Login
         //клик по кнопке Авторизоваться
         private void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
+            ErrorLogin.Visibility = Visibility.Hidden;
+            //InDataBase();
+            string UserName = tb1.Text;
+            var userController = new UserController(UserName);
+
+            if (userController.IsNewUser)
+            {
+                ErrorLogin.Visibility = Visibility.Visible;
+                return;
+                //userController.SetNewUserData(userType, adress, personnel, fireTruck);
+            }
+
+            
+            WindowFireStats WinFS = new WindowFireStats(UserName);
+            this.Close();
+            WinFS.Show();
+
+        }
+
+        private void InDataBase()
+        {
             String loginUser = tb1.Text;
             String pasUser = tb2.Password;
 
@@ -94,38 +116,21 @@ namespace FireStats.WPF.Login
             Adapter.Fill(Table);
 
             if (Table.Rows.Count > 0)
-                MessageBox.Show("Авторизован");
+            {
+                this.Hide();
+                WindowFireStats WinFS = new WindowFireStats();
+                WinFS.Show();
+            }
             else
                 MessageBox.Show("Не авторизован");
-
-
-
-            /*Console.Title = $"FIRESTAT. Изменение пользователя.";
-            Console.Clear();
-            Console.Write("Введите имя пользователя: ");
-            var name = Console.ReadLine();
-            var userController = new UserController(name);
-
-            if (userController.IsNewUser)
-            {
-                Console.WriteLine("Такого пользователя не существует. Зарегистрируйтесь.");
-                Console.Title = $"FIRESTAT. Изменение пользователя. Регистрация нового пользователя.";
-                Console.Write("Введите тип объекта(0-НЦУКС, 1-ЦУКС по ФО, 2-ЦУКС, 3-ЕДДС, 4-ПСЧ): ");
-                var userType = int.Parse(Console.ReadLine());//проверка
-                Console.Write("Введите адрес объекта: ");
-                var adress = Console.ReadLine();//проверка                
-                userController.SetNewUserData(userType, adress, personnel, fireTruck);
-            }
-            Console.Title = $"FIRESTAT. Изменение пользователя.";
-            Console.WriteLine(userController.CurrentUser);
-            Console.ReadLine();
-            return userController;*/
         }
 
         private void buttonReg_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             CheckInWindow CheckIn = new CheckInWindow();
             CheckIn.Show();
+
         }
     }
 }

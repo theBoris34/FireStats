@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.CMD", "FireStats.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.BLTests", "FireStats.BLTests\FireStats.BLTests.csproj", "{1D94ADBE-2248-401B-ADDA-F9D347A8C1FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF.Login", "FireStats.WPF.Login\FireStats.WPF.Login.csproj", "{0CED0B05-6A4B-491F-BD74-19D1083F2739}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF", "FireStats.WPF.Login\FireStats.WPF.csproj", "{0CED0B05-6A4B-491F-BD74-19D1083F2739}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

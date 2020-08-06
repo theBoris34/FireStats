@@ -41,3 +41,5 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\b
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.exe.config
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\CheckInWindow.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\CheckInWindow.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\WindowFireStats.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\WindowFireStats.baml
