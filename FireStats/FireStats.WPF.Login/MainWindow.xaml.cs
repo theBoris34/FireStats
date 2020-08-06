@@ -9,7 +9,8 @@ using System.Windows.Input;
 namespace FireStats.WPF.Login
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MainWindow.xaml.
+    /// Окно аутентификации.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -18,16 +19,31 @@ namespace FireStats.WPF.Login
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Закрытие окна.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ExitButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Сворачивание окна.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MinButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Перемещение окна зажатой мышью.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ToolBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -36,6 +52,11 @@ namespace FireStats.WPF.Login
             }
         }
 
+        /// <summary>
+        /// Перемещение окна зажатой мышью.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -44,11 +65,17 @@ namespace FireStats.WPF.Login
             }
         }
 
+
         private void Button_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Открытие списка функций левого окна.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (LeftGrid.Visibility == Visibility.Hidden)

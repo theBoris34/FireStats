@@ -59,9 +59,14 @@ namespace FireStats.WPF.Login
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
             DataGridResault.ItemsSource = UserController.CurrentUser.Fires;
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            EnterFireWindow enterFire = new EnterFireWindow(UserController.CurrentUser.Name);
+            enterFire.Show();
         }
     }
 }

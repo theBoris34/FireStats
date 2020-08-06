@@ -56,10 +56,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="EnterFireWindow.xaml.cs">
+      <DependentUpon>EnterFireWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowFireStats.xaml.cs">
       <DependentUpon>WindowFireStats.xaml</DependentUpon>
     </Compile>
     <Page Include="CheckInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EnterFireWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -252,7 +252,7 @@ namespace FireStats.CMD
             Console.Write("Введите адрес пожара: ");
             var adress = Console.ReadLine();
             Console.Write("Введите ранг пожара: ");
-            byte runk = Convert.ToByte(Console.ReadLine());
+            var runk = Console.ReadLine();
             WorkTime workTime = EnterTime();
 
             //Console.WriteLine("Введите задействованные подразделения:");//отдельный метод для добавления подразделения

@@ -48,7 +48,18 @@ namespace FireStats.BL.Model
         public DateTime CollectionTime { get; set; }
         #endregion
 
-        public WorkTime() { }
+        //public WorkTime() { }
+        public WorkTime() 
+        {
+            CurrentDate = DateTime.Now;
+            CallTime = DateTime.Now;
+            CheckOutTime = DateTime.Now;
+            ArrivalTime = DateTime.Now;
+            BarrelFeedTime = DateTime.Now;
+            LocalizationTime = DateTime.Now;
+            LiquidationTime = DateTime.Now;
+            CollectionTime = DateTime.Now;
+        }
         /// <summary>
         /// Установить время.
         /// </summary>

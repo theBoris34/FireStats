@@ -42,3 +42,6 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\o
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.exe
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.Login.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\FireStats.WPF.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\EnterFireWindow.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\EnterFireWindow.baml

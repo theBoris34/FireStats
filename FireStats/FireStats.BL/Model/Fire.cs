@@ -25,7 +25,7 @@ namespace FireStats.BL.Model
         /// <summary>
         /// Ранг пожара.
         /// </summary>
-        public byte FireRank { get; set; }
+        public string FireRank { get; set; }
 
         /// <summary>
         /// Время работ.
@@ -105,7 +105,7 @@ namespace FireStats.BL.Model
         /// <param name="leader">Руководитель тушения пожара (РТП).</param>
         /// <param name="fireInspector">Инспектор.</param>
         public Fire(string adress,
-                    byte fireRank,
+                    string fireRank,
                     WorkTime workTime,
                     List<User> fieldUnits,
                     string applicant,
