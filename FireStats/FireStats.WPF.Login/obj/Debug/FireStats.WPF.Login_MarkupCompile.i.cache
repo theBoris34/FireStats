@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\App.xaml
-4336759945
+6-320363739
 
-9354433174
-16-1370003246
-CheckInWindow.xaml;EnterFireWindow.xaml;MainWindow.xaml;WindowFireStats.xaml;
+14-1165709085
+125-2103998931
+Pages\ShowFirePage.xaml;Windows\CheckInWindow.xaml;Windows\EnterFireWindow.xaml;MainWindow.xaml;Pages\EnterFirePage.xaml;Windows\WindowFireStats.xaml;
 
 True
 

@@ -39,4 +39,14 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debu
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\MySql.Data.xml
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\CommonServiceLocator.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.xml

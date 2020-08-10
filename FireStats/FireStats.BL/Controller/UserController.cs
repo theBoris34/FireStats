@@ -154,6 +154,8 @@ namespace FireStats.BL.Controller
             Save(Users);
             Save(CurrentUser.Fires);
             Save(CurrentUser.Emergencies);
+            CurrentUser.Fires = GetAllFires();
+            CurrentUser.Emergencies = GetAllEmergencies();
         }
 
 
