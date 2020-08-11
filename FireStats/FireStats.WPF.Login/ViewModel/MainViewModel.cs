@@ -14,7 +14,7 @@ using System.Windows.Input;
 
 namespace FireStats.BL.ViewModel
 {
-    class MainViewModel : ViewModelBase
+    class MainViewModel : ViewModel
     {
         private Page EnterFirePage;
         private Page ShowFirePage;

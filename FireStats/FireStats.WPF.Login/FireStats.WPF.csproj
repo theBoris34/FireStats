@@ -74,6 +74,7 @@
     <Compile Include="Pages\ShowFirePage.xaml.cs">
       <DependentUpon>ShowFirePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\Base\ViewModel.cs" />
     <Compile Include="ViewModel\EnterFirePageModel.cs" />
     <Compile Include="ViewModel\ShowFiresPageModel.cs" />
     <Compile Include="Windows\EnterFireWindow.xaml.cs">
