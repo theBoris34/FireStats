@@ -125,7 +125,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="54"/>
-            <RowDefinition Height="463"/>
+            <RowDefinition Height="610"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid Name ="ToolBar" Panel.ZIndex="999" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
             <Polygon Fill="#FF9EC2DA" Opacity="0.2" 
@@ -230,7 +231,7 @@
                 </Border.Style>
                 <Button Style="{StaticResource ComboboxButton}" Background="#FF1661A5" Click="UserButton_Click">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name ="LoginName"  IsHitTestVisible="False" Margin="2,0,0,0" FontSize="14"
+                        <TextBlock Name ="LoginName" Text="{Binding CurrentUser}" IsHitTestVisible="False" Margin="2,0,0,0" FontSize="14"
                                    Grid.Row="1"  VerticalAlignment="Top" Foreground="#FF8C8E93" Height="19">
                             <TextBlock.Style>
                                 <Style TargetType="{x:Type TextBlock}">
@@ -261,28 +262,41 @@
                     </StackPanel>
                 </Button>
             </Border>
-
         </Grid>
-        <Grid  Name ="ButtonGrid" Background="Transparent" Grid.Row="1" MouseDown="ToolBar_MouseDown" HorizontalAlignment="Left" Width="246" Margin="0,0,0,-148">
-            <StackPanel Background="#FF7C6700"  Margin="10,0,0,0">
-                <Button Content="Внести пожар" Command ="{Binding EnterFireButton_Click}" Style="{StaticResource ButtonStyle}"/>
-                <Button Content="Внести ЧС" Style="{StaticResource ButtonStyle}"/>
-                <Button Content="Показать список пожаров" Command ="{Binding ShowFirePage_Click}" Style="{StaticResource ButtonStyle}"/>
-                <Button Content="Показать список ЧС"  Command ="{Binding Button_Click_2}" Style="{StaticResource ButtonStyle}"/>
-                <Button Content="Посмотреть список пользователей" Command ="{Binding Button_Click_3}" Style="{StaticResource ButtonStyle}"/>
+        <Grid Name ="MainGrid"  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="677*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+            <StackPanel Margin="10,7,0,0" Panel.ZIndex="600">
+                    <Button Content="Внести пожар" Command ="{Binding EnterFireButton_Click}" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Внести ЧС" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Показать список пожаров" Command ="{Binding ShowFirePage_Click}" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Показать список ЧС"  Command ="{Binding Button_Click_2}" Style="{StaticResource ButtonStyle}"/>
+                    <Button Content="Посмотреть список пользователей" Command ="{Binding Button_Click_3}" Style="{StaticResource ButtonStyle}"/>
             </StackPanel>
-        </Grid>
-        <Grid Name ="FrameGrid" Margin="246,0,10,-148" Grid.Row="1">
-            <Frame Content="{Binding CurrentPage}" 
-                   Margin="10,0,0,0" 
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1">
+                    <Frame Content="{Binding CurrentPage}" 
+                   Margin="5" 
                    NavigationUIVisibility="Hidden"
                    Background="#FF074278"
                    BorderBrush="#FF4086CA"
                    BorderThickness="2"/>
+            </Grid>            
         </Grid>
 
-        <Grid Margin="0,617,0,-181" Grid.Row="1">
-
+        <Grid Name ="StatusBarGrid" Grid.Row="2" Height="Auto">
+            <StackPanel Orientation="Horizontal">
+                <StatusBarItem>
+                    <TextBlock Text="1245"/>
+                </StatusBarItem>
+                <StatusBarItem>
+                    <ProgressBar Width="120" Height="50" Value="30"></ProgressBar>
+                </StatusBarItem>
+            </StackPanel>
         </Grid>
+
     </Grid>
 </Window>

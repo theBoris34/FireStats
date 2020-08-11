@@ -28,7 +28,6 @@ namespace FireStats.WPF.Login
             UserController = new UserController(name);
             InitializeComponent();
            // DataContext = new MainViewModel(UserController);
-            LoginName.Text = name;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

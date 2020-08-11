@@ -26,7 +26,7 @@ namespace FireStats.WPF.ViewModels
             }
         }
 
-        private string _currentUser;
+        private string _currentUser = "Пользователь";
         public string CurrentUser 
         { 
             get { return _currentUser; }
