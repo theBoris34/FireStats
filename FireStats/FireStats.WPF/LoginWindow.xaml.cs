@@ -1,20 +1,21 @@
 ﻿using FireStats.BL.Controller;
 using FireStats.BL.Model;
+using FireStats.WPF.Windows;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Input;
 
-namespace FireStats.WPF.Login
+namespace FireStats.WPF
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml.
     /// Окно аутентификации.
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }

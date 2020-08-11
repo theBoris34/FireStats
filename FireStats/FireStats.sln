@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF", "FireStats.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF.Test", "FireStats.WPF.Test\FireStats.WPF.Test.csproj", "{F5396516-F0D2-4E09-A6A8-557573B58C2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COVID", "COVID\COVID.csproj", "{CAD54841-93FF-451D-AE2B-A572FC7F4EF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD54841-93FF-451D-AE2B-A572FC7F4EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD54841-93FF-451D-AE2B-A572FC7F4EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD54841-93FF-451D-AE2B-A572FC7F4EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD54841-93FF-451D-AE2B-A572FC7F4EF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

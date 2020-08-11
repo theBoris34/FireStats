@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\
 FireStats.WPF.Login
 none
 false
 DEBUG;TRACE
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\App.xaml
-6-320363739
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\App.xaml
+6334441580
 
-15-1252472299
+18895969174
 125-2103998931
-Pages\ShowFirePage.xaml;Windows\CheckInWindow.xaml;Windows\EnterFireWindow.xaml;MainWindow.xaml;Pages\EnterFirePage.xaml;Windows\WindowFireStats.xaml;
+Pages\ShowEmergancyPage.xaml;Pages\ShowFirePage.xaml;Windows\CheckInWindow.xaml;MainWindow.xaml;Pages\EnterFirePage.xaml;Windows\WindowFireStats.xaml;
 
-True
+False
 

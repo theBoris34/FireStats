@@ -1,0 +1,7 @@
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\bin\Debug\COVID.exe.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\bin\Debug\COVID.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\bin\Debug\COVID.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.csproj.CoreCompileInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.pdb

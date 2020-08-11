@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace FireStats.WPF.Login
+namespace FireStats.WPF.Windows
 {
     /// <summary>
     /// Логика взаимодействия для WindowFireStats.xaml
@@ -73,16 +73,7 @@ namespace FireStats.WPF.Login
             //DataGridResault.ItemsSource = UserController.CurrentUser.Fires;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-//DataGridResault.ItemsSource = UserController.CurrentUser.Emergencies;
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-           // DataGridResault.ItemsSource = UserController.Users;
-        }
-
+        
         /// <summary>
         /// Кнопка открытия меню пользователя.
         /// </summary>
@@ -104,7 +95,7 @@ namespace FireStats.WPF.Login
         /// <param name="e"></param>
         private void ChangeUser_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            LoginWindow mainWindow = new LoginWindow();
             this.Close();
             mainWindow.Show();
         }
@@ -116,8 +107,7 @@ namespace FireStats.WPF.Login
         /// <param name="e"></param>
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Закрыть приложение?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question).ToString() == "Yes")
-                this.Close();
+            
         }
     }
 }

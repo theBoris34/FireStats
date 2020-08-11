@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace FireStats.WPF.Login.ViewModel.Base 
+namespace FireStats.WPF.ViewModels.Base 
 {
 
     internal abstract class ViewModel : INotifyPropertyChanged, IDisposable

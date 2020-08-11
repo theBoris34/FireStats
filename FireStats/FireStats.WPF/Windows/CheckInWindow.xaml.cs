@@ -5,7 +5,7 @@ using System.Data;
 using System.Windows;
 using System.Windows.Input;
 
-namespace FireStats.WPF.Login
+namespace FireStats.WPF.Windows
 {
     /// <summary>
     /// Логика взаимодействия для CheckInWindow.xaml
@@ -70,7 +70,7 @@ namespace FireStats.WPF.Login
             {
                 MessageBox.Show("Аккаунт был создан");
                 this.Close();
-                MainWindow mainWindow = new MainWindow();
+                LoginWindow mainWindow = new LoginWindow();
                 mainWindow.Show();
             }
 

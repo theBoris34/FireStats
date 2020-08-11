@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0CED0B05-6A4B-491F-BD74-19D1083F2739}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FireStats.WPF.Login</RootNamespace>
-    <AssemblyName>FireStats.WPF.Login</AssemblyName>
+    <RootNamespace>FireStats.WPF</RootNamespace>
+    <AssemblyName>FireStats.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -71,15 +71,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Infrastructure\Commands\Base\Command.cs" />
+    <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
+    <Compile Include="Pages\EnterEmergancyPage.xaml.cs">
+      <DependentUpon>EnterEmergancyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShowEmergancyPage.xaml.cs">
+      <DependentUpon>ShowEmergancyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ShowFirePage.xaml.cs">
       <DependentUpon>ShowFirePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserListPage.xaml.cs">
+      <DependentUpon>UserListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EnterFirePageModel.cs" />
+    <Compile Include="ViewModels\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\ShowEmergancyPageModel.cs" />
     <Compile Include="ViewModels\ShowFiresPageModel.cs" />
-    <Compile Include="Windows\EnterFireWindow.xaml.cs">
-      <DependentUpon>EnterFireWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\EnterFirePage.xaml.cs">
       <DependentUpon>EnterFirePage.xaml</DependentUpon>
     </Compile>
@@ -87,7 +97,19 @@
     <Compile Include="Windows\WindowFireStats.xaml.cs">
       <DependentUpon>WindowFireStats.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\EnterEmergancyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShowEmergancyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ShowFirePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,11 +117,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EnterFireWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -110,8 +128,8 @@
     <Compile Include="Windows\CheckInWindow.xaml.cs">
       <DependentUpon>CheckInWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\EnterFirePage.xaml">
@@ -141,6 +159,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -199,5 +218,6 @@
   <ItemGroup>
     <Resource Include="anglijskij_buldog_14.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

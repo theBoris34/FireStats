@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace FireStats.WPF.Login
+namespace FireStats.WPF
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml
