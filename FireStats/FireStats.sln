@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.CMD", "FireStats.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.BLTests", "FireStats.BLTests\FireStats.BLTests.csproj", "{1D94ADBE-2248-401B-ADDA-F9D347A8C1FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF", "FireStats.WPF.Login\FireStats.WPF.csproj", "{0CED0B05-6A4B-491F-BD74-19D1083F2739}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF", "FireStats.WPF\FireStats.WPF.csproj", "{0CED0B05-6A4B-491F-BD74-19D1083F2739}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireStats.WPF.Test", "FireStats.WPF.Test\FireStats.WPF.Test.csproj", "{F5396516-F0D2-4E09-A6A8-557573B58C2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0CED0B05-6A4B-491F-BD74-19D1083F2739}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CED0B05-6A4B-491F-BD74-19D1083F2739}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CED0B05-6A4B-491F-BD74-19D1083F2739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5396516-F0D2-4E09-A6A8-557573B58C2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,288 @@
+﻿<Window x:Class="FireStats.WPF.Login.WindowFireStats"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FireStats.WPF.Login" 
+        xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"
+        mc:Ignorable="d"
+        Title="WindowFireStats" Height="700" Width="1000" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D" Loaded="Window_Loaded">
+    <Window.DataContext>
+        <vm:WindowFireStatsViewModel/>
+    </Window.DataContext>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <LinearGradientBrush.RelativeTransform>
+                <TransformGroup>
+                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="10"/>
+                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                    <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </LinearGradientBrush.RelativeTransform>
+            <GradientStop Color="#FF1560A4"/>
+            <GradientStop Color="#FF1560A4" Offset="1"/>
+            <GradientStop Color="#FF3A89E2" Offset="0.5"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="ComboboxButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="#FF0E4A7A"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name ="border" BorderThickness="0" BorderBrush="Black" 
+                                Background ="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="2,2,0,0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CmbBtn" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="#FF1661A5"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Foreground" Value="#FF9CCAFF"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name ="border" BorderThickness="0" BorderBrush="Black" 
+                                Background ="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF2A73B6"/>
+                                <Setter Property="Foreground" Value="#FFE0EEFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property ="FontSize" Value="14"/>
+            <Setter Property ="Foreground" Value="White"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Background" Value="#FFEEC600"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name ="border" BorderThickness="0" BorderBrush="Black" 
+                                Background ="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFEAD25E"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="2,2,0,0"/>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFCBA900" Duration="0:0:0.0002"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="0"/>
+                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFEEC600" Duration="0:0:0.0002"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="54"/>
+            <RowDefinition Height="463"/>
+        </Grid.RowDefinitions>
+        <Grid Name ="ToolBar" Panel.ZIndex="999" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
+            <Polygon Fill="#FF9EC2DA" Opacity="0.2" 
+                 Points="107,0,
+                        115,7,
+                        850,7,
+                        858,0"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Name ="MinButton"  Height="15" Width="15" Margin="5,10,5,30" MouseDown="MinButton_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Source/черта.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=MinButton}"
+                                             Value="True">
+                                    <Setter Property="Source" Value="/Source/черта_активная.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                    <Image.Effect>
+                        <BlurEffect Radius="2"/>
+                    </Image.Effect>
+
+                </Image>
+                <Image Name ="ExitButton" Height="15" Width="15" Margin="5,10,10,30" MouseDown="ExitButton_MouseDown">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Source" Value="/Source/крест.png" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsMouseOver, ElementName=ExitButton}"
+                                             Value="True">
+                                    <Setter Property="Source" Value="/Source/крест_активный.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                    <Image.Effect>
+                        <BlurEffect Radius="2"/>
+                    </Image.Effect>
+                </Image>
+            </StackPanel>
+            <Grid Name="UserGrid" Panel.ZIndex="999" Height="148" Width="229" HorizontalAlignment="Left" VerticalAlignment="Top"
+              Margin="788,45,-17,-138" Visibility="Hidden">
+                <Polygon Fill="Black" StrokeThickness="5" Stroke="#FF001429"
+                     Points="3,11,
+                            3,65,
+                            190,65,
+                            190,11,
+                            140,11,
+                            132,3,
+                            124,11"/>
+                <Polygon Fill="#FF1661A5" StrokeThickness="2" Stroke="#FF317FD3"
+                     Points="3,11,
+                            3,65,
+                            190,65,
+                            190,11,
+                            140,11,
+                            132,3,
+                            124,11" Margin="0,0,33,78"/>
+                <Grid Height="58" Width="188" HorizontalAlignment="Left" VerticalAlignment="Top"
+                  Margin="1,13,0,0">
+                    <StackPanel Orientation="Vertical" Margin="0,0,0,3">
+                        <Button Style="{StaticResource CmbBtn}"  Margin="3,0,0,0" Click="ChangeUser_Click">
+                            <TextBlock Text="Сменить пользователя"/>
+                        </Button>
+                        <Button Style="{StaticResource CmbBtn}" Margin="3,0,0,0" Click="ExitButton_Click">
+                            <TextBlock Text="Выход"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Border Name ="CbmBorder" Height="24" Width="Auto" HorizontalAlignment="Right"
+                VerticalAlignment="Top" Margin="0,15,70,0" CornerRadius="2"
+                BorderThickness="1" Background="Black">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="BorderBrush" Value="#FF3784DB"></Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF70A8E4"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                            Duration="0:0:0.100" To ="#FF3784DB"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation Storyboard.TargetProperty="BorderBrush.Color"
+                                                            Duration="0:0:0.100" To ="#FF70A8E4"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Button Style="{StaticResource ComboboxButton}" Background="#FF1661A5" Click="UserButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name ="LoginName"  IsHitTestVisible="False" Margin="2,0,0,0" FontSize="14"
+                                   Grid.Row="1"  VerticalAlignment="Top" Foreground="#FF8C8E93" Height="19">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Image Height="16" Width="16" Margin="1,0,10,0">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Setter Property="Source" Value ="/Source/стрелка.png"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, 
+                                        ElementName=CbmBorder}" Value ="True">
+                                            <Setter Property="Source" Value= "/Source/стрелка активная.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource 
+                                        FindAncestor, AncestorType={x:Type Button}, 
+                                        AncestorLevel=1}, Path = IsPressed}"
+                                        Value = "True">
+                                            <Setter Property="Source" Value= "/Source/стрелка.png"/>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+        </Grid>
+        <Grid  Name ="ButtonGrid" Background="Transparent" Grid.Row="1" MouseDown="ToolBar_MouseDown" HorizontalAlignment="Left" Width="246" Margin="0,0,0,-148">
+            <StackPanel Background="#FF7C6700"  Margin="10,0,0,0">
+                <Button Content="Внести пожар" Command ="{Binding EnterFireButton_Click}" Style="{StaticResource ButtonStyle}"/>
+                <Button Content="Внести ЧС" Style="{StaticResource ButtonStyle}"/>
+                <Button Content="Показать список пожаров" Command ="{Binding ShowFirePage_Click}" Style="{StaticResource ButtonStyle}"/>
+                <Button Content="Показать список ЧС"  Command ="{Binding Button_Click_2}" Style="{StaticResource ButtonStyle}"/>
+                <Button Content="Посмотреть список пользователей" Command ="{Binding Button_Click_3}" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Name ="FrameGrid" Margin="246,0,10,-148" Grid.Row="1">
+            <Frame Content="{Binding CurrentPage}" 
+                   Margin="10,0,0,0" 
+                   NavigationUIVisibility="Hidden"
+                   Background="#FF074278"
+                   BorderBrush="#FF4086CA"
+                   BorderThickness="2"/>
+        </Grid>
+
+        <Grid Margin="0,617,0,-181" Grid.Row="1">
+
+        </Grid>
+    </Grid>
+</Window>

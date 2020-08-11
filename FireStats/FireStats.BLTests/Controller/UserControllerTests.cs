@@ -67,7 +67,7 @@ namespace FireStats.BL.Controller.Tests
 
             //Act
             var controller = new UserController(userName);
-            Fire fire = new Fire(adress, 3, workTime, UserList, applicant, fireObject, owner, damageResult, causeOfFire, 7000, 9000, leader, fireInspector, "пользователь");
+            Fire fire = new Fire(adress, "3", workTime, UserList, applicant, fireObject, owner, damageResult, causeOfFire, 7000, 9000, leader, fireInspector, "пользователь");
             controller.Add(fire);
 
 
