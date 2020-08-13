@@ -12,3 +12,4 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Test\ob
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Test\obj\Debug\FireStats.WPF.Test.csproj.CoreCompileInputs.cache
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Test\obj\Debug\FireStats.WPF.Test.exe
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Test\obj\Debug\FireStats.WPF.Test.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Test\obj\Debug\FireStats.WPF.Test.csprojAssemblyReference.cache

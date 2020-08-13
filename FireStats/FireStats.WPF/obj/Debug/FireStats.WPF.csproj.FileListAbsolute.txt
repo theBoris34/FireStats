@@ -76,3 +76,11 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\UserListPage.baml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\LoginWindow.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\LoginWindow.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\OxyPlot.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\OxyPlot.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\ShowPlotPage.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\ShowPlotPage.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\EmployeeListPage.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\EmployeeListPage.baml

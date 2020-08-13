@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FireStats.WPF.Windows" 
         xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"
+        xmlns:oxy ="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="WindowFireStats" Height="700" Width="1000" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D" Loaded="Window_Loaded">
+        Title="WindowFireStats" Height="700" Width="1000" WindowStyle="None" MinHeight="700" MinWidth="1000" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D" Loaded="Window_Loaded">
     <Window.DataContext>
         <vm:WindowFireStatsViewModel/>
     </Window.DataContext>
@@ -81,51 +82,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property ="FontSize" Value="14"/>
-            <Setter Property ="Foreground" Value="White"/>
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
-            <Setter Property="Background" Value="#FFEEC600"/>
-            <Setter Property="Height" Value="35"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Name ="border" BorderThickness="0" BorderBrush="Black" 
-                                Background ="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#FFEAD25E"/>
-                            </Trigger>
-                            <EventTrigger RoutedEvent="PreviewMouseDown">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                            Duration="0:0:0.100" To ="2,2,0,0"/>
-                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFCBA900" Duration="0:0:0.0002"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="PreviewMouseUp">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                                            Duration="0:0:0.100" To ="0"/>
-                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFEEC600" Duration="0:0:0.0002"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="54"/>
-            <RowDefinition Height="610"/>
+            <RowDefinition Height="610*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid Name ="ToolBar" Panel.ZIndex="999" Background="Transparent" Grid.Row="0" MouseDown="ToolBar_MouseDown">
@@ -274,17 +236,61 @@
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="677*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0">
+            <Grid Grid.Row="0" Grid.Column="0">                
                 <StackPanel Margin="10,7,0,0" Panel.ZIndex="600">
-                    <Button Content="Внести пожар" Command ="{Binding EnterFirePageShowCommand}" Style="{StaticResource ButtonStyle}"/>
-                    <Button Content="Внести происшествие" Command="{Binding EnterEmergancyPageShowCommand}" Style="{StaticResource ButtonStyle}"/>
-                    <Button Content="Показать список пожаров" Command ="{Binding ShowFirePageShowCommand}" Style="{StaticResource ButtonStyle}"/>
-                    <Button Content="Показать список ЧС"  Command ="{Binding ShowEmergancyPageShowCommand}" Style="{StaticResource ButtonStyle}"/>
-                    <Button Content="Посмотреть список пользователей" Command ="{Binding UserListPageShowCommand}" Style="{StaticResource ButtonStyle}"/>
-                   </StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property ="FontSize" Value="14"/>
+                            <Setter Property ="Foreground" Value="White"/>
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="Background" Value="#FFEEC600"/>
+                            <Setter Property="Height" Value="35"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Name ="border" BorderThickness="0" BorderBrush="Black" 
+                                Background ="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#FFEAD25E"/>
+                                            </Trigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseDown">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="2,2,0,0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFCBA900" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                            <EventTrigger RoutedEvent="PreviewMouseUp">
+                                                <BeginStoryboard>
+                                                    <Storyboard>
+                                                        <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                                            Duration="0:0:0.100" To ="0"/>
+                                                        <ColorAnimation Storyboard.TargetProperty="Background.Color" To="#FFEEC600" Duration="0:0:0.0002"/>
+                                                    </Storyboard>
+                                                </BeginStoryboard>
+                                            </EventTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button Content="Внести пожар" Command ="{Binding EnterFirePageShowCommand}"/>
+                    <Button Content="Внести происшествие" Command="{Binding EnterEmergancyPageShowCommand}" />
+                    <Button Content="Показать список пожаров" Command ="{Binding ShowFirePageShowCommand}"/>
+                    <Button Content="Показать список ЧС"  Command ="{Binding ShowEmergancyPageShowCommand}" />
+                    <Button Content="Посмотреть список пользователей" Command ="{Binding UserListPageShowCommand}"/>
+                    <Button Content="Показать график" Command ="{Binding ShowPlotPageShowCommand}"/>
+                    <Button Content="Список личного состава" Command ="{Binding ShowEmployeeListPageCommand}"/>
+                </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1">
-                    <Frame Content="{Binding CurrentPage}" 
+                <Frame Content="{Binding CurrentPage}" 
                    Margin="5" 
                    NavigationUIVisibility="Hidden"
                    Background="#FF074278"
@@ -293,10 +299,10 @@
             </Grid>            
         </Grid>
 
-        <Grid Name ="StatusBarGrid" Grid.Row="2" Height="Auto">
+        <Grid Name ="StatusBarGrid" Grid.Row="2" Height="30">
             <StackPanel Orientation="Horizontal">
                 <StatusBarItem>
-                    <TextBlock Text="123"/>
+                    <TextBlock Text="Статус"/>
                 </StatusBarItem>
                 <StatusBarItem>
                     <ProgressBar Width="120" Height="20" Value="30"></ProgressBar>

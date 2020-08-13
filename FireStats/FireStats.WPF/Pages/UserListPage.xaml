@@ -93,7 +93,7 @@
 
         </Grid>
 
-        <TextBlock  Text="СПИСОК ПОЛЬЗОВАТЕЛЕЙ" VerticalAlignment="Bottom" 
+        <TextBlock  Text="СПИСОК ПОЛЬЗОВАТЕЛЕЙ" Grid.Row="0" VerticalAlignment="Center"  
                    HorizontalAlignment="Center" Foreground="#FF9CCAFF"
                    FontSize="25" TextAlignment="Center" 
                    Width="383" FontWeight="DemiBold" Margin="106,0,111,0" Height="33"/>

@@ -1,16 +1,25 @@
-﻿using GalaSoft.MvvmLight.Command;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
-using FireStats.WPF.Infrastructure.Commands;
+using System;
+using System.Collections.Generic;
 using System.Windows;
+using FireStats.WPF.Infrastructure.Commands;
 using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Pages;
-using FireStats.WPF;
+using FireStats.WPF.Models;
 
 namespace FireStats.WPF.ViewModels
 {
     internal class WindowFireStatsViewModel : ViewModel
     {
+
+        private IEnumerable<DataPoint> _TestDataPoints;
+        public IEnumerable<DataPoint> TestDataPoints 
+        { 
+            get => _TestDataPoints; 
+            set => Set(ref _TestDataPoints, value);
+        }
+
         private Page _CurrentPage;
         /// <summary>
         /// Текущая страница.
@@ -112,6 +121,29 @@ namespace FireStats.WPF.ViewModels
         #endregion
 
 
+        #region ShowPlotPageShowCommand
+
+        public ICommand ShowPlotPageShowCommand { get; }
+
+        private void OnShowPlotPageShowCommandExecuted(object p)
+        {
+            CurrentPage = new ShowPlotPage();
+        }
+        private bool CanShowPlotPageShowCommandExecute(object p) => true;
+        #endregion
+
+        #region ShowEmployeeListPageCommand
+
+        public ICommand ShowEmployeeListPageCommand { get; }
+
+        private void OnShowEmployeeListPageCommandExecuted(object p)
+        {
+            CurrentPage = new EmployeeListPage();
+        }
+        private bool CanShowEmployeeListPageCommandExecute(object p) => true;
+        #endregion
+
+
         #region ChangeUserCommand
         /// <summary>
         /// Перезагрузка приложения.
@@ -139,7 +171,20 @@ namespace FireStats.WPF.ViewModels
             EnterEmergancyPageShowCommand = new LambdaCommand(OnEnterEmergancyPageShowCommandExecuted, CanEnterEmergancyPageShowCommandExecute);
             UserListPageShowCommand = new LambdaCommand(OnUserListPageShowCommandExecuted, CanUserListPageShowCommandExecute);
             ChangeUserCommand = new LambdaCommand(OnChangeUserCommandExecuted, CanChangeUserCommandExecute);
+            ShowPlotPageShowCommand = new LambdaCommand(OnShowPlotPageShowCommandExecuted, CanShowPlotPageShowCommandExecute);
+            ShowEmployeeListPageCommand = new LambdaCommand(OnShowEmployeeListPageCommandExecuted,CanShowEmployeeListPageCommandExecute);
             #endregion
+
+            var data_points = new List<DataPoint>((int) (360/0.1));
+            for (var x =0d; x<=360; x+=0.1)
+            {
+                const double to_rad = Math.PI / 180;
+                var y = Math.Sin(x * to_rad);
+
+                data_points.Add(new DataPoint { XValue = x, YValue = y });
+            }
+
+            TestDataPoints = data_points;
         }
         
 
