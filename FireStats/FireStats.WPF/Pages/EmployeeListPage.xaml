@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireStats.WPF.Pages"  
-      xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"      
+      xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"        
+      xmlns:departments="clr-namespace:FireStats.WPF.Models.Departments" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EmployeeListPage">
@@ -36,21 +37,41 @@
             <GroupBox Header="{Binding SelectedDivision.Name, FallbackValue='Личный состав', TargetNullValue='Подразделение не выбрано'}" Grid.Row="1">
                 <DataGrid ItemsSource="{Binding SelectedDivision.Employees}"  
                           AutoGenerateColumns="False"
-                          IsReadOnly="True"
                           GridLinesVisibility="Vertical"
-                          VerticalGridLinesBrush="DarkGray">
+                          CanUserAddRows="False"
+                          VerticalGridLinesBrush="DarkGray"
+                          AlternatingRowBackground="LightBlue">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Звание" Binding="{Binding Rank}"/>
-                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
-                        <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday, StringFormat=dd.MM.yyyy }"/>
-                        <DataGridTextColumn Header="Должность" Binding="{Binding Position}" />
-                        <DataGridTextColumn Header="Примечание" Binding="{Binding Note}" Width="300*"/>
+                        <DataGridTextColumn Header="Звание" Binding="{Binding Rank}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Имя" Binding="{Binding Name}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="Дата рождения" IsReadOnly="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate DataType="department:Employee">
+                                    <TextBlock Text="{Binding Birthday, StringFormat='dd.MM.yyyy'}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate DataType="department:Employee">
+                                        <DatePicker  SelectedDate="{Binding Birthday}"/>
+                                    </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Должность" Binding="{Binding Position}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Примечание" Binding="{Binding Note}" Width="*" IsReadOnly="False"/>
                     </DataGrid.Columns>
                     
                 </DataGrid>
             </GroupBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" Height="20" Margin="6,0" HorizontalAlignment="Center">
+                <Button Content="123" Width="100" Margin="10,0"/>
+                <Button Content="123" Width="100" Margin="10,0"/>
+                <Button Content="123" Width="100" Margin="10,0" />
+                <Button Content="123" Width="100" Margin="10,0" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

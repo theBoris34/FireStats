@@ -293,7 +293,7 @@
                 <Frame Content="{Binding CurrentPage}" 
                    Margin="5" 
                    NavigationUIVisibility="Hidden"
-                   Background="#FF074278"
+                   
                    BorderBrush="#FF4086CA"
                    BorderThickness="2"/>
             </Grid>            
