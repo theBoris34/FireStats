@@ -75,9 +75,10 @@
                 <DockPanel>
                     <DockPanel DockPanel.Dock="Top" Margin="0,0,0,3">
                         <fa:IconImage Height="12" Icon="Search" Margin="3,0"/>
-                        <TextBox x:Name="EmployeeFilter"></TextBox>
-                    </DockPanel>    
-                <DataGrid ItemsSource="{Binding SelectedDivision.Employees}"
+                        <TextBox x:Name="EmployeeFilter"
+                                 Text="{Binding EmployesFilterText, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DockPanel>
+                    <DataGrid ItemsSource="{Binding SelecedDivisionEmployees}"
                           SelectedItem="{Binding SelectedEmployee}"
                           AutoGenerateColumns="False"
                           GridLinesVisibility="Vertical"
