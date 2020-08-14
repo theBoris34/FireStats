@@ -1,17 +1,88 @@
-﻿using FireStats.WPF.Models.Departments;
+﻿using FireStats.WPF.Infrastructure.Commands;
+using FireStats.WPF.Models.Departments;
 using FireStats.WPF.ViewModels.Base;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 
 namespace FireStats.WPF.ViewModels
 {
     internal class EmployeeListPageViewModel : ViewModel
     {
 
+        #region Команды
+
+        #region CreateDivisionCommand
+        public ICommand CreateDivisionCommand { get; }
+
+        private void OnCreateDivisionCommandExecuted(object p)
+        {
+            var division_max_index = Divisions.Count + 1;
+            var new_division = new Division
+            {
+                Name = $"Подразделение {division_max_index}",
+                Employees = new ObservableCollection<Employee>()
+            };
+            Divisions.Add(new_division);
+
+        }
+        private bool CanCreateDivisionCommandExecute(object p) => true;
+        #endregion
+
+        #region DeleteDivisionCommand
+        public ICommand DeleteDivisionCommand { get; }
+
+        private void OnDeleteDivisionCommandExecuted(object p)
+        {
+            if (!(p is Division division)) return;
+            var division_index = Divisions.IndexOf(division);
+            Divisions.Remove(division);
+            if (division_index < Divisions.Count)
+                SelectedDivision = Divisions[division_index];
+
+        }
+        private bool CanDeleteDivisionCommandExecute(object p) => p is Division division && Divisions.Contains(division);
+        #endregion
+
+        #region CreateEmployeeCommand
+        public ICommand CreateEmployeeCommand { get; }
+
+        private void OnCreateEmployeeCommandExecuted(object p)
+        {
+            int employee_max_index = 80;
+            var new_employee = new Employee
+            {
+                Name = $"Имя {employee_max_index}",
+                Surname = $"Фамилия {employee_max_index}",
+                Patronymic = $"Отчество {employee_max_index}",
+                Birthday = DateTime.Now,
+                Position = $"Должность {employee_max_index}",
+                Rank = $"Звание {employee_max_index}"
+            };
+            SelectedDivision.Employees.Add(new_employee);
+
+        }
+        private bool CanCreateEmployeeCommandExecute(object p) => SelectedDivision is Division;
+        #endregion
+
+        #region DeleteEmployeeCommand
+        public ICommand DeleteEmployeeCommand { get; }
+
+        private void OnDeleteEmployeeCommandExecuted(object p)
+        {
+            if (!(p is Employee employee)) return;
+            SelectedDivision.Employees.Remove(employee);
+        }
+        private bool CanDeleteEmployeeCommandExecute(object p) => p is Employee employee && SelectedDivision.Employees.Contains(employee);
+        #endregion
+
+        #endregion
+
         private Division _SelectedDivision;
         /// <summary>
-        /// Текущая страница.
+        /// Выбранное подразделение.
         /// </summary>
         public Division SelectedDivision
         {
@@ -22,11 +93,32 @@ namespace FireStats.WPF.ViewModels
             }
         }
 
-        public string TESTING = "ТАСТОВАЯ ФРАЗА";
+        private Employee _SelectedEmployee;
+        /// <summary>
+        /// Выбранный сотрудник.
+        /// </summary>
+        public Employee SelectedEmployee
+        {
+            get { return _SelectedEmployee; }
+            set 
+            {
+                Set(ref _SelectedEmployee, value);
+            }
+        }
+
         public ObservableCollection<Division> Divisions { get; }
 
         public EmployeeListPageViewModel()
         {
+
+
+            #region Команды
+            CreateDivisionCommand = new LambdaCommand(OnCreateDivisionCommandExecuted, CanCreateDivisionCommandExecute);
+            DeleteDivisionCommand = new LambdaCommand(OnDeleteDivisionCommandExecuted, CanDeleteDivisionCommandExecute);
+            CreateEmployeeCommand = new LambdaCommand(OnCreateEmployeeCommandExecuted, CanCreateEmployeeCommandExecute);
+            DeleteEmployeeCommand = new LambdaCommand(OnDeleteEmployeeCommandExecuted, CanDeleteEmployeeCommandExecute);
+            #endregion
+
             var employees_id = 1;
             var employees = Enumerable.Range(1, 7).Select(i => new Employee
             {
@@ -45,7 +137,6 @@ namespace FireStats.WPF.ViewModels
             });
 
             Divisions = new ObservableCollection<Division>(divisions);
-            
 
         }
     }

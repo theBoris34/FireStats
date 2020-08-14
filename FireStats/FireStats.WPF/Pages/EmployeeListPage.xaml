@@ -35,7 +35,8 @@
 
             </GroupBox>
             <GroupBox Header="{Binding SelectedDivision.Name, FallbackValue='Личный состав', TargetNullValue='Подразделение не выбрано'}" Grid.Row="1">
-                <DataGrid ItemsSource="{Binding SelectedDivision.Employees}"  
+                <DataGrid ItemsSource="{Binding SelectedDivision.Employees}"
+                          SelectedItem="{Binding SelectedEmployee}"
                           AutoGenerateColumns="False"
                           GridLinesVisibility="Vertical"
                           CanUserAddRows="False"
@@ -66,11 +67,12 @@
             </GroupBox>
         </Grid>
         <Grid Grid.Row="2">
-            <StackPanel Orientation="Horizontal" Height="20" Margin="6,0" HorizontalAlignment="Center">
-                <Button Content="123" Width="100" Margin="10,0"/>
-                <Button Content="123" Width="100" Margin="10,0"/>
-                <Button Content="123" Width="100" Margin="10,0" />
-                <Button Content="123" Width="100" Margin="10,0" />
+            <StackPanel Orientation="Horizontal" Height="25" Margin="6,0" HorizontalAlignment="Left">
+                <Button Content="Добавить подразделение" Width="170"  Margin="10,0" Command="{Binding CreateDivisionCommand}"/>
+                <Button Content="Удалить подразделение" Width="170" Margin="10,0" Command="{Binding DeleteDivisionCommand}" CommandParameter="{Binding SelectedDivision}"/>
+                <Button Content="Добавить сотрудника" Width="170"  Margin="10,0" Command="{Binding CreateEmployeeCommand}"/>
+                <Button Content="Удалить сотрудника" Width="170" Margin="10,0" Command="{Binding DeleteEmployeeCommand}" CommandParameter="{Binding SelectedEmployee}"/>
+
             </StackPanel>
         </Grid>
     </Grid>
