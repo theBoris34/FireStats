@@ -10,6 +10,9 @@ namespace FireStats.WPF.Models.Departments
         /// <summary> Название подразделения. </summary>
         public string Name { get; set; }
 
+        /// <summary> Примечание </summary>
+        public string Note { get; set; }
+
         /// <summary>
         /// Список сотрудников.
         /// </summary>

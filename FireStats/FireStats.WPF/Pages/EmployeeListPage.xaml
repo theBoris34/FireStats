@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:FireStats.WPF.Pages"  
       xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"        
       xmlns:departments="clr-namespace:FireStats.WPF.Models.Departments" 
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EmployeeListPage">
@@ -26,15 +27,56 @@
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="150*"/>
                 <RowDefinition Height="214*"/>
             </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
             <GroupBox Header="Подразделение" Grid.Row="0" >
-                <ListBox ItemsSource="{Binding Divisions}" DisplayMemberPath="Name"
-                         SelectedItem="{Binding SelectedDivision}" SelectedIndex="0"/>
-
+                    <DockPanel>
+                        <DockPanel.Resources>
+                            <CollectionViewSource x:Key="DivisionsCollection" 
+                                                  x:Name="DivisionsCollection"
+                                                  Source="{Binding Divisions}"
+                                                  Filter="DivisionCollectionFilter"/>
+                        </DockPanel.Resources>
+                        <DockPanel DockPanel.Dock="Top" Margin="0,0,0,3">
+                            <fa:IconImage Height="12" Icon="Search" Margin="3,0"/>
+                            <TextBox x:Name="DivisionFilter" TextChanged="OnDivisionsFilterTextChange" ></TextBox>
+                        </DockPanel>
+                        <DockPanel DockPanel.Dock="Bottom">
+                            <ListBox ItemsSource="{Binding Source={StaticResource DivisionsCollection}}" DisplayMemberPath="Name"
+                                     SelectedItem="{Binding SelectedDivision}" SelectedIndex="0"/>
+                        </DockPanel>
+                        
+                    </DockPanel>
             </GroupBox>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Height="25" Margin="6,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Button Margin="10,0" Command="{Binding CreateDivisionCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Check" Margin="5,0" Height="12" Foreground="DarkGreen" />
+                            <TextBlock Text="Добавить подразделение" Margin="0,0,10,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Margin="10,0" Command="{Binding DeleteDivisionCommand}" CommandParameter="{Binding SelectedDivision}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Times" Margin="5,0" Height="12" Foreground="DarkRed" />
+                            <TextBlock Text="Удалить подразделение" Margin="0,0,10,0"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+
             <GroupBox Header="{Binding SelectedDivision.Name, FallbackValue='Личный состав', TargetNullValue='Подразделение не выбрано'}" Grid.Row="1">
+                <DockPanel>
+                    <DockPanel DockPanel.Dock="Top" Margin="0,0,0,3">
+                        <fa:IconImage Height="12" Icon="Search" Margin="3,0"/>
+                        <TextBox x:Name="EmployeeFilter"></TextBox>
+                    </DockPanel>    
                 <DataGrid ItemsSource="{Binding SelectedDivision.Employees}"
                           SelectedItem="{Binding SelectedEmployee}"
                           AutoGenerateColumns="False"
@@ -64,15 +106,25 @@
                     </DataGrid.Columns>
                     
                 </DataGrid>
+
+                </DockPanel>
             </GroupBox>
         </Grid>
-        <Grid Grid.Row="2">
-            <StackPanel Orientation="Horizontal" Height="25" Margin="6,0" HorizontalAlignment="Left">
-                <Button Content="Добавить подразделение" Width="170"  Margin="10,0" Command="{Binding CreateDivisionCommand}"/>
-                <Button Content="Удалить подразделение" Width="170" Margin="10,0" Command="{Binding DeleteDivisionCommand}" CommandParameter="{Binding SelectedDivision}"/>
-                <Button Content="Добавить сотрудника" Width="170"  Margin="10,0" Command="{Binding CreateEmployeeCommand}"/>
-                <Button Content="Удалить сотрудника" Width="170" Margin="10,0" Command="{Binding DeleteEmployeeCommand}" CommandParameter="{Binding SelectedEmployee}"/>
-
+        <Grid Grid.Row="2" Height="30">
+            <StackPanel Orientation="Horizontal" Height="25" Margin="6,0" HorizontalAlignment="Center">
+                
+                <Button Margin="10,0" Command="{Binding CreateEmployeeCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="Check" Margin="5,0" Height="12" Foreground="DarkGreen" />
+                        <TextBlock Text="Добавить сотрудника" Margin="0,0,10,0"/>
+                    </StackPanel>
+                </Button>
+                <Button Margin="10,0" Command="{Binding DeleteEmployeeCommand}" CommandParameter="{Binding SelectedEmployee}">
+                     <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="Times" Margin="5,0" Height="12" Foreground="DarkRed" />
+                        <TextBlock Text="Удалить Сотрудника" Margin="0,0,10,0"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>
