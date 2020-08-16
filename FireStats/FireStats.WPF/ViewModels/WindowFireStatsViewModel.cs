@@ -13,6 +13,8 @@ namespace FireStats.WPF.ViewModels
     internal class WindowFireStatsViewModel : ViewModel
     {
 
+        private readonly ShowFiresPageModel _ShowFiresPage;
+
         private IEnumerable<DataPoint> _TestDataPoints;
         public IEnumerable<DataPoint> TestDataPoints 
         { 
@@ -162,6 +164,8 @@ namespace FireStats.WPF.ViewModels
         #endregion
         public WindowFireStatsViewModel()
         {
+            _ShowFiresPage = new ShowFiresPageModel(this);
+
             #region Команды
 
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);

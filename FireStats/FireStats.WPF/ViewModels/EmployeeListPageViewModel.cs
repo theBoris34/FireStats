@@ -198,6 +198,7 @@ namespace FireStats.WPF.ViewModels
             Divisions = new ObservableCollection<Division>(divisions);
 
             _SelecedDivisionEmployees.Filter += OnEmployeesFilter;
+            _SelecedDivisionEmployees.GroupDescriptions.Add(new PropertyGroupDescription("Position"));
         }
 
         

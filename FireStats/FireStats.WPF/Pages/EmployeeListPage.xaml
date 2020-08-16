@@ -85,7 +85,10 @@
                           CanUserAddRows="False"
                           VerticalGridLinesBrush="DarkGray"
                           AlternatingRowBackground="LightBlue">
-                    <DataGrid.Columns>
+                        <DataGrid.GroupStyle>
+                            <GroupStyle/>
+                        </DataGrid.GroupStyle>
+                        <DataGrid.Columns>
                         <DataGridTextColumn Header="Звание" Binding="{Binding Rank}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" IsReadOnly="True"/>
                         <DataGridTextColumn Header="Имя" Binding="{Binding Name}" IsReadOnly="True"/>

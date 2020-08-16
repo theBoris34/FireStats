@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using FireStats.WPF.Services;
+using System.Linq;
+using System.Windows;
 
 namespace FireStats.WPF
 {
@@ -7,5 +9,10 @@ namespace FireStats.WPF
     /// </summary>
     public partial class App : Application
     {
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+        }
     }
 }

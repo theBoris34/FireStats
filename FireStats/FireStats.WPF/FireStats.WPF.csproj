@@ -87,10 +87,13 @@
     </ApplicationDefinition>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
+    <Compile Include="Models\ConfirmedCount.cs" />
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="Models\Departments\Department.cs" />
     <Compile Include="Models\Departments\Division.cs" />
     <Compile Include="Models\Departments\Employee.cs" />
+    <Compile Include="Models\Location\PlaceInfo.cs" />
+    <Compile Include="Models\Location\AreaInfo.cs" />
     <Compile Include="Pages\EmployeeListPage.xaml.cs">
       <DependentUpon>EmployeeListPage.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,7 @@
     <Compile Include="Pages\UserListPage.xaml.cs">
       <DependentUpon>UserListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\DataService.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListPageViewModel.cs" />
     <Compile Include="ViewModels\EnterFirePageModel.cs" />
@@ -143,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\UserListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\GridSplitter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,5 +256,6 @@
       <Name>FireStats.CMD</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

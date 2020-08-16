@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:FireStats.WPF"
              StartupUri="LoginWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Resources/Styles/GridSplitter.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>
