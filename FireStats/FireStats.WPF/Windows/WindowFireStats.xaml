@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FireStats.WPF.Windows" 
-        xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"
+        xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"        
+        xmlns:view="clr-namespace:FireStats.WPF.Pages"
         xmlns:oxy ="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="WindowFireStats" Height="700" Width="1000" WindowStyle="None" MinHeight="700" MinWidth="1000" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D" Loaded="Window_Loaded">
@@ -289,10 +290,10 @@
             <Grid Grid.Row="0" Grid.Column="1">
                 <Frame Content="{Binding CurrentPage}" 
                    Margin="5" 
-                   NavigationUIVisibility="Hidden"
-                   
+                   NavigationUIVisibility="Hidden"                   
                    BorderBrush="#FF4086CA"
-                   BorderThickness="2"/>
+                   BorderThickness="2">
+                </Frame>
             </Grid>
         </Grid>
 

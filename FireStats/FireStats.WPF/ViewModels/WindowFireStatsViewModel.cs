@@ -12,15 +12,14 @@ namespace FireStats.WPF.ViewModels
 {
     internal class WindowFireStatsViewModel : ViewModel
     {
-
-        private readonly ShowFiresPageModel _ShowFiresPage;
-
         private IEnumerable<DataPoint> _TestDataPoints;
         public IEnumerable<DataPoint> TestDataPoints 
         { 
             get => _TestDataPoints; 
             set => Set(ref _TestDataPoints, value);
         }
+        public ShowFirePageViewModel ShowFirePage { get; }
+
 
         private Page _CurrentPage;
         /// <summary>
@@ -96,8 +95,6 @@ namespace FireStats.WPF.ViewModels
         private bool CanShowEmergancyPageShowCommandExecute(object p) => true;
         #endregion
 
-
-
         #region EnterEmergancyPageShowCommand
 
         public ICommand EnterEmergancyPageShowCommand { get; }
@@ -164,7 +161,7 @@ namespace FireStats.WPF.ViewModels
         #endregion
         public WindowFireStatsViewModel()
         {
-            _ShowFiresPage = new ShowFiresPageModel(this);
+            ShowFirePage = new ShowFirePageViewModel(this);
 
             #region Команды
 

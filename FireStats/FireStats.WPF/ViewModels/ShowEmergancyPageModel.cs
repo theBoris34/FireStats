@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FireStats.WPF.Login.ViewModels
+namespace FireStats.WPF.ViewModels
 {
     class ShowEmergancyPageModel
     {

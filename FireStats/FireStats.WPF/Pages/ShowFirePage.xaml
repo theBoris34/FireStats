@@ -3,12 +3,19 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
-      xmlns:local="clr-namespace:FireStats.WPF.Pages" 
-      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+      xmlns:local="clr-namespace:FireStats.WPF.Pages"       
+      xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"        
+      xmlns:m="clr-namespace:FireStats.WPF.Models.Location"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" xmlns:c="clr-namespace:FireStats.WPF.Infrastructure.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="515" d:DesignWidth="600"
+      d:DataContext="{d:DesignInstance vm:ShowFirePageViewModel, d:IsDesignTimeCreatable=True}"
       Title="ShowFirePage">
+    <Page.DataContext>
+        <vm:ShowFirePageViewModel/>        
+    </Page.DataContext>
     <Page.Resources>
+        <c:LocationPointToStr x:Key="LocationConverter"/>
         <Style x:Key="PB" TargetType="PasswordBox">
             <Setter Property="Background" Value="#FF115089"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -105,13 +112,23 @@
             <GridSplitter/>
             <GroupBox Header="Список областей" Grid.Column="0">
                 <DockPanel>
-                    <Button DockPanel.Dock="Top">
+                    <Button DockPanel.Dock="Top" Command="{Binding RefreshDataCommand}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Height="12" Icon="ArrowDown"/>
-                            <TextBlock Text="Скачать данные"/>
+                            <fa:IconImage Height="12" Icon="ArrowDown" Margin="3,0"/>
+                            <TextBlock Text="Загрузить данные"/>
                         </StackPanel>
                     </Button>
-                    <ListBox></ListBox>
+                    <ListBox ItemsSource="{Binding Areas}" 
+                             SelectedItem="{Binding SelectedArea}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate DataType="m:AreaInfo">
+                                <TextBlock>
+                                    <TextBlock Text="{Binding Name}"/>                                  
+                                    <TextBlock Text="{Binding Location, Converter={StaticResource LocationConverter}, StringFormat=({0})}"/> 
+                                </TextBlock>
+                        </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </DockPanel>
             </GroupBox>
             <GroupBox Header="Информация" Grid.Column="1">

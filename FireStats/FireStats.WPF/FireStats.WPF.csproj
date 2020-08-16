@@ -87,6 +87,7 @@
     </ApplicationDefinition>
     <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
+    <Compile Include="Infrastructure\Converters\LocationPointToStr.cs" />
     <Compile Include="Models\ConfirmedCount.cs" />
     <Compile Include="Models\DataPoint.cs" />
     <Compile Include="Models\Departments\Department.cs" />
@@ -118,10 +119,10 @@
     <Compile Include="ViewModels\EnterFirePageModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\ShowEmergancyPageModel.cs" />
-    <Compile Include="ViewModels\ShowFiresPageModel.cs" />
     <Compile Include="Pages\EnterFirePage.xaml.cs">
       <DependentUpon>EnterFirePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ShowFirePageViewModel.cs" />
     <Compile Include="ViewModels\WindowFireStatsViewModel.cs" />
     <Compile Include="Windows\WindowFireStats.xaml.cs">
       <DependentUpon>WindowFireStats.xaml</DependentUpon>
