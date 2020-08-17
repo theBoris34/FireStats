@@ -9,6 +9,8 @@
         xmlns:oxy ="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="WindowFireStats" Height="700" Width="1000" WindowStyle="None" MinHeight="700" MinWidth="1000" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D" Loaded="Window_Loaded">
+    <!--DataContext="{Binding WindowFireStatsViewModel, Source={StaticResource Locator}}"-->
+    
     <Window.DataContext>
         <vm:WindowFireStatsViewModel/>
     </Window.DataContext>
