@@ -7,7 +7,9 @@
       xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"  
       xmlns:oxy="http://oxyplot.org/wpf"
       xmlns:m="clr-namespace:FireStats.WPF.Models.Location"
-      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" xmlns:c="clr-namespace:FireStats.WPF.Infrastructure.Converters"
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
+      xmlns:c="clr-namespace:FireStats.WPF.Infrastructure.Converters" 
+      xmlns:map="clr-namespace:MapControl;assembly=MapControl.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="515" d:DesignWidth="600"
       d:DataContext="{d:DesignInstance vm:ShowFirePageViewModel, d:IsDesignTimeCreatable=True}"
@@ -148,6 +150,15 @@
                                         ItemsSource="{Binding SelectedArea.Counts}"
                                         DataFieldX="Date" DataFieldY="Count"/>
                     </oxy:Plot>
+                    <map:Map Grid.Row="1" ZoomLevel="4" MaxZoomLevel="21" Center="{Binding SelectedArea.Location, Converter={c:PointToMapLocation}}">
+                        <map:MapScale Margin="4" Opacity="0.4" Background="Transparent" VerticalAlignment="Bottom"/>
+                        <map:MapGraticule Opacity="0.3" Background="Transparent"/>
+                        <map:Map.MapLayer>
+                            <map:MapTileLayer TileSource="http://{c}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"/>
+                            <!--map:MapTileLayer TileSource="http://tile.stamen.com/toner-lite/{z}/{x}/{y}.png"/-->
+                        </map:Map.MapLayer>
+
+                    </map:Map>
                 </Grid>
             </GroupBox>
         </Grid>

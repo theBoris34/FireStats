@@ -87,3 +87,4 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Resources\Styles\GridSplitter.baml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\App.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\MapControl.WPF.dll
