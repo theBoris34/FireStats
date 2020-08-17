@@ -1,4 +1,4 @@
-﻿using FireStats.WPF.Services;
+using FireStats.WPF.Services;
 using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +6,10 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+using System.Linq;
 using System.Windows;
 
 namespace FireStats.WPF
@@ -18,10 +22,12 @@ namespace FireStats.WPF
         public static bool IsDesignMode { get; private set; } = true;
 
         private static IHost __Host;
+
         public static IHost Host => __Host ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            var host = Host;
             IsDesignMode = false;
             var host = Host;
             base.OnStartup(e);

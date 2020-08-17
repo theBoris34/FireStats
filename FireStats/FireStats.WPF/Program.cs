@@ -16,6 +16,7 @@ namespace FireStats.WPF
 
         }
 
+
         public static IHostBuilder CreateHostBuilder(string[] Args) =>
             Host.CreateDefaultBuilder(Args)
                 .UseContentRoot(App.CurrentDirectory)
