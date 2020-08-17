@@ -3,7 +3,8 @@ using FireStats.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Linq;
+using System.IO;
+using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace FireStats.WPF
@@ -15,12 +16,26 @@ namespace FireStats.WPF
     {
         public static bool IsDesignMode { get; private set; } = true;
 
+        private static IHost __Host;
+        public static IHost Host => __Host ??= Program.CreateHostBuilder(Environment.GetCommandLineArgs()).Build();
 
-
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             IsDesignMode = false;
+            var host = Host;
             base.OnStartup(e);
+
+            await host.StartAsync().ConfigureAwait(false);
+        }
+
+        protected override async void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+
+            var host = Host;
+            await host.StartAsync().ConfigureAwait(false);
+            host.Dispose();
+            __Host = null;
         }
 
         public static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
@@ -29,5 +44,11 @@ namespace FireStats.WPF
             services.AddSingleton<ShowFirePageViewModel>();
 
         }
+
+        public static string CurrentDirectory => IsDesignMode 
+            ? Path.GetDirectoryName(GetSourceCodePath()) 
+            : Environment.CurrentDirectory;
+
+        private static string GetSourceCodePath([CallerFilePath] string Path = null) => Path;
     }
 }
