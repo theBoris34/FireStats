@@ -1,12 +1,8 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
-using FireStats.WPF.Models;
 using FireStats.WPF.Models.Location;
 using FireStats.WPF.Services;
 using FireStats.WPF.ViewModels.Base;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 namespace FireStats.WPF.ViewModels
