@@ -27,7 +27,6 @@ namespace FireStats.WPF
 
         protected override async void OnStartup(StartupEventArgs e)
         {
-            var host = Host;
             IsDesignMode = false;
             var host = Host;
             base.OnStartup(e);
@@ -45,13 +44,9 @@ namespace FireStats.WPF
             __Host = null;
         }
 
-        public static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
-        {
-            services.AddSingleton<IDataService, DataService>();
-            services.AddSingleton<ShowFirePageViewModel>();
-            services.AddSingleton<WindowFireStatsViewModel>();
-
-        }
+        public static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+                .RegisterServices()
+                .RegisterViewModels();
 
         public static string CurrentDirectory => IsDesignMode 
             ? Path.GetDirectoryName(GetSourceCodePath()) 

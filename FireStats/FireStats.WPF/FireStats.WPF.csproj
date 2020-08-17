@@ -239,12 +239,16 @@
       <DependentUpon>UserListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Services\AsyncDataService.cs" />
     <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\Interfaces\IAsyncDataService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
+    <Compile Include="Services\ServiceRegistration.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListPageViewModel.cs" />
     <Compile Include="ViewModels\EnterFirePageModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\Registrator.cs" />
     <Compile Include="ViewModels\ShowEmergancyPageModel.cs" />
     <Compile Include="Pages\EnterFirePage.xaml.cs">
       <DependentUpon>EnterFirePage.xaml</DependentUpon>
