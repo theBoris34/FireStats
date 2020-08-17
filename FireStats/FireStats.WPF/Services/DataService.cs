@@ -1,5 +1,6 @@
 ﻿using FireStats.WPF.Models;
 using FireStats.WPF.Models.Location;
+using FireStats.WPF.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -15,10 +16,14 @@ using System.Windows;
 namespace FireStats.WPF.Services
 {
     
-    internal class DataService
+    internal class DataService : IDataService
     {
         private const string _DataSourceAdress = @"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 
+        public DataService()
+        {
+
+        }
         /// <summary>
         /// Получение потока данных с сайта.
         /// </summary>

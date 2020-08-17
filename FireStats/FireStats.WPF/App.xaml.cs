@@ -1,4 +1,5 @@
 ﻿using FireStats.WPF.Services;
+using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -40,8 +41,9 @@ namespace FireStats.WPF
 
         public static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
-            services.AddSingleton<DataService>();
+            services.AddSingleton<IDataService, DataService>();
             services.AddSingleton<ShowFirePageViewModel>();
+            services.AddSingleton<WindowFireStatsViewModel>();
 
         }
 
