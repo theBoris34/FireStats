@@ -7,9 +7,12 @@ using FireStats.WPF.Infrastructure.Commands;
 using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Pages;
 using FireStats.WPF.Models;
+using System.Windows.Markup;
 
 namespace FireStats.WPF.ViewModels
 {
+
+    [MarkupExtensionReturnType(typeof(WindowFireStatsViewModel))]
     internal class WindowFireStatsViewModel : ViewModel
     {
         private IEnumerable<DataPoint> _TestDataPoints;
@@ -161,7 +164,7 @@ namespace FireStats.WPF.ViewModels
         #endregion
         public WindowFireStatsViewModel()
         {
-            ShowFirePage = new ShowFirePageViewModel(this);
+            ShowFirePage = new ShowFirePageViewModel();
 
             #region Команды
 
@@ -176,16 +179,6 @@ namespace FireStats.WPF.ViewModels
             ShowEmployeeListPageCommand = new LambdaCommand(OnShowEmployeeListPageCommandExecuted,CanShowEmployeeListPageCommandExecute);
             #endregion
 
-            var data_points = new List<DataPoint>((int) (360/0.1));
-            for (var x =0d; x<=360; x+=0.1)
-            {
-                const double to_rad = Math.PI / 180;
-                var y = Math.Sin(x * to_rad);
-
-                data_points.Add(new DataPoint { XValue = x, YValue = y });
-            }
-
-            TestDataPoints = data_points;
         }
         
 

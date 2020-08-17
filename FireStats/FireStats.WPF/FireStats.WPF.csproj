@@ -240,6 +240,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\Interfaces\IDataService.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListPageViewModel.cs" />
     <Compile Include="ViewModels\EnterFirePageModel.cs" />
@@ -249,6 +250,7 @@
       <DependentUpon>EnterFirePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ShowFirePageViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\WindowFireStatsViewModel.cs" />
     <Compile Include="Windows\WindowFireStats.xaml.cs">
       <DependentUpon>WindowFireStats.xaml</DependentUpon>
@@ -327,6 +329,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

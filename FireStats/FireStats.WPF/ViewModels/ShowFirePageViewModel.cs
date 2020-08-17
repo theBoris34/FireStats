@@ -1,12 +1,9 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
-using FireStats.WPF.Models;
 using FireStats.WPF.Models.Location;
 using FireStats.WPF.Services;
+using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels.Base;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 
 namespace FireStats.WPF.ViewModels
@@ -38,7 +35,7 @@ namespace FireStats.WPF.ViewModels
 
         #endregion
 
-        private DataService _DataService;
+        private readonly IDataService _DataService;
 
         public WindowFireStatsViewModel MainModel { get; internal set; }
 
@@ -85,10 +82,12 @@ namespace FireStats.WPF.ViewModels
 
 
 
-        public ShowFirePageViewModel(WindowFireStatsViewModel MainModel)
+        public ShowFirePageViewModel(IDataService DataService)
         {
-            this.MainModel = MainModel;
+            
             _DataService = new DataService();
+
+
             RefreshDataCommand = new LambdaCommand(OnRefreshDataCommandExecuted);
         }
     }
