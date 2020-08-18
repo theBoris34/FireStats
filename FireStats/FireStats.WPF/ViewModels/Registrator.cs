@@ -13,6 +13,7 @@ namespace FireStats.WPF.ViewModels
         {
             services.AddSingleton<ShowFirePageViewModel>();
             services.AddSingleton<WindowFireStatsViewModel>();
+            services.AddSingleton<WebServerViewModel>();
 
             return services;
         }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\App.xaml
-11-2143679408
+12-2105001050
 
-411067698920
-1691998378235
-Pages\EmployeeListPage.xaml;Pages\EnterEmergancyPage.xaml;Pages\ShowEmergancyPage.xaml;Pages\ShowFirePage.xaml;Pages\ShowPlotPage.xaml;Pages\UserListPage.xaml;Resources\Styles\GridSplitter.xaml;Windows\CheckInWindow.xaml;LoginWindow.xaml;Pages\EnterFirePage.xaml;Windows\WindowFireStats.xaml;
+451627975659
+1701049797727
+Pages\EmployeeListPage.xaml;Pages\EnterEmergancyPage.xaml;Pages\ShowEmergancyPage.xaml;Pages\ShowFirePage.xaml;Pages\ShowPlotPage.xaml;Pages\UserListPage.xaml;Pages\WebServerPage.xaml;Resources\Styles\GridSplitter.xaml;Windows\CheckInWindow.xaml;LoginWindow.xaml;Pages\EnterFirePage.xaml;Windows\WindowFireStats.xaml;
 
 False
 

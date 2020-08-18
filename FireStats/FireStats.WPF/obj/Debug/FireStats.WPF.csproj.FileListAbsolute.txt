@@ -157,3 +157,7 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\System.ValueTuple.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\appsettings.json
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\WebServerPage.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\WebServerPage.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\FireStats.Web.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\FireStats.Web.pdb

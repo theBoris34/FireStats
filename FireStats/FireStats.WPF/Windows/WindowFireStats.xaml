@@ -287,10 +287,11 @@
                     <Button Content="Посмотреть список пользователей" Command ="{Binding UserListPageShowCommand}"/>
                     <Button Content="Показать график" Command ="{Binding ShowPlotPageShowCommand}"/>
                     <Button Content="Список личного состава" Command ="{Binding ShowEmployeeListPageCommand}"/>
+                    <Button Content="Веб Сервер" Command ="{Binding WebServerPageCommand}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="0" Grid.Column="1">
-                <Frame Content="{Binding CurrentPage}" 
+                <Frame Name="PagesFrame" Content="{Binding CurrentPage}" 
                    Margin="5" 
                    NavigationUIVisibility="Hidden"                   
                    BorderBrush="#FF4086CA"
@@ -307,6 +308,9 @@
                 <StatusBarItem>
                     <ProgressBar Width="120" Height="20" Value="30"></ProgressBar>
                 </StatusBarItem>
+
+                
+
             </StackPanel>
         </Grid>
 

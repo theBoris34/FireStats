@@ -8,6 +8,7 @@ using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Pages;
 using FireStats.WPF.Models;
 using System.Windows.Markup;
+using FireStats.WPF.Services.Interfaces;
 
 namespace FireStats.WPF.ViewModels
 {
@@ -22,6 +23,7 @@ namespace FireStats.WPF.ViewModels
             set => Set(ref _TestDataPoints, value);
         }
         public ShowFirePageViewModel ShowFirePage { get; }
+        public WebServerViewModel WebServerPage { get; }
 
 
         private Page _CurrentPage;
@@ -117,6 +119,7 @@ namespace FireStats.WPF.ViewModels
 
         private void OnUserListPageShowCommandExecuted(object p)
         {
+            
             CurrentPage = new UserListPage();
         }
         private bool CanUserListPageShowCommandExecute(object p) => true;
@@ -161,10 +164,28 @@ namespace FireStats.WPF.ViewModels
         private bool CanChangeUserCommandExecute(object p) => true;
         #endregion
 
+
+
+        #region WebServerPageCommand
+        /// <summary>
+        /// Перезагрузка приложения.
+        /// </summary>
+        public ICommand WebServerPageCommand { get; }
+
+
+        private void OnWebServerPageCommandExecuted(object p)
+        {
+            CurrentPage = new WebServerPage();
+        }
+        private bool CanWebServerPageCommandExecute(object p) => true;
         #endregion
+
+        #endregion
+
         public WindowFireStatsViewModel()
         {
             ShowFirePage = new ShowFirePageViewModel();
+            WebServerPage = new WebServerViewModel();
 
             #region Команды
 
@@ -177,6 +198,7 @@ namespace FireStats.WPF.ViewModels
             ChangeUserCommand = new LambdaCommand(OnChangeUserCommandExecuted, CanChangeUserCommandExecute);
             ShowPlotPageShowCommand = new LambdaCommand(OnShowPlotPageShowCommandExecuted, CanShowPlotPageShowCommandExecute);
             ShowEmployeeListPageCommand = new LambdaCommand(OnShowEmployeeListPageCommandExecuted,CanShowEmployeeListPageCommandExecute);
+            WebServerPageCommand = new LambdaCommand(OnWebServerPageCommandExecuted, CanWebServerPageCommandExecute);
             #endregion
 
         }

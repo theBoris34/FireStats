@@ -1,5 +1,4 @@
 ﻿using FireStats.WPF.Services.Interfaces;
-using FireStats.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FireStats.WPF.Services
@@ -10,6 +9,7 @@ namespace FireStats.WPF.Services
         {
             services.AddSingleton<IDataService, DataService>();
             services.AddTransient<IAsyncDataService, AsyncDataService>();
+            services.AddTransient<IWebServerService, HttpListenerWebServer>();
 
             return services;
         }

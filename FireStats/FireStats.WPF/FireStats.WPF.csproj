@@ -238,11 +238,16 @@
     <Compile Include="Pages\UserListPage.xaml.cs">
       <DependentUpon>UserListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WebServerPage.xaml.cs">
+      <DependentUpon>WebServerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Services\AsyncDataService.cs" />
     <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\HttpListenerWebServer.cs" />
     <Compile Include="Services\Interfaces\IAsyncDataService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
+    <Compile Include="Services\Interfaces\IWebServerService.cs" />
     <Compile Include="Services\ServiceRegistration.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListPageViewModel.cs" />
@@ -255,6 +260,7 @@
     </Compile>
     <Compile Include="ViewModels\ShowFirePageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\WebServerViewModel.cs" />
     <Compile Include="ViewModels\WindowFireStatsViewModel.cs" />
     <Compile Include="Windows\WindowFireStats.xaml.cs">
       <DependentUpon>WindowFireStats.xaml</DependentUpon>
@@ -280,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\UserListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WebServerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -390,6 +400,10 @@
     <ProjectReference Include="..\FireStats.CMD\FireStats.CMD.csproj">
       <Project>{4e1e2ab4-1535-4703-8574-927577f59d45}</Project>
       <Name>FireStats.CMD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FireStats.Web\FireStats.Web.csproj">
+      <Project>{7eb4edb7-c4cf-423d-b13e-87ae0351985e}</Project>
+      <Name>FireStats.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
