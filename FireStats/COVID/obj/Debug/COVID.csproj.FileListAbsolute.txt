@@ -5,3 +5,6 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.csproj.CoreCompileInputs.cache
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.exe
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\bin\Debug\FireStats.Web.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\bin\Debug\FireStats.Web.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\COVID\obj\Debug\COVID.csproj.CopyComplete

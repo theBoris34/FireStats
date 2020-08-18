@@ -13,7 +13,7 @@ namespace FireStats.Web
     public class WebServer
     {
 
-        private event EventHandler<RequestReceiverEventArgs> RequestReceived;
+        public event EventHandler<RequestReceiverEventArgs> RequestReceived;
         //private TcpListener _Listener = new TcpListener(new IPEndPoint(IPAddress.Any,8080));
         private HttpListener _Listener;
         private readonly int _Port;
@@ -32,8 +32,8 @@ namespace FireStats.Web
             {
                 if (_Enabled) return;
                 _Listener = new HttpListener();
-                _Listener.Prefixes.Add($"http://*:{_Port}"); //регистрация порта
-                _Listener.Prefixes.Add($"http://+:{_Port}");
+                _Listener.Prefixes.Add($"http://*:{_Port}/"); //регистрация порта !!НЕОБХОДИМО РАЗРЕШИТЬ ИСПОЛЬЗОВАНЕ ПРЕФИКСА!!
+                _Listener.Prefixes.Add($"http://+:{_Port}/"); // вот это в CMD от админа! : netsh http add urlacl url=http://*:8080/ user=Akinf
                 _Enabled = true;
             }
             ListenAsync();
