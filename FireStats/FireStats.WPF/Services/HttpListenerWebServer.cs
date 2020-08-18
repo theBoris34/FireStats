@@ -24,7 +24,7 @@ namespace FireStats.WPF.Services
         private void OnRequestResived(object sender, RequestReceiverEventArgs e)
         {
             using var writer = new StreamWriter(e.Context.Response.OutputStream);
-            writer.WriteLine("Firestats Application!");
+            writer.WriteLine("Firestats Application!"+ DateTime.Now);
         }
     }
 }
