@@ -246,13 +246,17 @@
     <Compile Include="Services\AsyncDataService.cs" />
     <Compile Include="Services\Base\RepositoryInMemory.cs" />
     <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\DepartmentRepository.cs" />
+    <Compile Include="Services\DivisionRepository.cs" />
     <Compile Include="Services\EmployeeRepository.cs" />
+    <Compile Include="Services\EmployeesManager.cs" />
     <Compile Include="Services\HttpListenerWebServer.cs" />
     <Compile Include="Services\Interfaces\IAsyncDataService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
     <Compile Include="Services\Interfaces\IRepository.cs" />
     <Compile Include="Services\Interfaces\IWebServerService.cs" />
     <Compile Include="Services\ServiceRegistration.cs" />
+    <Compile Include="Services\TestData.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListPageViewModel.cs" />
     <Compile Include="ViewModels\EmployeesManagmentViewModel.cs" />

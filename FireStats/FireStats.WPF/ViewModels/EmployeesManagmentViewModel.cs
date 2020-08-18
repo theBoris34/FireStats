@@ -1,4 +1,6 @@
-﻿using FireStats.WPF.ViewModels.Base;
+﻿using FireStats.WPF.Models.Departments;
+using FireStats.WPF.Services;
+using FireStats.WPF.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,7 @@ namespace FireStats.WPF.ViewModels
 {
     class EmployeesManagmentViewModel : ViewModel
     {
+        private readonly EmployeesManager _EmployeesManager;
         #region Title : string - Заголовок окна
         /// <summary>
         /// Заголовок окна
@@ -18,8 +21,14 @@ namespace FireStats.WPF.ViewModels
         /// <summary>
         /// Заголовок окна
         /// </summary>
-        public string Title { get => _Title; set => Set(ref _Title, value); } 
+        public string Title { get => _Title; set => Set(ref _Title, value); }
         #endregion
 
+        public IEnumerable<Employee> Employees => _EmployeesManager.Employees;
+
+        public IEnumerable<Division> Divisions => _EmployeesManager.Divisions;
+
+        public EmployeesManagmentViewModel() : this() { }
+        public EmployeesManagmentViewModel(EmployeesManager EmployeesManager) => _EmployeesManager = EmployeesManager;
     }
 }

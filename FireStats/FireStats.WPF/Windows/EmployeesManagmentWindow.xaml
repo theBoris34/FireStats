@@ -38,7 +38,7 @@
                         <TextBox></TextBox>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Bottom">
-                        <ListBox  DisplayMemberPath="Name"
+                        <ListBox ItemsSource="{Binding Divisions}" DisplayMemberPath="Name"
                                      SelectedItem="" SelectedIndex="0"/>
                     </DockPanel>
                 </DockPanel>
