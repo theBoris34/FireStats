@@ -218,6 +218,7 @@
     <Compile Include="Models\Departments\Department.cs" />
     <Compile Include="Models\Departments\Division.cs" />
     <Compile Include="Models\Departments\Employee.cs" />
+    <Compile Include="Models\Interface\IEntity.cs" />
     <Compile Include="Models\Location\PlaceInfo.cs" />
     <Compile Include="Models\Location\AreaInfo.cs" />
     <Compile Include="Pages\EmployeeListPage.xaml.cs">
@@ -247,6 +248,7 @@
     <Compile Include="Services\HttpListenerWebServer.cs" />
     <Compile Include="Services\Interfaces\IAsyncDataService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />
+    <Compile Include="Services\Interfaces\IRepository.cs" />
     <Compile Include="Services\Interfaces\IWebServerService.cs" />
     <Compile Include="Services\ServiceRegistration.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
