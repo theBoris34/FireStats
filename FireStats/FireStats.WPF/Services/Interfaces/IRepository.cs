@@ -14,8 +14,8 @@ namespace FireStats.WPF.Services.Interfaces
 
         T Get(int id);
 
-        void Remove(T item);
+        bool Remove(T item);
 
-        void Update(T item);
+        void Update(int id,T item);
     }
 }

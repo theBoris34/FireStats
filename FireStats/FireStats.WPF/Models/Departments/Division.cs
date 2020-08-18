@@ -8,7 +8,7 @@ namespace FireStats.WPF.Models.Departments
     /// </summary>
     class Division : IEntity
     {
-        public int Id { get; set; }
+        public int Id { get; set; } 
         /// <summary> Название подразделения. </summary>
         public string Name { get; set; }
 

@@ -1,10 +1,12 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
 using FireStats.WPF.Models.Departments;
 using FireStats.WPF.ViewModels.Base;
+using FireStats.WPF.Windows;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
@@ -14,6 +16,36 @@ namespace FireStats.WPF.ViewModels
     {
 
         #region Команды
+
+
+
+        #region ManagmentEmployeesCommand
+        private EmployeesManagmentWindow _ManagmentEmployees;
+
+        public ICommand ManagmentEmployeesCommand { get; }
+
+        private void OnManagmentEmployeesCommandExecuted(object p)
+        {
+            var ManagmentEmployees = new EmployeesManagmentWindow
+            {
+                Owner = Application.Current.MainWindow
+            };
+            _ManagmentEmployees = ManagmentEmployees;
+
+            ManagmentEmployees.Closed += OnWindowClosed;
+
+            ManagmentEmployees.ShowDialog();
+
+        }
+
+        private void OnWindowClosed(object sender, EventArgs e)
+        {
+            ((Window)sender).Closed -= OnWindowClosed;
+            _ManagmentEmployees = null;
+        }
+
+        private bool CanManagmentEmployeesCommandExecute(object p) => _ManagmentEmployees == null;
+        #endregion
 
         #region CreateDivisionCommand
         public ICommand CreateDivisionCommand { get; }
@@ -175,6 +207,7 @@ namespace FireStats.WPF.ViewModels
             DeleteDivisionCommand = new LambdaCommand(OnDeleteDivisionCommandExecuted, CanDeleteDivisionCommandExecute);
             CreateEmployeeCommand = new LambdaCommand(OnCreateEmployeeCommandExecuted, CanCreateEmployeeCommandExecute);
             DeleteEmployeeCommand = new LambdaCommand(OnDeleteEmployeeCommandExecuted, CanDeleteEmployeeCommandExecute);
+            ManagmentEmployeesCommand = new LambdaCommand(OnManagmentEmployeesCommandExecuted, CanManagmentEmployeesCommandExecute);
             #endregion
 
             var employees_id = 1;
