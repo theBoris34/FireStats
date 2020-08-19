@@ -19,7 +19,7 @@ namespace FireStats.WPF.ViewModels
             services.AddSingleton<WebServerViewModel>();
             services.AddSingleton<ShowFirePageViewModel>();
             services.AddSingleton<EmployeeListPageViewModel>();
-            services.AddSingleton<EmployeesManagmentViewModel>();
+            services.AddTransient<EmployeesManagmentViewModel>();
             
 
             //services.AddTransient<IDataService, DataService>();
@@ -28,9 +28,7 @@ namespace FireStats.WPF.ViewModels
             services.AddTransient<IAsyncDataService, AsyncDataService>();
             services.AddTransient<IWebServerService, HttpListenerWebServer>();
 
-            services.AddSingleton<EmployeeRepository>();
-            services.AddSingleton<DivisionRepository>();
-            services.AddSingleton<EmployeesManagment>();
+            
 
             //services.AddTransient<IUserDialogService, WindowsUserDialogService>();
 

@@ -11,6 +11,9 @@ namespace FireStats.WPF.Services
             services.AddSingleton<IDataService, DataService>();
             services.AddTransient<IAsyncDataService, AsyncDataService>();
             services.AddTransient<IWebServerService, HttpListenerWebServer>();
+            services.AddSingleton<EmployeeRepository>();
+            services.AddSingleton<DivisionRepository>();
+            services.AddSingleton<EmployeesManagment>();
 
             return services;
         }
