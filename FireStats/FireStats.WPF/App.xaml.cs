@@ -43,8 +43,8 @@ namespace FireStats.WPF
                 .RegisterServices()
                 .RegisterViewModels();
 
-        public static string CurrentDirectory => IsDesignMode 
-            ? Path.GetDirectoryName(GetSourceCodePath()) 
+        public static string CurrentDirectory => IsDesignMode
+            ? Path.GetDirectoryName(GetSourceCodePath())
             : Environment.CurrentDirectory;
 
         private static string GetSourceCodePath([CallerFilePath] string Path = null) => Path;
