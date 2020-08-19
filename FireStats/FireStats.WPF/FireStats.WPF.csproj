@@ -258,6 +258,9 @@
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="ViewModels\WebServerViewModel.cs" />
     <Compile Include="ViewModels\WindowFireStatsViewModel.cs" />
+    <Compile Include="Windows\EmployeeEditorWindows.xaml.cs">
+      <DependentUpon>EmployeeEditorWindows.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EmployeesManagmentWindow.xaml.cs">
       <DependentUpon>EmployeesManagmentWindow.xaml</DependentUpon>
     </Compile>
@@ -316,6 +319,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\EnterFirePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EmployeeEditorWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
