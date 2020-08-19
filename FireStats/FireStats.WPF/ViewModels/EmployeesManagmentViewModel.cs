@@ -1,4 +1,5 @@
-﻿using FireStats.WPF.Models.Departments;
+﻿using FireStats.WPF.Infrastructure.Commands;
+using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services;
 using FireStats.WPF.ViewModels.Base;
 using System;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace FireStats.WPF.ViewModels
 {
@@ -106,6 +108,37 @@ namespace FireStats.WPF.ViewModels
         }
 
         #endregion
+        #region Команды
+
+        #region EditEmployeeCommand - Команда редактирования сотрудника
+        private ICommand _EditEmployeeCommand;
+
+        public ICommand EditEmployeeCommand => _EditEmployeeCommand ??= new LambdaCommand(OnEditEmployeeCommandExecuted, CanEditEmployeeCommandExecute);
+
+        private static bool CanEditEmployeeCommandExecute(object p) => p is Employee;
+
+        private void OnEditEmployeeCommandExecuted(object p)
+        {
+            var employee = (Employee)p;
+
+        }
+        #endregion 
+
+        #region CreateEmployeeCommand - Команда создания сотрудника
+        private ICommand _CreateEmployeeCommand;
+
+        public ICommand CreateEmployeeCommand => _EditEmployeeCommand ??= new LambdaCommand(OnCreateEmployeeCommandExecuted, CanCreateEmployeeCommandExecute);
+
+        private static bool CanCreateEmployeeCommandExecute(object p) => p is Division;
+
+        private void OnCreateEmployeeCommandExecuted(object p)
+        {
+            var division = (Division)p;
+
+        }
+        #endregion
+        #endregion
+
 
 
         public IEnumerable<Employee> Employees => _EmployeesManager.Employees;
