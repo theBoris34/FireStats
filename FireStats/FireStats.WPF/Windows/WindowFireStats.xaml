@@ -6,14 +6,16 @@
         xmlns:local="clr-namespace:FireStats.WPF.Windows" 
         xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"        
         xmlns:view="clr-namespace:FireStats.WPF.Pages"
-        xmlns:oxy ="http://oxyplot.org/wpf"
+        xmlns:oxy ="http://oxyplot.org/wpf"        
+        xmlns:cmd="clr-namespace:FireStats.WPF.Infrastructure.Commands"
         mc:Ignorable="d"
+        DataContext="{Binding FireStatsModel, Source={StaticResource Locator}}"
         Title="WindowFireStats" Height="700" Width="1000" WindowStyle="None" MinHeight="700" MinWidth="1000" WindowStartupLocation="CenterScreen" BorderBrush="#FF06345D" Loaded="Window_Loaded">
-    <!--DataContext="{Binding WindowFireStatsViewModel, Source={StaticResource Locator}}"-->
     
-    <Window.DataContext>
+    
+    <!--<Window.DataContext>
         <vm:WindowFireStatsViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <LinearGradientBrush.RelativeTransform>

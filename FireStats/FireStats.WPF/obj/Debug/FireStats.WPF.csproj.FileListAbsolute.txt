@@ -30,15 +30,6 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\CheckInWindow.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\WindowFireStats.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\EnterFirePage.g.cs
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\CommonServiceLocator.dll
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.Extras.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\Windows\CheckInWindow.baml
@@ -50,8 +41,6 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\o
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\Pages\ShowFirePage.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\Pages\ShowFirePage.baml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF.Login\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\CheckInWindow.baml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Pages\ShowFirePage.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -11,7 +11,7 @@ namespace FireStats.WPF.ViewModels
 {
     class EmployeesManagmentViewModel : ViewModel
     {
-        private readonly EmployeesManager _EmployeesManager;
+        private readonly EmployeesManagment _EmployeesManager;
         #region Title : string - Заголовок окна
         /// <summary>
         /// Заголовок окна
@@ -28,7 +28,6 @@ namespace FireStats.WPF.ViewModels
 
         public IEnumerable<Division> Divisions => _EmployeesManager.Divisions;
 
-        public EmployeesManagmentViewModel() : this() { }
-        public EmployeesManagmentViewModel(EmployeesManager EmployeesManager) => _EmployeesManager = EmployeesManager;
+        public EmployeesManagmentViewModel(EmployeesManagment EmployeesManager) => _EmployeesManager = EmployeesManager;
     }
 }

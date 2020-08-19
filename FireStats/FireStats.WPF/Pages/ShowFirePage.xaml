@@ -12,11 +12,11 @@
       xmlns:map="clr-namespace:MapControl;assembly=MapControl.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="515" d:DesignWidth="600"
-      d:DataContext="{d:DesignInstance vm:ShowFirePageViewModel, d:IsDesignTimeCreatable=True}"
+      DataContext="{Binding ShowFirePage, Source={StaticResource Locator}}"
       Title="ShowFirePage">
-    <Page.DataContext>
+    <!--Page.DataContext>
         <vm:ShowFirePageViewModel/>        
-    </Page.DataContext>
+    </Page.DataContext>-->
     <Page.Resources>
         <c:LocationPointToStr x:Key="LocationConverter"/>
         <Style x:Key="PB" TargetType="PasswordBox">

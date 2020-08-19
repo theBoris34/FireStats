@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FireStats.WPF.Services
 {
-    class EmployeesManager
+    class EmployeesManagment
     {
         private readonly EmployeeRepository _Employees;
         private readonly DivisionRepository _Divisions;
@@ -16,7 +16,7 @@ namespace FireStats.WPF.Services
 
         public IEnumerable<Division> Divisions => _Divisions.GetAll();
 
-        public EmployeesManager(EmployeeRepository Employees, DivisionRepository Divisions)
+        public EmployeesManagment(EmployeeRepository Employees, DivisionRepository Divisions)
         {
             _Employees = Employees;
             _Divisions = Divisions;

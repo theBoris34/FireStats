@@ -13,7 +13,6 @@ namespace FireStats.WPF
             app.InitializeComponent();
             app.Run();
 
-
         }
 
 
@@ -22,7 +21,7 @@ namespace FireStats.WPF
                 .UseContentRoot(App.CurrentDirectory)
                 .ConfigureAppConfiguration((host, cfg) => cfg
                     .SetBasePath(App.CurrentDirectory)
-                    .AddJsonFile("appsetings.json", optional: true, reloadOnChange: true))
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true))
                 .ConfigureServices(App.ConfigureServices);
 
     }

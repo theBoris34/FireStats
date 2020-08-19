@@ -34,7 +34,7 @@ namespace FireStats.WPF
             base.OnExit(e);
 
             var host = Host;
-            await host.StartAsync().ConfigureAwait(false);
+            await host.StopAsync().ConfigureAwait(false);
             host.Dispose();
             __Host = null;
         }

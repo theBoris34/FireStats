@@ -9,19 +9,24 @@ using FireStats.WPF.Pages;
 using FireStats.WPF.Models;
 using System.Windows.Markup;
 using FireStats.WPF.Services.Interfaces;
+using System.ComponentModel;
 
 namespace FireStats.WPF.ViewModels
 {
 
     [MarkupExtensionReturnType(typeof(WindowFireStatsViewModel))]
-    internal class WindowFireStatsViewModel : ViewModel
+    internal class WindowFireStatsViewModel : ViewModel, INotifyPropertyChanged
     {
+
         private IEnumerable<DataPoint> _TestDataPoints;
         public IEnumerable<DataPoint> TestDataPoints 
         { 
             get => _TestDataPoints; 
             set => Set(ref _TestDataPoints, value);
         }
+
+        private readonly IAsyncDataService _AsyncData;
+
         public ShowFirePageViewModel ShowFirePage { get; }
         public WebServerViewModel WebServerPage { get; }
 
@@ -60,6 +65,7 @@ namespace FireStats.WPF.ViewModels
         private void OnCloseApplicationCommandExecuted(object p)
         {
             if (MessageBox.Show("Закрыть приложение?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question).ToString() == "Yes")
+                //(RootObject as Window)?.Close();
                 Application.Current.Shutdown();
         }
         private bool CanCloseApplicationCommandExecute(object p) => true;
@@ -182,10 +188,13 @@ namespace FireStats.WPF.ViewModels
 
         #endregion
 
-        public WindowFireStatsViewModel()
+        public WindowFireStatsViewModel(/*ShowFirePageViewModel FirePage,*/ IAsyncDataService AsyncData, WebServerViewModel WebServer)
         {
-            ShowFirePage = new ShowFirePageViewModel();
-            WebServerPage = new WebServerViewModel();
+            CurrentPage = _CurrentPage;
+            _AsyncData = AsyncData;
+            //ShowFirePage = FirePage;
+            this.WebServerPage = WebServer;
+            //FirePage.MainModel = this;
 
             #region Команды
 

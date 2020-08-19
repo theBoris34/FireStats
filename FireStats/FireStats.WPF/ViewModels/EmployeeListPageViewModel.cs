@@ -1,6 +1,7 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
 using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services;
+using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Windows;
 using System;
@@ -16,8 +17,10 @@ namespace FireStats.WPF.ViewModels
 {
     internal class EmployeeListPageViewModel : ViewModel
     {
+        private readonly IDataService _DataService;
+        public WindowFireStatsViewModel MainModel { get; internal set; }
 
-        private readonly EmployeesManager _EmployeesManager;
+        private readonly EmployeesManagment _EmployeesManager;
 
         #region Команды
 
@@ -125,7 +128,7 @@ namespace FireStats.WPF.ViewModels
             set
             {
                 if(!Set(ref _EmployesFilterText, value))return;
-                _SelecedDivisionEmployees.View.Refresh();
+                _SelecedDivisionEmployees.View.Refresh(); //System.NullReferenceException: "Ссылка на объект не указывает на экземпляр объекта."
             }
         }
 
@@ -137,23 +140,19 @@ namespace FireStats.WPF.ViewModels
         public IEnumerable<Division> Divisions => _EmployeesManager.Divisions;
         
 
-        public EmployeeListPageViewModel()
+        public EmployeeListPageViewModel(IDataService DataService)
         {
-
+            _DataService = DataService;
             _SelecedDivisionEmployees.Filter += OnEmployeesFilter;
             _SelecedDivisionEmployees.GroupDescriptions.Add(new PropertyGroupDescription("Position"));
 
-            #region Команды
-            //CreateDivisionCommand = new LambdaCommand(OnCreateDivisionCommandExecuted, CanCreateDivisionCommandExecute);
-            //DeleteDivisionCommand = new LambdaCommand(OnDeleteDivisionCommandExecuted, CanDeleteDivisionCommandExecute);
-            //CreateEmployeeCommand = new LambdaCommand(OnCreateEmployeeCommandExecuted, CanCreateEmployeeCommandExecute);
-            //DeleteEmployeeCommand = new LambdaCommand(OnDeleteEmployeeCommandExecuted, CanDeleteEmployeeCommandExecute);
+            #region Команды           
             ManagmentEmployeesCommand = new LambdaCommand(OnManagmentEmployeesCommandExecuted, CanManagmentEmployeesCommandExecute);
             #endregion
                         
             var er = new EmployeeRepository();
             var dr = new DivisionRepository();
-            _EmployeesManager = new EmployeesManager(er ,dr);
+            _EmployeesManager = new EmployeesManagment(er ,dr);
 
         }
 

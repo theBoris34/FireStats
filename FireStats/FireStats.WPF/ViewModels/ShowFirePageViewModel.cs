@@ -10,6 +10,11 @@ namespace FireStats.WPF.ViewModels
 {
     internal class ShowFirePageViewModel : ViewModel
     {
+        private readonly IDataService _DataService;
+
+        public WindowFireStatsViewModel MainModel { get; internal set; }
+
+
         #region IEnumerable<AreaInfo> - Статистика по областям
 
         private IEnumerable<AreaInfo> _Areas;
@@ -35,9 +40,7 @@ namespace FireStats.WPF.ViewModels
 
         #endregion
 
-        private readonly IDataService _DataService;
-
-        public WindowFireStatsViewModel MainModel { get; internal set; }
+      
 
 
         #region Команды
@@ -56,36 +59,36 @@ namespace FireStats.WPF.ViewModels
         /// <summary>
         /// Отладочный конструктор, используемый в визуальном дизайнере.
         /// </summary>
-        public ShowFirePageViewModel():this(null)
-        {
-            /*
-           if (!App.IsDesignMode)
-                throw new InvalidOperationException("Вызов конструктора, непредназначенного для использования в обычном режиме!");
+        //public ShowFirePageViewModel():this(null)
+        //{
+        //    
+        //   if (!App.IsDesignMode)
+        //        throw new InvalidOperationException("Вызов конструктора, непредназначенного для использования в обычном режиме!");
 
-            _Areas = Enumerable.Range(1, 10)
-                .Select(i => new AreaInfo
-                {
-                    Name = $"Area|Область {i}",
-                    Districts = Enumerable.Range(1, 10).Select(j => new PlaceInfo
-                    {
-                        Name = $"District|Район {j}",
-                        Location = new Point(i, j),
-                        Counts = Enumerable.Range(1,10).Select(k=> new ConfirmedCount 
-                        {
-                            Date =  DateTime.Now.Subtract(TimeSpan.FromDays(100-k)),
-                            Count = k
-                        }).ToArray()
-                    }).ToArray()
-                }).ToArray(); */
+        //    _Areas = Enumerable.Range(1, 10)
+        //        .Select(i => new AreaInfo
+        //        {
+        //            Name = $"Area|Область {i}",
+        //            Districts = Enumerable.Range(1, 10).Select(j => new PlaceInfo
+        //            {
+        //                Name = $"District|Район {j}",
+        //                Location = new Point(i, j),
+        //                Counts = Enumerable.Range(1,10).Select(k=> new ConfirmedCount 
+        //                {
+        //                    Date =  DateTime.Now.Subtract(TimeSpan.FromDays(100-k)),
+        //                    Count = k
+        //                }).ToArray()
+        //            }).ToArray()
+        //        }).ToArray(); 
             
-        }
+        //}
 
 
 
         public ShowFirePageViewModel(IDataService DataService)
         {
             
-            _DataService = new DataService();
+            _DataService = DataService;
 
 
             RefreshDataCommand = new LambdaCommand(OnRefreshDataCommandExecuted);
