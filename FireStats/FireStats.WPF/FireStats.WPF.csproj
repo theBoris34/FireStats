@@ -243,8 +243,10 @@
     <Compile Include="Services\Interfaces\IDataService.cs" />
     <Compile Include="Services\Interfaces\IRepository.cs" />
     <Compile Include="Services\Interfaces\IWebServerService.cs" />
+    <Compile Include="Services\Interfaces\IUserDialogService.cs" />
     <Compile Include="Services\ServiceRegistration.cs" />
     <Compile Include="Services\TestData.cs" />
+    <Compile Include="Services\WindowsUserDialogService.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\EmployeeListPageViewModel.cs" />
     <Compile Include="ViewModels\EmployeesManagmentViewModel.cs" />

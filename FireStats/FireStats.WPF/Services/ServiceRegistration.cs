@@ -14,6 +14,7 @@ namespace FireStats.WPF.Services
             services.AddSingleton<EmployeeRepository>();
             services.AddSingleton<DivisionRepository>();
             services.AddSingleton<EmployeesManagment>();
+            services.AddSingleton<IUserDialogService,WindowsUserDialogService>();
 
             return services;
         }

@@ -8,8 +8,7 @@
         Height="330" Width="450"
         DataContext="{Binding RelativeSource={RelativeSource Self} }"
         ResizeMode="NoResize" 
-        ShowInTaskbar="False" 
-        WindowStyle="ToolWindow">
+        ShowInTaskbar="False">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="34"/>

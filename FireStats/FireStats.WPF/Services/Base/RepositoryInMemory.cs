@@ -32,7 +32,7 @@ namespace FireStats.WPF.Services.Base
 
         public T Get(int id)
         {
-            throw new NotImplementedException();
+            return GetAll().FirstOrDefault(item => item.Id == id);
         }
 
         public IEnumerable<T> GetAll() => _Items;

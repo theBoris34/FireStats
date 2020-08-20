@@ -118,9 +118,11 @@
                                     <Setter Property="HorizontalAlignment" Value="Right"/>
                                     <Setter Property="Margin" Value="0,0,2,0"/>
                                     <Setter Property="FontWeight" Value="Bold"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
                                 </Trigger>
                                 <Trigger Property="Grid.Column" Value="1">
-                                    <Setter Property="Margin" Value="0,2,0,0"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="0,0,2,0"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
@@ -130,6 +132,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>

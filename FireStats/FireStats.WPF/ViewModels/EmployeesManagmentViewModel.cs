@@ -1,6 +1,7 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
 using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services;
+using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Windows;
 using System;
@@ -18,7 +19,8 @@ namespace FireStats.WPF.ViewModels
 {
     class EmployeesManagmentViewModel : ViewModel
     {
-        private readonly EmployeesManagment _EmployeesManager;
+        private readonly EmployeesManagment _EmployeesManagment;
+        private readonly IUserDialogService _UserDialog;
         #region Title : string - Заголовок окна
         /// <summary>
         /// Заголовок окна
@@ -123,21 +125,14 @@ namespace FireStats.WPF.ViewModels
         {
             var employee = (Employee)p;
 
-            var dlg = new EmployeeEditorWindows
+            if(_UserDialog.Edit(p))
             {
-                FirstName = employee.Name,
-                SurName = employee.Surname,
-                Patronymic = employee.Patronymic,
-                Birthday = employee.Birthday,
-                Rank = employee.Rank,
-                Position = employee.Position,
-                Note = employee.Note
-            };
-
-            if (dlg.ShowDialog() == true)
-                MessageBox.Show("Сотрудник изменён!");
+                _EmployeesManagment.Udate((Employee)p);
+                _UserDialog.ShowInformation("Сотрудник отредактирован!", "Редактирование сотрудников");
+                OnPropertyChanged(nameof(Employees));
+            }
             else
-                MessageBox.Show("Изменения не внесены!");
+                _UserDialog.ShowWarning("Сотрудник не отредактирован!", "Редактирование сотрудников");
 
         }
         #endregion 
@@ -153,25 +148,35 @@ namespace FireStats.WPF.ViewModels
         {
             var division = (Division)p;
 
-            MessageBox.Show("Создать работника");
+            var employee =  new Employee();
 
+            if (!_UserDialog.Edit(employee) || _EmployeesManagment.Create(employee, division.Name))
+            {
+                OnPropertyChanged(nameof(Employees));
+                return;
+            }
+            
+            if (_UserDialog.Confirm("Не удалось создать сотрудника. Повторить?", "Создать сотрудника"))
+                    OnCreateEmployeeCommandExecuted(p);
+           
         }
         #endregion
         #endregion
 
 
 
-        public IEnumerable<Employee> Employees => _EmployeesManager.Employees;
+        public IEnumerable<Employee> Employees => _EmployeesManagment.Employees;
 
-        public IEnumerable<Division> Divisions => _EmployeesManager.Divisions;
+        public IEnumerable<Division> Divisions => _EmployeesManagment.Divisions;
 
-        public EmployeesManagmentViewModel(EmployeesManagment EmployeesManager)
+        public EmployeesManagmentViewModel(EmployeesManagment EmployeesManager, IUserDialogService UserDialog)
         {
             #region Команды
             //EditEmployeeCommand = new LambdaCommand(OnEditEmployeeCommandExecuted, CanEditEmployeeCommandExecute);
             #endregion
 
-            _EmployeesManager = EmployeesManager;
+            _EmployeesManagment = EmployeesManager;
+            _UserDialog = UserDialog;
         }
     }
 }
