@@ -1,0 +1,9 @@
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\bin\Debug\netstandard2.1\FireStats.Web.deps.json
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\bin\Debug\netstandard2.1\FireStats.Web.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\bin\Debug\netstandard2.1\FireStats.Web.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\obj\Debug\netstandard2.1\FireStats.Web.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\obj\Debug\netstandard2.1\FireStats.Web.AssemblyInfoInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\obj\Debug\netstandard2.1\FireStats.Web.AssemblyInfo.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\obj\Debug\netstandard2.1\FireStats.Web.csproj.CoreCompileInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\obj\Debug\netstandard2.1\FireStats.Web.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.Web\obj\Debug\netstandard2.1\FireStats.Web.pdb

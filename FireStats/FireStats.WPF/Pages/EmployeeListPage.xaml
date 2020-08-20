@@ -4,21 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FireStats.WPF.Pages"  
-      xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"        
+      xmlns:vm="clr-namespace:FireStats.WPF.ViewModels"  
+      xmlns:cmd="clr-namespace:FireStats.WPF.Infrastructure.Commands"
       xmlns:departments="clr-namespace:FireStats.WPF.Models.Departments" 
       xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding EmployeeListPage, Source={StaticResource Locator}}"
       Title="EmployeeListPage">
-    <Page.DataContext>
-        <vm:EmployeeListPageViewModel/>
-    </Page.DataContext>
-
+   
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="54"/>
-            <RowDefinition Height="364*"/>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="364*"/>
+            <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <TextBlock Text="СПИСОК ЛИЧНОГО СОСТАВА" Grid.Row="0" VerticalAlignment="Center" 
                    HorizontalAlignment="Center" Foreground="#FF9CCAFF"
@@ -126,7 +125,16 @@
                 <Button Margin="10,0" Command="{Binding DeleteEmployeeCommand}" CommandParameter="{Binding SelectedEmployee}">
                      <StackPanel Orientation="Horizontal">
                         <fa:IconImage Icon="Times" Margin="5,0" Height="12" Foreground="DarkRed" />
-                        <TextBlock Text="Удалить Сотрудника" Margin="0,0,10,0"/>
+                        <TextBlock Text="Удалить сотрудника" Margin="0,0,10,0"/>
+                    </StackPanel>
+                </Button>
+                <Button Margin="10,0">
+                    <Button.Command>
+                        <cmd:ManageEmployeeCommand/>
+                    </Button.Command>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="PencilAlt" Margin="5,0" Height="12" Foreground="Black" />
+                        <TextBlock Text="Управление сотрудниками" Margin="0,0,10,0"/>
                     </StackPanel>
                 </Button>
             </StackPanel>

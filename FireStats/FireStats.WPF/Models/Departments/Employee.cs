@@ -1,9 +1,12 @@
-﻿using System;
+﻿using FireStats.WPF.Models.Interface;
+using System;
 
 namespace FireStats.WPF.Models.Departments
 {
-    internal class Employee
+    internal class Employee : IEntity
     {
+
+        public int Id { get; set; }
         /// <summary> Имя сотрудника. </summary>
         public string Name { get; set; }
 

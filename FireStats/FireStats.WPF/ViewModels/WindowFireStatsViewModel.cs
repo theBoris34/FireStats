@@ -8,20 +8,27 @@ using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Pages;
 using FireStats.WPF.Models;
 using System.Windows.Markup;
+using FireStats.WPF.Services.Interfaces;
+using System.ComponentModel;
 
 namespace FireStats.WPF.ViewModels
 {
 
     [MarkupExtensionReturnType(typeof(WindowFireStatsViewModel))]
-    internal class WindowFireStatsViewModel : ViewModel
+    internal class WindowFireStatsViewModel : ViewModel, INotifyPropertyChanged
     {
+
         private IEnumerable<DataPoint> _TestDataPoints;
         public IEnumerable<DataPoint> TestDataPoints 
         { 
             get => _TestDataPoints; 
             set => Set(ref _TestDataPoints, value);
         }
+
+        private readonly IAsyncDataService _AsyncData;
+
         public ShowFirePageViewModel ShowFirePage { get; }
+        public WebServerViewModel WebServerPage { get; }
 
 
         private Page _CurrentPage;
@@ -58,6 +65,7 @@ namespace FireStats.WPF.ViewModels
         private void OnCloseApplicationCommandExecuted(object p)
         {
             if (MessageBox.Show("Закрыть приложение?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question).ToString() == "Yes")
+                //(RootObject as Window)?.Close();
                 Application.Current.Shutdown();
         }
         private bool CanCloseApplicationCommandExecute(object p) => true;
@@ -117,6 +125,7 @@ namespace FireStats.WPF.ViewModels
 
         private void OnUserListPageShowCommandExecuted(object p)
         {
+            
             CurrentPage = new UserListPage();
         }
         private bool CanUserListPageShowCommandExecute(object p) => true;
@@ -161,10 +170,31 @@ namespace FireStats.WPF.ViewModels
         private bool CanChangeUserCommandExecute(object p) => true;
         #endregion
 
-        #endregion
-        public WindowFireStatsViewModel()
+
+
+        #region WebServerPageCommand
+        /// <summary>
+        /// Перезагрузка приложения.
+        /// </summary>
+        public ICommand WebServerPageCommand { get; }
+
+
+        private void OnWebServerPageCommandExecuted(object p)
         {
-            ShowFirePage = new ShowFirePageViewModel();
+            CurrentPage = new WebServerPage();
+        }
+        private bool CanWebServerPageCommandExecute(object p) => true;
+        #endregion
+
+        #endregion
+
+        public WindowFireStatsViewModel(/*ShowFirePageViewModel FirePage,*/ IAsyncDataService AsyncData, WebServerViewModel WebServer)
+        {
+            CurrentPage = _CurrentPage;
+            _AsyncData = AsyncData;
+            //ShowFirePage = FirePage;
+            this.WebServerPage = WebServer;
+            //FirePage.MainModel = this;
 
             #region Команды
 
@@ -177,6 +207,7 @@ namespace FireStats.WPF.ViewModels
             ChangeUserCommand = new LambdaCommand(OnChangeUserCommandExecuted, CanChangeUserCommandExecute);
             ShowPlotPageShowCommand = new LambdaCommand(OnShowPlotPageShowCommandExecuted, CanShowPlotPageShowCommandExecute);
             ShowEmployeeListPageCommand = new LambdaCommand(OnShowEmployeeListPageCommandExecuted,CanShowEmployeeListPageCommandExecute);
+            WebServerPageCommand = new LambdaCommand(OnWebServerPageCommandExecuted, CanWebServerPageCommandExecute);
             #endregion
 
         }

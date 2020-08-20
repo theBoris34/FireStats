@@ -1,10 +1,13 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
 using FireStats.WPF.Models.Departments;
+using FireStats.WPF.Services;
+using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels.Base;
+using FireStats.WPF.Windows;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
@@ -12,78 +15,44 @@ namespace FireStats.WPF.ViewModels
 {
     internal class EmployeeListPageViewModel : ViewModel
     {
+        private readonly IDataService _DataService;
+        public WindowFireStatsViewModel MainModel { get; internal set; }
+
+        private readonly EmployeesManagment _EmployeesManager;
 
         #region Команды
 
-        #region CreateDivisionCommand
-        public ICommand CreateDivisionCommand { get; }
+        #region ManagmentEmployeesCommand
+        private EmployeesManagmentWindow _ManagmentEmployees;
 
-        private void OnCreateDivisionCommandExecuted(object p)
+        public ICommand ManagmentEmployeesCommand { get; }
+
+        private void OnManagmentEmployeesCommandExecuted(object p)
         {
-            var division_max_index = Divisions.Count + 1;
-            var new_division = new Division
+            var ManagmentEmployees = new EmployeesManagmentWindow
             {
-                Name = $"Подразделение {division_max_index}",
-                Employees = new ObservableCollection<Employee>()
+                Owner = Application.Current.MainWindow
             };
-            Divisions.Add(new_division);
+            _ManagmentEmployees = ManagmentEmployees;
+
+            ManagmentEmployees.Closed += OnWindowClosed;
+
+            ManagmentEmployees.ShowDialog();
 
         }
-        private bool CanCreateDivisionCommandExecute(object p) => true;
-        #endregion
 
-        #region DeleteDivisionCommand
-        public ICommand DeleteDivisionCommand { get; }
-
-        private void OnDeleteDivisionCommandExecuted(object p)
+        private void OnWindowClosed(object sender, EventArgs e)
         {
-            if (!(p is Division division)) return;
-            var division_index = Divisions.IndexOf(division);
-            Divisions.Remove(division);
-            if (division_index < Divisions.Count)
-                SelectedDivision = Divisions[division_index];
-
+            ((Window)sender).Closed -= OnWindowClosed;
+            _ManagmentEmployees = null;
         }
-        private bool CanDeleteDivisionCommandExecute(object p) => p is Division division && Divisions.Contains(division);
-        #endregion
 
-        #region CreateEmployeeCommand
-        public ICommand CreateEmployeeCommand { get; }
-
-        private void OnCreateEmployeeCommandExecuted(object p)
-        {
-            int employee_max_index = 80;
-            var new_employee = new Employee
-            {
-                Name = $"Имя {employee_max_index}",
-                Surname = $"Фамилия {employee_max_index}",
-                Patronymic = $"Отчество {employee_max_index}",
-                Birthday = DateTime.Now,
-                Position = $"Должность {employee_max_index}",
-                Rank = $"Звание {employee_max_index}"
-            };
-            SelectedDivision.Employees.Add(new_employee);
-
-        }
-        private bool CanCreateEmployeeCommandExecute(object p) => SelectedDivision is Division;
-        #endregion
-
-        #region DeleteEmployeeCommand
-        public ICommand DeleteEmployeeCommand { get; }
-
-        private void OnDeleteEmployeeCommandExecuted(object p)
-        {
-            if (!(p is Employee employee)) return;
-            SelectedDivision.Employees.Remove(employee);
-        }
-        private bool CanDeleteEmployeeCommandExecute(object p) => p is Employee employee && SelectedDivision.Employees.Contains(employee);
-        #endregion
-
+        private bool CanManagmentEmployeesCommandExecute(object p) => _ManagmentEmployees == null;
         #endregion
 
         #region SelecedDivisionEmployees
         private void OnEmployeesFilter(object sender, FilterEventArgs e)
-        {
+         {
             if(!(e.Item is Employee employee))
             { 
                 e.Accepted = false;
@@ -96,7 +65,6 @@ namespace FireStats.WPF.ViewModels
                 e.Accepted = false;
                 return;
             }
-
 
             if (filter_text.Length == 0) return;
 
@@ -114,7 +82,7 @@ namespace FireStats.WPF.ViewModels
 
         public ICollectionView SelecedDivisionEmployees => _SelecedDivisionEmployees?.View;
         #endregion
-
+            
         #region SelectedDivision
         private Division _SelectedDivision;
         /// <summary>
@@ -158,46 +126,32 @@ namespace FireStats.WPF.ViewModels
             set
             {
                 if(!Set(ref _EmployesFilterText, value))return;
-                _SelecedDivisionEmployees.View.Refresh();
+                _SelecedDivisionEmployees.View.Refresh(); //System.NullReferenceException: "Ссылка на объект не указывает на экземпляр объекта."
             }
         }
 
         #endregion
 
-        public ObservableCollection<Division> Divisions { get; }
+        #endregion
 
-        public EmployeeListPageViewModel()
+        public IEnumerable<Employee> Employees => _EmployeesManager.Employees;
+        public IEnumerable<Division> Divisions => _EmployeesManager.Divisions;
+        
+
+        public EmployeeListPageViewModel(IDataService DataService)
         {
-
-
-            #region Команды
-            CreateDivisionCommand = new LambdaCommand(OnCreateDivisionCommandExecuted, CanCreateDivisionCommandExecute);
-            DeleteDivisionCommand = new LambdaCommand(OnDeleteDivisionCommandExecuted, CanDeleteDivisionCommandExecute);
-            CreateEmployeeCommand = new LambdaCommand(OnCreateEmployeeCommandExecuted, CanCreateEmployeeCommandExecute);
-            DeleteEmployeeCommand = new LambdaCommand(OnDeleteEmployeeCommandExecuted, CanDeleteEmployeeCommandExecute);
-            #endregion
-
-            var employees_id = 1;
-            var employees = Enumerable.Range(1, 7).Select(i => new Employee
-            {
-                Name = $"Имя {employees_id}",
-                Surname = $"Фамилия {employees_id}",
-                Patronymic = $"Отчество {employees_id}",
-                Birthday = DateTime.Now,
-                Position = $"Должность {employees_id}",
-                Rank = $"Звание {employees_id++}"
-
-            });
-            var divisions = Enumerable.Range(1, 10).Select(i => new Division 
-            {
-                Name = $"Подразделение {i}",
-                Employees = new ObservableCollection<Employee>(employees)
-            });
-
-            Divisions = new ObservableCollection<Division>(divisions);
-
+            _DataService = DataService;
             _SelecedDivisionEmployees.Filter += OnEmployeesFilter;
             _SelecedDivisionEmployees.GroupDescriptions.Add(new PropertyGroupDescription("Position"));
+
+            #region Команды           
+            ManagmentEmployeesCommand = new LambdaCommand(OnManagmentEmployeesCommandExecuted, CanManagmentEmployeesCommandExecute);
+            #endregion
+                        
+            var er = new EmployeeRepository();
+            var dr = new DivisionRepository();
+            _EmployeesManager = new EmployeesManagment(er ,dr);
+
         }
 
         

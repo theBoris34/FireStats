@@ -1,15 +1,10 @@
 using FireStats.WPF.Services;
-using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Linq;
 using System.Windows;
 
 namespace FireStats.WPF
@@ -27,7 +22,6 @@ namespace FireStats.WPF
 
         protected override async void OnStartup(StartupEventArgs e)
         {
-            var host = Host;
             IsDesignMode = false;
             var host = Host;
             base.OnStartup(e);
@@ -40,21 +34,17 @@ namespace FireStats.WPF
             base.OnExit(e);
 
             var host = Host;
-            await host.StartAsync().ConfigureAwait(false);
+            await host.StopAsync().ConfigureAwait(false);
             host.Dispose();
             __Host = null;
         }
 
-        public static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
-        {
-            services.AddSingleton<IDataService, DataService>();
-            services.AddSingleton<ShowFirePageViewModel>();
-            services.AddSingleton<WindowFireStatsViewModel>();
+        public static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+                .RegisterServices()
+                .RegisterViewModels();
 
-        }
-
-        public static string CurrentDirectory => IsDesignMode 
-            ? Path.GetDirectoryName(GetSourceCodePath()) 
+        public static string CurrentDirectory => IsDesignMode
+            ? Path.GetDirectoryName(GetSourceCodePath())
             : Environment.CurrentDirectory;
 
         private static string GetSourceCodePath([CallerFilePath] string Path = null) => Path;
