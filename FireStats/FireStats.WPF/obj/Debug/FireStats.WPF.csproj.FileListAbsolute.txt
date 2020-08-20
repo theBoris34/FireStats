@@ -152,3 +152,5 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\FireStats.Web.pdb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeesManagmentWindow.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeesManagmentWindow.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeeEditorWindows.g.cs
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeeEditorWindows.baml

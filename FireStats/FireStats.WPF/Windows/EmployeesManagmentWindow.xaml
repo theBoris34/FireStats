@@ -73,7 +73,7 @@
                         <TextBox></TextBox>
                     </DockPanel>
                     <DockPanel DockPanel.Dock="Bottom">
-                        <ListBox  ItemsSource="{Binding SelecedDivisionEmployees}"
+                            <ListBox  ItemsSource="{Binding SelectedDivision.Employees}"
                                   SelectedItem="{Binding SelectedEmployee}"
                                   SelectedIndex="0">
                             <ListBox.ItemContainerStyle>
@@ -99,17 +99,17 @@
                     </DockPanel>
                 </DockPanel>
                     <DockPanel Grid.Row="1" Margin="2">
-                        <Button DockPanel.Dock="Left" Margin="6,0" Width="80">
+                        <Button DockPanel.Dock="Left" Margin="6,0" Width="80" Command="{Binding CreateEmployeeCommand}" CommandParameter="{Binding SelectedDivision}">
                             <fa:IconImage Icon="UserPlus" Height="22"/>
                         </Button>
-                        <Button DockPanel.Dock="Right" Margin="6,0" Width="80">
+                        <Button DockPanel.Dock="Right" Margin="6,0" Width="80" Command="{Binding EditEmployeeCommand}" CommandParameter="{Binding SelectedEmployee}">
                             <fa:IconImage Icon="UserEdit" Height="22"/>
                         </Button>
                     </DockPanel>
                 </Grid>
             </GroupBox>
 
-            <GroupBox Grid.Column="2" Header="Информация" DataContext="{Binding SelectedEmployee}">
+            <GroupBox Grid.Column="2" Header="Информация" DataContext="{Binding SelectedEmployee}" MinWidth="250">
                 <Grid>
                     <Grid.Resources>
                         <Style TargetType="TextBlock">

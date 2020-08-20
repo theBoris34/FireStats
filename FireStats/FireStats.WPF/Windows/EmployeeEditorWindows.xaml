@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FireStats.WPF.Windows"
+        xmlns:local="clr-namespace:FireStats.WPF.Windows" xmlns:commands="clr-namespace:FireStats.WPF.Infrastructure.Commands"
         mc:Ignorable="d"
-        Height="330" Width="450">
+        Height="330" Width="450"
+        DataContext="{Binding RelativeSource={RelativeSource Self} }"
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False" 
+        WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="34"/>
@@ -54,14 +58,33 @@
             <TextBlock Grid.Column="0" Grid.Row="5" Text="Звание: "/>
             <TextBlock Grid.Column="0" Grid.Row="6" Text="Примечание: "/>
 
-            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Surname}"/>
-            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name}"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding SurName}"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding FirstName}"/>
             <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Patronymic}"/>
-            <DatePicker Grid.Column="1" Grid.Row="3" Margin="3,0,0,2"/>
+            <DatePicker Grid.Column="1" Grid.Row="3" Margin="3,0,0,2" SelectedDate="{Binding Birthday}" />
             <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Position}" />
             <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Rank}"/>
             <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Note}"/>
 
         </Grid>
+        <UniformGrid  Rows="1" 
+                      VerticalAlignment="Center" 
+                      HorizontalAlignment="Center" 
+                      Grid.Row="2"
+                      Height="30"
+                      Width="200">
+            <Button Content="Ok" Margin="5" IsDefault="True"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=local:EmployeeEditorWindows}}">
+                <Button.Command>
+                    <commands:CloseDialogCommand DialogResult="True"/>
+                </Button.Command>
+            </Button>
+            <Button Content="Отмена" Margin="5" IsCancel="True"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=local:EmployeeEditorWindows}}">
+                <Button.Command>
+                    <commands:CloseDialogCommand DialogResult="False"/>
+                </Button.Command>
+            </Button>
+        </UniformGrid>
     </Grid>
 </Window>
