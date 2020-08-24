@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 namespace FireStats.WPF.Models.Departments
 {
-    /// <summary>
-    /// Подразделение.
-    /// </summary>
+    /// <summary>Подразделение.</summary>
     class Division : IEntity
     { 
         /// <summary> Id подразделения. </summary>

@@ -2,7 +2,7 @@
 using FireStats.WPF.Services.Base;
 using System.Linq;
 
-namespace FireStats.WPF.Services
+namespace FireStats.WPF.Services.Repositories
 {
     class DivisionRepository : RepositoryInMemory<Division>
     {

@@ -35,7 +35,7 @@ namespace FireStats.WPF.Models.Base
         public ICollection<Injured> Injureds { get; set; }
 
         /// <summary> Список погибших. </summary>
-        public ICollection<Injured> Deceaseds { get; set; } //Injured.IsDead = true
+        public ICollection<Injured> DeceasedList { get; set; } //Injured.IsDead = true
 
         /// <summary> Результат происшествия. </summary>
         public string Result { get; set; }

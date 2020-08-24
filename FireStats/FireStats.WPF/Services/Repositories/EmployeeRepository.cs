@@ -1,12 +1,7 @@
 ﻿using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FireStats.WPF.Services
+namespace FireStats.WPF.Services.Repositories
 {
 
     class EmployeeRepository : RepositoryInMemory<Employee>

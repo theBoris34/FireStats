@@ -248,9 +248,6 @@
     <Compile Include="Services\AsyncDataService.cs" />
     <Compile Include="Services\Base\RepositoryInMemory.cs" />
     <Compile Include="Services\DataService.cs" />
-    <Compile Include="Services\DepartmentRepository.cs" />
-    <Compile Include="Services\DivisionRepository.cs" />
-    <Compile Include="Services\EmployeeRepository.cs" />
     <Compile Include="Services\EmployeesManagment.cs" />
     <Compile Include="Services\HttpListenerWebServer.cs" />
     <Compile Include="Services\Interfaces\IAsyncDataService.cs" />
@@ -258,6 +255,11 @@
     <Compile Include="Services\Interfaces\IRepository.cs" />
     <Compile Include="Services\Interfaces\IWebServerService.cs" />
     <Compile Include="Services\Interfaces\IUserDialogService.cs" />
+    <Compile Include="Services\Repositories\DepartmentRepository.cs" />
+    <Compile Include="Services\Repositories\DivisionRepository.cs" />
+    <Compile Include="Services\Repositories\EmployeeRepository.cs" />
+    <Compile Include="Services\Repositories\FireRepository.cs" />
+    <Compile Include="Services\Repositories\UnitRepository.cs" />
     <Compile Include="Services\ServiceRegistration.cs" />
     <Compile Include="Services\TestData.cs" />
     <Compile Include="Services\WindowsUserDialogService.cs" />

@@ -2,6 +2,7 @@
 using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services;
 using FireStats.WPF.Services.Interfaces;
+using FireStats.WPF.Services.Repositories;
 using FireStats.WPF.ViewModels.Base;
 using FireStats.WPF.Windows;
 using System;

@@ -1,4 +1,5 @@
 ﻿using FireStats.WPF.Services.Interfaces;
+using FireStats.WPF.Services.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace FireStats.WPF.Services
