@@ -12,7 +12,11 @@ namespace FireStats.WPF.Models.Base
     /// <summary> Заявитель </summary>
     class Applicant : People, IEntity
     {
+        /// <summary> ID заявителя. </summary>
         public int Id { get; set; }
+
+        /// <summary> ID происшествия. </summary>
+        public int IdAccident { get; set; }
 
         public Applicant(string name, string surname, string patronymic, string phone)
         {

@@ -201,6 +201,7 @@
     <Compile Include="Infrastructure\Converters\Converter.cs" />
     <Compile Include="Infrastructure\Converters\LocationPointToStr.cs" />
     <Compile Include="Infrastructure\Converters\PointToMapLocation.cs" />
+    <Compile Include="Models\Applicants\Fire.cs" />
     <Compile Include="Models\Base\Applicant.cs" />
     <Compile Include="Models\Base\People.cs" />
     <Compile Include="Models\ConfirmedCount.cs" />

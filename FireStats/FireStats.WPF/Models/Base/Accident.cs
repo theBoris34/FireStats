@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FireStats.WPF.Models.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +8,11 @@ using System.Threading.Tasks;
 namespace FireStats.WPF.Models.Base
 {
     /// <summary> Происшествие. </summary>
-    class Accident
+    class Accident : IEntity
     {
+        /// <summary> ID происшествия. </summary>
+        public int Id { get; set; }
+
         /// <summary> Адрес происшествия. </summary>
         public string Adress { get; set; }
 
@@ -32,8 +36,5 @@ namespace FireStats.WPF.Models.Base
 
         /// <summary> Результат происшествия. </summary>
         public string Result { get; set; }
-
-
-
     }
 }

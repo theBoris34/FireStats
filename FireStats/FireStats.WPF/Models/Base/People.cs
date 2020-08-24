@@ -25,7 +25,7 @@ namespace FireStats.WPF.Models.Base
         public string Phone { get; set; }
 
         /// <summary> Примечание. </summary>
-        public string Note { get; set; }      
+        public string Note { get; set; } = "";     
 
     }
 }
