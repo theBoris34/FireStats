@@ -15,18 +15,23 @@ namespace FireStats.WPF.Models.Base
         /// <summary> Дата события. </summary>
         public DateTime Date { get; set; }
 
-
         /// <summary> Время события. </summary>
         public DateTime TimeOfAccident { get; set; }
-
 
         /// <summary> Время поступления вызова. </summary>
         public DateTime TimeOfCall { get; set; }
 
-
         /// <summary> Время прибытия. </summary>
         public DateTime TimeOfArrival { get; set; }
 
+        /// <summary> Список пострадавших. </summary>
+        public List<Injured> Injureds { get; set; }
+
+        /// <summary> Список пострадавших. </summary>
+        public List<Injured> Deceaseds { get; set; } //Injured.IsDead = true
+
+        /// <summary> Результат происшествия. </summary>
+        public string Result { get; set; }
 
 
 

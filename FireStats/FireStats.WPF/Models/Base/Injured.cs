@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace FireStats.WPF.Models.Base
 {
-    /// <summary> Пострадавший </summary>
+    /// <summary> Пострадавший. </summary>
     class Injured : IEntity
     {
         /// <summary> ID пострадавшего. </summary>
-        public int Id { get; set; }
-
-        /// <summary> Пострадавший мертв. </summary>
-        public bool IsDead { get; set; }
+        public int Id { get; set; }        
 
         /// <summary> Имя пострадавшего. </summary>
         public string Name { get; set; }
@@ -28,7 +25,13 @@ namespace FireStats.WPF.Models.Base
         /// <summary> Дата рождения пострадавшего. </summary>
         public DateTime Birthday { get; set; }
 
-        /// <summary> Примечание </summary>
+        /// <summary> Пострадавший мертв. </summary>
+        public bool IsDead { get; set; }
+
+        /// <summary> Куда направлен (Больница, морг). </summary>
+        public string Hospital { get; set; }
+
+        /// <summary> Примечание. </summary>
         public string Note { get; set; }
 
     }
