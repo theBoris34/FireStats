@@ -19,6 +19,8 @@ namespace FireStats.WPF.Models.Departments
         /// Список сотрудников.
         /// </summary>
         public ICollection<Employee> Employees { get; set; }
+
+         
         
     }
 }

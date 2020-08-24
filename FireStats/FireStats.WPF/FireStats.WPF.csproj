@@ -206,6 +206,8 @@
     <Compile Include="Models\Departments\Department.cs" />
     <Compile Include="Models\Departments\Division.cs" />
     <Compile Include="Models\Departments\Employee.cs" />
+    <Compile Include="Models\Base\Injured.cs" />
+    <Compile Include="Models\Base\Accident.cs" />
     <Compile Include="Models\Interface\IEntity.cs" />
     <Compile Include="Models\Location\PlaceInfo.cs" />
     <Compile Include="Models\Location\AreaInfo.cs" />
