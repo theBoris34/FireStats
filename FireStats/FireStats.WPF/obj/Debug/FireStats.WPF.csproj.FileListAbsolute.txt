@@ -154,3 +154,5 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeesManagmentWindow.baml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeeEditorWindows.g.cs
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\Windows\EmployeeEditorWindows.baml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\bin\Debug\EntityFramework.SqlServer.xml
