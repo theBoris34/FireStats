@@ -9,13 +9,13 @@ namespace FireStats.WPF.Models.Base
     /// <summary> Происшествие. </summary>
     class Accident
     {
-        /// <summary> Адресс события. </summary>
+        /// <summary> Адрес происшествия. </summary>
         public string Adress { get; set; }
 
-        /// <summary> Дата события. </summary>
+        /// <summary> Дата происшествия. </summary>
         public DateTime Date { get; set; }
 
-        /// <summary> Время события. </summary>
+        /// <summary> Время происшествия. </summary>
         public DateTime TimeOfAccident { get; set; }
 
         /// <summary> Время поступления вызова. </summary>
@@ -27,7 +27,7 @@ namespace FireStats.WPF.Models.Base
         /// <summary> Список пострадавших. </summary>
         public List<Injured> Injureds { get; set; }
 
-        /// <summary> Список пострадавших. </summary>
+        /// <summary> Список погибших. </summary>
         public List<Injured> Deceaseds { get; set; } //Injured.IsDead = true
 
         /// <summary> Результат происшествия. </summary>
