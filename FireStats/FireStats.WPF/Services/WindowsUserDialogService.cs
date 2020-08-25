@@ -2,12 +2,7 @@
 using FireStats.WPF.Services.Interfaces;
 using FireStats.WPF.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
 
 namespace FireStats.WPF.Services
 {
@@ -25,7 +20,6 @@ namespace FireStats.WPF.Services
             }
         }
 
-
         public bool Confirm(string Message, string Caption, bool Exclamation = false)
         {
             return MessageBox.Show(Message, Caption, MessageBoxButton.YesNo, Exclamation ? MessageBoxImage.Exclamation : MessageBoxImage.Question) == MessageBoxResult.Yes;
@@ -35,9 +29,7 @@ namespace FireStats.WPF.Services
 
         public void ShowInformation(string Information, string Caption) => MessageBox.Show(Information, Caption, MessageBoxButton.OK, MessageBoxImage.Information);
        
-
         public void ShowWarning(string Message, string Caption) => MessageBox.Show(Message, Caption, MessageBoxButton.OK, MessageBoxImage.Warning);
-
 
         private bool EditEmployee(Employee employee)
         {
@@ -61,7 +53,6 @@ namespace FireStats.WPF.Services
             employee.Rank = dlg.Rank;
             employee.Position = dlg.Position;
             employee.Note = dlg.Note;
-
             return true;
         }
     }

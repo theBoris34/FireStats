@@ -23,6 +23,15 @@ namespace FireStats.WPF.ViewModels
 
         #region Команды
 
+        public ICommand LoadingToDataBaseCommand { get; }
+
+        private void OnLoadingToDataBaseCommandExecuted(object p)
+        {
+            TestData.AddToDB();            
+        }
+
+        private bool CanLoadingToDataBaseCommandExecuted(object p) => true;
+
         #region ManagmentEmployeesCommand
         private EmployeesManagmentWindow _ManagmentEmployees;
 
@@ -101,6 +110,9 @@ namespace FireStats.WPF.ViewModels
         }
         #endregion
 
+
+        
+
         #region SelectedEmployee
         private Employee _SelectedEmployee;
         /// <summary>
@@ -147,8 +159,9 @@ namespace FireStats.WPF.ViewModels
 
             #region Команды           
             ManagmentEmployeesCommand = new LambdaCommand(OnManagmentEmployeesCommandExecuted, CanManagmentEmployeesCommandExecute);
+            LoadingToDataBaseCommand = new LambdaCommand(OnLoadingToDataBaseCommandExecuted, CanLoadingToDataBaseCommandExecuted);
             #endregion
-                        
+
             var er = new EmployeeRepository();
             var dr = new DivisionRepository();
             _EmployeesManager = new EmployeesManagment(er ,dr);

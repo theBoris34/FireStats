@@ -2,24 +2,24 @@
 using FireStats.WPF.Models.Interface;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FireStats.WPF.Models.Base
 {
     /// <summary> Автомобиль. </summary>
     class Truck : IEntity
     {
+        #region EntityFramework
         /// <summary> Id автомобиля. </summary>
         public int Id { get; set; }
 
-        /// <summary> Id подразделения базирования. </summary>
-        public int IdDivision { get; set; }
+        /// <summary>Подразделение. </summary>
+        //public virtual Division Division { get; set; }
 
-        /// <summary> Водитель. </summary>
-        public Employee Driver { get; set; }
+        /// <summary>Отделение. </summary>
+        public virtual Unit Unit { get; set; } 
+        #endregion
 
-        /// <summary> Личный состав. </summary>
-        public ICollection<Employee> Crew { get; set; }  
-        
         /// <summary>Тип автомобиля. </summary>
         public string Type { get; set; } //словарь типов автомобилей
 
@@ -32,5 +32,6 @@ namespace FireStats.WPF.Models.Base
         /// <summary>Подача воды, л/с. </summary>
         public int WaterSupply { get; set; }
 
+        
     }
 }

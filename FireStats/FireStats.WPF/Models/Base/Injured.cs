@@ -13,6 +13,8 @@ namespace FireStats.WPF.Models.Base
         /// <summary> ID пострадавшего. </summary>
         public int Id { get; set; }
 
+        public virtual Accident Accident { get; set; }
+
         /// <summary> Пострадавший мертв. </summary>
         public bool IsDead { get; set; }
 

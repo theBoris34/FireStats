@@ -15,12 +15,11 @@ namespace FireStats.WPF.Services.Repositories
         protected override void Update(Fire Source, Fire Destination)
         {
             Destination.Adress = Source.Adress;
-            Destination.Applicant = Source.Applicant;
+            Destination.Applicants = Source.Applicants;
             Destination.CauseOfFire = Source.CauseOfFire;
             Destination.CostOfDamage = Source.CostOfDamage;
             Destination.CostOfSalvage = Source.CostOfSalvage;
             Destination.Date = Source.Date;
-            Destination.DeceasedList = Source.DeceasedList;
             Destination.EndOfWorkTime = Source.EndOfWorkTime;
             Destination.FightingLeader = Source.FightingLeader;
             Destination.FireInspector = Source.FireInspector;

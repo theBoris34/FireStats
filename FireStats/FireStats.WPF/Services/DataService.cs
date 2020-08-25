@@ -7,15 +7,13 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace FireStats.WPF.Services
 {
-    
+
     internal class DataService : IDataService
     {
         private const string _DataSourceAdress = @"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";

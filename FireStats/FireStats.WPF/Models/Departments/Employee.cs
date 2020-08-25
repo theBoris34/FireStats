@@ -10,8 +10,11 @@ namespace FireStats.WPF.Models.Departments
         /// <summary> ID сотрудника. </summary>
         public int Id { get; set; }
 
-        /// <summary> ID подразделения. </summary>
-        public int IdDivision { get; set; }
+        /// <summary> Подразделение. </summary>
+        public virtual Division Division { get; set; }
+
+        /// <summary> Отделение. </summary>
+        public virtual Unit Unit { get; set; }
 
         /// <summary> Должность сотрудника. </summary>
         public string Position { get; set; }

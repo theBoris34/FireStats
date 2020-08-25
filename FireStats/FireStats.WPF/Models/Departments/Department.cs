@@ -18,7 +18,7 @@ namespace FireStats.WPF.Models.Departments
         public string Note { get; set; }
 
         /// <summary> Список подразделений. </summary>
-        public ICollection<Division> Divisions { get; set; }
+        public virtual ICollection<Division> Divisions { get; set; }
 
 
     }

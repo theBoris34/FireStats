@@ -11,7 +11,7 @@ namespace FireStats.WPF.Services.Repositories
             Destination.Active = Source.Active;
             Destination.InDivision = Source.InDivision;
             Destination.Truck = Source.Truck;
-            Destination.IdDivision = Source.IdDivision;
+            //Destination.IdDivision = Source.IdDivision;
         }
     }
 }

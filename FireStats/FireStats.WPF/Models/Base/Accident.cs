@@ -1,6 +1,7 @@
 ﻿using FireStats.WPF.Models.Interface;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,12 +33,14 @@ namespace FireStats.WPF.Models.Base
         public DateTime TimeOfArrival { get; set; }
 
         /// <summary> Список пострадавших. </summary>
-        public ICollection<Injured> Injureds { get; set; }
+        public virtual ICollection<Injured> Injureds { get; set; }
 
         /// <summary> Список погибших. </summary>
-        public ICollection<Injured> DeceasedList { get; set; } //Injured.IsDead = true
+        //public virtual ICollection<Injured> DeceasedList { get; set; } //Injured.IsDead = true
 
         /// <summary> Результат происшествия. </summary>
         public string Result { get; set; }
+
+        public virtual ICollection<Applicant> Applicants { get; set; }
     }
 }

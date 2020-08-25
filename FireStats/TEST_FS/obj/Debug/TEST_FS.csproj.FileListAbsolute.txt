@@ -1,0 +1,12 @@
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\TEST_FS.exe.config
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\TEST_FS.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\TEST_FS.pdb
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csprojAssemblyReference.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csproj.CoreCompileInputs.cache
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csproj.CopyComplete
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.exe
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.pdb

@@ -247,6 +247,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Services\AsyncDataService.cs" />
     <Compile Include="Services\Base\RepositoryInMemory.cs" />
+    <Compile Include="Services\DataBaseContext.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\EmployeesManagment.cs" />
     <Compile Include="Services\HttpListenerWebServer.cs" />

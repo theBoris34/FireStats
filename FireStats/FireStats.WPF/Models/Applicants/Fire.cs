@@ -2,10 +2,6 @@
 using FireStats.WPF.Models.Departments;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FireStats.WPF.Models.Applicants
 {
     /// <summary> Пожар. </summary>
@@ -31,10 +27,7 @@ namespace FireStats.WPF.Models.Applicants
         public DateTime EndOfWorkTime { get; set; }
 
         /// <summary> Задействованные отделения. </summary>
-        //public List<User> FieldUnits { get; set; }
-
-        /// <summary> Заявитель. </summary>
-        public Applicant Applicant { get; set; }
+        public ICollection<Unit> Units { get; set; }
 
         /// <summary> Объект пожара. </summary>
         //public string FireObject { get; set; }
@@ -62,10 +55,10 @@ namespace FireStats.WPF.Models.Applicants
         //TODO: Службы жизнеобеспечания
 
         /// <summary> Руководитель тушения пожара (РТП). </summary>
-        public ICollection<Employee> FightingLeader { get; set; }
+        public virtual ICollection<Employee> FightingLeader { get; set; }
 
         /// <summary> Разбирались. </summary>
-        public ICollection<Employee> FireInspector { get; set; } 
+        public virtual ICollection<Employee> FireInspector { get; set; } 
         #endregion
 
         /// <summary>
@@ -133,7 +126,7 @@ namespace FireStats.WPF.Models.Applicants
                     DateTime localizationTime,
                     DateTime liquidationTime,
                     DateTime endOfWorkTime,
-                    Applicant applicant,
+                    ICollection<Applicant> applicant,
                     string owner,
                     string causeOfFire,
                     ulong costOfDamage,
@@ -187,7 +180,7 @@ namespace FireStats.WPF.Models.Applicants
             LocalizationTime = localizationTime;
             LiquidationTime = liquidationTime;
             EndOfWorkTime = endOfWorkTime;
-            Applicant = applicant ?? throw new ArgumentNullException($"'{nameof(applicant)}' не может быть NULL", nameof(applicant));
+            Applicants = applicant ?? throw new ArgumentNullException($"'{nameof(applicant)}' не может быть NULL", nameof(applicant));
             Owner = owner;
             CauseOfFire = causeOfFire;
             CostOfDamage = costOfDamage;

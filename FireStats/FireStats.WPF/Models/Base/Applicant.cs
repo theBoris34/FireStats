@@ -1,11 +1,5 @@
-﻿using FireStats.WPF.Models.Departments;
-using FireStats.WPF.Models.Interface;
+﻿using FireStats.WPF.Models.Interface;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FireStats.WPF.Models.Base
 {
@@ -17,6 +11,10 @@ namespace FireStats.WPF.Models.Base
 
         /// <summary> ID происшествия. </summary>
         public int IdAccident { get; set; }
+
+        public virtual Accident Accident { get; set; }
+
+        public Applicant() { }
 
         public Applicant(string name, string surname, string patronymic, string phone)
         {

@@ -115,7 +115,13 @@
         </Grid>
         <Grid Grid.Row="2" Height="30">
             <StackPanel Orientation="Horizontal" Height="25" Margin="6,0" HorizontalAlignment="Center">
-                
+
+                <Button Margin="10,0" Command="{Binding LoadingToDataBaseCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="Cloud" Margin="5,0" Height="12" Foreground="Blue" />
+                        <TextBlock Text="Загрузить в базу данных" Margin="0,0,10,0"/>
+                    </StackPanel>
+                </Button>
                 <Button Margin="10,0" Command="{Binding CreateEmployeeCommand}">
                     <StackPanel Orientation="Horizontal">
                         <fa:IconImage Icon="Check" Margin="5,0" Height="12" Foreground="DarkGreen" />

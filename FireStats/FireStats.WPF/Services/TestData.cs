@@ -13,7 +13,6 @@ namespace FireStats.WPF.Services
     /// <summary> Тестовые данные сотрудников и подразделений. </summary>
     static class TestData
     {
-
         public static Division[] Divisions { get; } = Enumerable
             .Range(1, 10)
             .Select(i => new Division
@@ -63,10 +62,9 @@ namespace FireStats.WPF.Services
                     {
                         Active = true,
                         InDivision = true,
+                        Employees = new ObservableCollection<Employee>() { division.Employees.Last() },
                         Truck = new Truck
                         {
-                            Driver = division.Employees.First(),
-                            Crew = new ObservableCollection<Employee>() { division.Employees.Last() },
                             Type = $"Автомобиль пожарный {unit_id}",
                             Water = unit_id + 100,
                             Foam = unit_id + 50,
@@ -75,6 +73,93 @@ namespace FireStats.WPF.Services
                     }); 
                 }
             return divisions.SelectMany(u => u.Units).ToArray();
+        }
+
+        public static void AddToDB()
+        {
+            using (var context = new DataBaseContext())
+            {
+                var employees_id = 1;
+                var unit_id = 1;
+                var random = new Random();
+
+                var deprtments = Enumerable
+                   .Range(1, 3)
+                   .Select(i => new Department
+                   {
+                       Name = $"управление {i}",
+                       Divisions = new ObservableCollection<Division>()
+                   })
+                   .ToArray();
+
+                context.Departments.AddRange(deprtments);
+                context.SaveChanges();
+
+                foreach (var deprtment in deprtments)
+                {
+                    for (var i = 0; i < 10; i++)
+                    {
+                        deprtment.Divisions.Add(new Division
+                        {
+                            Name = $"Подразделение {i}",
+                            Employees = new ObservableCollection<Employee>(),
+                            Units = new ObservableCollection<Unit>()
+                        });
+
+                        for (var j = 0; j < 10; j++)
+                        {
+                            deprtment.Divisions.Last().Employees.Add(new Employee
+                            {
+                                Name = $"Имя {employees_id}",
+                                Surname = $"Фамилия {employees_id}",
+                                Patronymic = $"Отчество {employees_id}",
+                                Birthday = DateTime.Now.Subtract(TimeSpan.FromDays(300 * random.Next(19, 30))),
+                                Position = $"Должность {employees_id++}",
+                                Phone = $"8-981-881-{random.Next(1000, 9999)}",
+                                Rank = $"Звание {random.Next(1, 100)}"
+
+                            });
+                            context.Divisions.AddRange(deprtment.Divisions);
+                        }
+                        for (var j = 0; j < 10; j++)
+                        {
+                            deprtment.Divisions.Last().Units.Add(new Unit
+                            {
+                                Employees = new ObservableCollection<Employee> {},
+                                Truck = new Truck
+                                {
+                                    Type = $"Автомобиль пожарный {unit_id}",
+                                    Water = unit_id + 100,
+                                    Foam = unit_id + 50,
+                                    WaterSupply = 10 * unit_id++
+                                }
+
+                            });
+                        }
+                    }
+                    context.SaveChanges();
+                }
+                //        //for (var j = 0; j < 2; j++)
+                //        //{
+                //        //    division.Units.Add(new Unit
+                //        //    {
+                //        //        Active = true,
+                //        //        InDivision = true,
+                //        //        Employees = new ObservableCollection<Employee>() { division.Employees.Last() },
+                //        //        Truck = new Truck
+                //        //        {
+                //        //           
+                //        //        }
+                //        //    });
+                //        //    //context.Units.Add(division.Units.Last<Unit>());
+                //        //    //context.Trucks.Add(Units.Last().Truck);
+                //        //}
+                //    }
+                //    context.Employees.AddRange(division.Employees);
+
+                //}
+                //context.SaveChanges();
+            }
         }
     }
 }
