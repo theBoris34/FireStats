@@ -17,11 +17,14 @@ namespace FireStats.WPF.Models.Base
         //public virtual Division Division { get; set; }
 
         /// <summary>Отделение. </summary>
-        public virtual Unit Unit { get; set; } 
+        public virtual ICollection<Unit> Units { get; set; } 
         #endregion
 
         /// <summary>Тип автомобиля. </summary>
         public string Type { get; set; } //словарь типов автомобилей
+
+        /// <summary>Государственный номер. </summary>
+        public string Number { get; set; }
 
         /// <summary>Объем воды в резервуаре, л. </summary>
         public int Water { get; set; }

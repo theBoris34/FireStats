@@ -79,6 +79,14 @@ namespace FireStats.WPF.Services
         {
             using (var context = new DataBaseContext())
             {
+                var FireCar = new Truck
+                {
+                    Type = "Автоцистерна пожарная",
+                    Number = "A100AA178",
+                    Water = 100,
+                    Foam = 50,
+                    WaterSupply = 10 * 50
+                };
                 var employees_id = 1;
                 var unit_id = 1;
                 var random = new Random();
@@ -121,20 +129,13 @@ namespace FireStats.WPF.Services
                             });
                             context.Divisions.AddRange(deprtment.Divisions);
                         }
-                        for (var j = 0; j < 10; j++)
+                        foreach(var division in deprtment.Divisions)
                         {
-                            deprtment.Divisions.Last().Units.Add(new Unit
-                            {
-                                Employees = new ObservableCollection<Employee> {},
-                                Truck = new Truck
+                            division.Units.Add(new Unit
                                 {
-                                    Type = $"Автомобиль пожарный {unit_id}",
-                                    Water = unit_id + 100,
-                                    Foam = unit_id + 50,
-                                    WaterSupply = 10 * unit_id++
-                                }
-
-                            });
+                                    Employees = new ObservableCollection<Employee> { division.Employees.Last(), division.Employees.First() },
+                                    Truck = FireCar
+                                });
                         }
                     }
                     context.SaveChanges();

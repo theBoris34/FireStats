@@ -15,6 +15,7 @@ namespace FireStats.WPF.Models.Base
       
         public virtual Division Division { get; set; }
 
+        [Required]
         /// <summary> Личный состав. </summary>
         public virtual ICollection<Employee> Employees { get; set; }
 
