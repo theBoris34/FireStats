@@ -10,3 +10,15 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TES
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csproj.CopyComplete
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.exe
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.pdb
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\TEST_FS.exe.config
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\TEST_FS.exe
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\TEST_FS.pdb
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.xml
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csprojAssemblyReference.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csproj.CoreCompileInputs.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.csproj.CopyComplete
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.exe
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\TEST_FS\obj\Debug\TEST_FS.pdb
