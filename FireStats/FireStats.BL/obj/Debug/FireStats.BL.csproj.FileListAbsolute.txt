@@ -51,3 +51,14 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debu
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.BL\obj\Debug\FireStats.BL.csprojAssemblyReference.cache
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\CommonServiceLocator.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.BL\bin\Debug\GalaSoft.MvvmLight.Platform.xml

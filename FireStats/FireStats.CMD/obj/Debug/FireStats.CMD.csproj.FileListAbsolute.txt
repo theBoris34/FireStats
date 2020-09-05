@@ -59,3 +59,4 @@ C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Deb
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\bin\Debug\MySql.Data.xml
 C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.CMD\obj\Debug\FireStats.CMD.exe.config
+C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.CMD\bin\Debug\MySql.Data.dll
