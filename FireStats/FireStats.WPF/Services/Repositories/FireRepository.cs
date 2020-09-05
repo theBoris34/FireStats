@@ -12,6 +12,8 @@ namespace FireStats.WPF.Services.Repositories
 {
     class FireRepository : RepositoryInMemory<Fire>
     {
+
+        public FireRepository() : base(TestData.Fires) { }
         protected override void Update(Fire Source, Fire Destination)
         {
             Destination.Adress = Source.Adress;
@@ -19,7 +21,7 @@ namespace FireStats.WPF.Services.Repositories
             Destination.CauseOfFire = Source.CauseOfFire;
             Destination.CostOfDamage = Source.CostOfDamage;
             Destination.CostOfSalvage = Source.CostOfSalvage;
-            Destination.Date = Source.Date;
+            Destination.DateFire = Source.DateFire;
             Destination.EndOfWorkTime = Source.EndOfWorkTime;
             Destination.FightingLeader = Source.FightingLeader;
             Destination.FireInspector = Source.FireInspector;

@@ -18,7 +18,7 @@ namespace FireStats.WPF.Models.Base
         public string Adress { get; set; }
 
         /// <summary> Дата происшествия. </summary>
-        public DateTime Date { get; set; }
+        public DateTime DateFire { get; set; }
 
         /// <summary> Время происшествия. </summary>
         public DateTime TimeOfAccident { get; set; }
@@ -41,6 +41,7 @@ namespace FireStats.WPF.Models.Base
         /// <summary> Результат происшествия. </summary>
         public string Result { get; set; }
 
+        /// <summary> Заявители </summary>
         public virtual ICollection<Applicant> Applicants { get; set; }
     }
 }

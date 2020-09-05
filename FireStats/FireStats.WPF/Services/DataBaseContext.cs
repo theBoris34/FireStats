@@ -17,7 +17,7 @@ namespace FireStats.WPF.Services
 
         public DbSet<Division> Divisions { get; set; }
 
-        //public DbSet<Fire> Fires { get; set; }
+        public DbSet<Fire> Fires { get; set; }
 
         //public DbSet<Accident> Accidents { get; set; }
 

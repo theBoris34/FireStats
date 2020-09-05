@@ -250,6 +250,7 @@
     <Compile Include="Services\DataBaseContext.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\EmployeesManagment.cs" />
+    <Compile Include="Services\FireManagment.cs" />
     <Compile Include="Services\HttpListenerWebServer.cs" />
     <Compile Include="Services\Interfaces\IAsyncDataService.cs" />
     <Compile Include="Services\Interfaces\IDataService.cs" />

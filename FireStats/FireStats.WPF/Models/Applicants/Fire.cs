@@ -7,7 +7,8 @@ namespace FireStats.WPF.Models.Applicants
     /// <summary> Пожар. </summary>
     class Fire : Accident
     {
-        #region Свойства
+        #region Свойства        
+
         /// <summary> Ранг пожара.</summary>
         public string FireRank { get; set; }
 
@@ -58,9 +59,9 @@ namespace FireStats.WPF.Models.Applicants
         public virtual ICollection<Employee> FightingLeader { get; set; }
 
         /// <summary> Разбирались. </summary>
-        public virtual ICollection<Employee> FireInspector { get; set; } 
+        public virtual ICollection<Employee> FireInspector { get; set; }
         #endregion
-
+        public Fire() { }
         /// <summary>
         /// Пожар.
         /// </summary>
@@ -70,7 +71,7 @@ namespace FireStats.WPF.Models.Applicants
         /// <param name="timeOfCall">Время вызова.</param>
         public Fire(string adress, 
                     string fireRank,
-                    DateTime date,
+                    DateTime dateFire,
                     DateTime timeOfCall)
         {
             #region Проверка
@@ -85,7 +86,7 @@ namespace FireStats.WPF.Models.Applicants
             } 
             #endregion
 
-            Date = date;
+            DateFire = dateFire;
             Adress = adress;
             FireRank = fireRank;
             TimeOfCall = timeOfCall;
@@ -97,7 +98,7 @@ namespace FireStats.WPF.Models.Applicants
         /// </summary>
         /// <param name="adress">Адрес пожара.</param>
         /// <param name="fireRank">Ранг пожара.</param>
-        /// <param name="date">Дата пожара.</param>
+        /// <param name="dateFire">Дата пожара.</param>
         /// <param name="timeOfAccident">Время пожара.</param>
         /// <param name="timeOfCall">Время вызова.</param>
         /// <param name="timeOfDeparture">Время убытия подразделения.</param>
@@ -117,7 +118,7 @@ namespace FireStats.WPF.Models.Applicants
         /// <param name="fireInspector"></param>
         public Fire(string adress,
                     string fireRank,
-                    DateTime date, 
+                    DateTime dateFire, 
                     DateTime timeOfAccident, 
                     DateTime timeOfCall,
                     DateTime timeOfDeparture,
@@ -170,7 +171,7 @@ namespace FireStats.WPF.Models.Applicants
 
             #region Инициализация свойств
             Adress = adress;
-            Date = date;
+            DateFire = dateFire;
             TimeOfAccident = timeOfAccident;
             TimeOfCall = timeOfCall;
             TimeOfArrival = timeOfArrival;

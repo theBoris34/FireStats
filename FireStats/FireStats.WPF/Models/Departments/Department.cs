@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 namespace FireStats.WPF.Models.Departments
 {
-    /// <summary>
-    /// Управление.
-    /// </summary>
+    /// <summary> Управление.</summary>
     class Department : IEntity
     {
         /// <summary> Id управления. </summary>

@@ -20,12 +20,12 @@ namespace FireStats.WPF.Services
             _Divisions = Divisions;
         }
 
-        internal void Udate(Employee Employee) => _Employees.Update(Employee.Id, Employee);
+        internal void Update(Employee Employee) => _Employees.Update(Employee.Id, Employee);
 
         internal bool Create(Employee Employee, string DivisionName)
         {
             if (Employee is null) throw new ArgumentNullException(nameof(Employee));
-            if (string.IsNullOrWhiteSpace(DivisionName)) throw new ArgumentException("Некорректное имя группы", nameof(DivisionName));
+            if (string.IsNullOrWhiteSpace(DivisionName)) throw new ArgumentException("Некорректное имя подразделения", nameof(DivisionName));
             var division = _Divisions.Get(DivisionName);
             if(division is null)
             {

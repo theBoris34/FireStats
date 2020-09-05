@@ -127,7 +127,7 @@ namespace FireStats.WPF.ViewModels
 
             if(_UserDialog.Edit(p))
             {
-                _EmployeesManagment.Udate((Employee)p);
+                _EmployeesManagment.Update((Employee)p);
                 _UserDialog.ShowInformation("Сотрудник отредактирован!", "Редактирование сотрудников");
                 OnPropertyChanged(nameof(Employees));
             }

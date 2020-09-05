@@ -1,4 +1,5 @@
 ﻿using FireStats.WPF.Infrastructure.Commands;
+using FireStats.WPF.Models.Applicants;
 using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services;
 using FireStats.WPF.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace FireStats.WPF.ViewModels
         public WindowFireStatsViewModel MainModel { get; internal set; }
 
         private readonly EmployeesManagment _EmployeesManager;
+        private readonly FireManagment _FiresManager;
 
         #region Команды
 
@@ -110,9 +112,6 @@ namespace FireStats.WPF.ViewModels
         }
         #endregion
 
-
-        
-
         #region SelectedEmployee
         private Employee _SelectedEmployee;
         /// <summary>
@@ -149,7 +148,9 @@ namespace FireStats.WPF.ViewModels
 
         public IEnumerable<Employee> Employees => _EmployeesManager.Employees;
         public IEnumerable<Division> Divisions => _EmployeesManager.Divisions;
-        
+
+        public IEnumerable<Fire> Fires => _FiresManager.Fires;
+
 
         public EmployeeListPageViewModel(IDataService DataService)
         {
@@ -162,9 +163,11 @@ namespace FireStats.WPF.ViewModels
             LoadingToDataBaseCommand = new LambdaCommand(OnLoadingToDataBaseCommandExecuted, CanLoadingToDataBaseCommandExecuted);
             #endregion
 
-            var er = new EmployeeRepository();
+            var er = new  EmployeeRepository();
             var dr = new DivisionRepository();
+            var fr = new FireRepository();
             _EmployeesManager = new EmployeesManagment(er ,dr);
+            _FiresManager = new FireManagment(fr);
 
         }
 
