@@ -17,7 +17,7 @@ namespace FireStats.WPF.Models.Base
 
         [Required]
         /// <summary> Личный состав. </summary>
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Employee> Staff   { get; set; }
 
         [Required]
         /// <summary> Техника отделения. </summary>

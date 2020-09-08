@@ -36,11 +36,12 @@ namespace FireStats.WPF.Models.Base
                 throw new ArgumentException($"'{ nameof(phone) }' не может быть пустым или содержать только пробел", nameof(phone));
             } 
             #endregion
-
+            
             Name = name;
             Surname = surname;
             Patronymic = patronymic;
             Phone = phone;
+            Birthday = DateTime.Now;
         }
 
 

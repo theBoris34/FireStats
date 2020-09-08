@@ -21,7 +21,7 @@ namespace FireStats.WPF.Services.Repositories
             Destination.CauseOfFire = Source.CauseOfFire;
             Destination.CostOfDamage = Source.CostOfDamage;
             Destination.CostOfSalvage = Source.CostOfSalvage;
-            Destination.DateFire = Source.DateFire;
+            Destination.DateAccident = Source.DateAccident;
             Destination.EndOfWorkTime = Source.EndOfWorkTime;
             Destination.FightingLeader = Source.FightingLeader;
             Destination.FireInspector = Source.FireInspector;

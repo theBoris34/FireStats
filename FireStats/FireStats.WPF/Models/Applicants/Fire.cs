@@ -67,11 +67,11 @@ namespace FireStats.WPF.Models.Applicants
         /// </summary>
         /// <param name="adress">Адрес пожара.</param>
         /// <param name="fireRank">Ранг пожара.</param>
-        /// <param name="date">Дата пожара.</param>
+        /// <param name="dateAccident">Дата пожара.</param>
         /// <param name="timeOfCall">Время вызова.</param>
         public Fire(string adress, 
                     string fireRank,
-                    DateTime dateFire,
+                    DateTime dateAccident,
                     DateTime timeOfCall)
         {
             #region Проверка
@@ -86,7 +86,7 @@ namespace FireStats.WPF.Models.Applicants
             } 
             #endregion
 
-            DateFire = dateFire;
+            DateAccident = dateAccident;
             Adress = adress;
             FireRank = fireRank;
             TimeOfCall = timeOfCall;
@@ -98,7 +98,7 @@ namespace FireStats.WPF.Models.Applicants
         /// </summary>
         /// <param name="adress">Адрес пожара.</param>
         /// <param name="fireRank">Ранг пожара.</param>
-        /// <param name="dateFire">Дата пожара.</param>
+        /// <param name="dateAccident">Дата пожара.</param>
         /// <param name="timeOfAccident">Время пожара.</param>
         /// <param name="timeOfCall">Время вызова.</param>
         /// <param name="timeOfDeparture">Время убытия подразделения.</param>
@@ -118,7 +118,7 @@ namespace FireStats.WPF.Models.Applicants
         /// <param name="fireInspector"></param>
         public Fire(string adress,
                     string fireRank,
-                    DateTime dateFire, 
+                    DateTime dateAccident, 
                     DateTime timeOfAccident, 
                     DateTime timeOfCall,
                     DateTime timeOfDeparture,
@@ -171,7 +171,7 @@ namespace FireStats.WPF.Models.Applicants
 
             #region Инициализация свойств
             Adress = adress;
-            DateFire = dateFire;
+            DateAccident = dateAccident;
             TimeOfAccident = timeOfAccident;
             TimeOfCall = timeOfCall;
             TimeOfArrival = timeOfArrival;

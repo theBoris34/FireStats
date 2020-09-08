@@ -2,15 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FireStats.WPF.Models.Base
 {
     /// <summary> Происшествие. </summary>
     class Accident : IEntity
     {
+        [Key]
         /// <summary> ID происшествия. </summary>
         public int Id { get; set; }
 
@@ -18,7 +16,7 @@ namespace FireStats.WPF.Models.Base
         public string Adress { get; set; }
 
         /// <summary> Дата происшествия. </summary>
-        public DateTime DateFire { get; set; }
+        public DateTime DateAccident { get; set; }
 
         /// <summary> Время происшествия. </summary>
         public DateTime TimeOfAccident { get; set; }

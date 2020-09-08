@@ -18,7 +18,7 @@ namespace FireStats.WPF.Models.Departments
 
         /// <summary> Должность сотрудника. </summary>
         public string Position { get; set; }
-
+        
         /// <summary> Звание сотрудника. </summary>
         public string Rank { get; set; }        
 

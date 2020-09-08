@@ -6,7 +6,7 @@ namespace FireStats.WPF.Services.Repositories
 {
     class DivisionRepository : RepositoryInMemory<Division>
     {
-        public DivisionRepository(): base(TestData.Divisions) { }
+        //public DivisionRepository(): base(TestData.Divisions) { }
 
         public Division Get(string DivisionName) => GetAll().FirstOrDefault(d => d.Name == DivisionName);
 

@@ -2,118 +2,148 @@
 using FireStats.WPF.Models.Base;
 using FireStats.WPF.Models.Departments;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace FireStats.WPF.Services
 {
     /// <summary> Тестовые данные сотрудников и подразделений. </summary>
     static class TestData
     {
+        static Random rnd = new Random();
         public static Department[] Departments { get; } = Enumerable
          .Range(1, 5)
          .Select(i => new Department
          {
              Name = $"Управление {i}",
-             Divisions = new ObservableCollection<Division>()
+             Divisions = Enumerable
+             .Range(1, 10)
+             .Select(j => new Division
+             {
+                 Name = $"Подразделение {i}",
+                 Employees = Enumerable
+                 .Range(1,10)
+                 .Select(e => new Employee
+                 {
+                     Name = $"Имя {e.ToString()}",
+                     Surname = $"Фамилия {e.ToString()}",
+                     Patronymic = $"Отчество {e.ToString()}",
+                     Birthday = DateTime.Now.Subtract(TimeSpan.FromDays(300 *rnd.Next(19, 30))),
+                     Position = $"Должность {e.ToString()}",
+                     Rank = $"Звание {rnd.Next(1, 100)}"
+                 }
+                 ).ToArray(),
+
+                 Units = Enumerable
+                 .Range(1,2)
+                 .Select(u => new Unit
+                 {
+                     Active = true,
+                     InDivision = true,
+                     Staff = new ObservableCollection<Employee> { },
+                     Truck = new Truck
+                     {
+                         Type = $"Автомобиль пожарный {u.ToString()}",
+                         Water = 100,
+                         Foam = 50,
+                         WaterSupply = 10 * 30
+                     }
+                 }).ToArray()
+             }).ToArray(),
          })
          .ToArray();
 
-        public static Division[] Divisions { get; } = CreateDivision(Departments);
+        //public static Division[] Divisions { get; } = CreateDivision(Departments);
 
-        private static Division[] CreateDivision(Department[] departments)
-        {
-            foreach (var deprtment in departments)
-            {
-                for (var i = 0; i < 10; i++)
-                {
-                    deprtment.Divisions.Add(new Division
-                    {
-                        Name = $"Подразделение {i}",
-                        Employees = new ObservableCollection<Employee>(),
-                        Units = new ObservableCollection<Unit>()
-                    });
-                }
-            }
-            return Departments.SelectMany(d => d.Divisions).ToArray();
-        }
-
-
-        public static Employee[] Employees { get; } = CreateEmployees(Divisions);
-
-        private static Employee[] CreateEmployees(Division[] divisions)
-        {
-            var random = new Random();
-            var employees_id = 1;
-            var employees = new List<Employee>(100);
-
-            foreach (var division in divisions)
-                for (var i = 0; i < 10; i++)
-                {
-
-                    division.Employees.Add(new Employee
-                    {
-                        Name = $"Имя {employees_id}",
-                        Surname = $"Фамилия {employees_id}",
-                        Patronymic = $"Отчество {employees_id}",
-                        Birthday = DateTime.Now.Subtract(TimeSpan.FromDays(300 * random.Next(19, 30))),
-                        Position = $"Должность {employees_id++}",
-                        Rank = $"Звание {random.Next(1, 100)}"
-                    });
-                }
-            return divisions.SelectMany(d => d.Employees).ToArray();
-        }
+        //private static Division[] CreateDivision(Department[] departments)
+        //{
+        //    foreach (var deprtment in departments)
+        //    {
+        //        for (var i = 0; i < 10; i++)
+        //        {
+        //            deprtment.Divisions.Add(new Division
+        //            {
+        //                Name = $"Подразделение {i}",
+        //                Employees = new ObservableCollection<Employee>(),
+        //                Units = new ObservableCollection<Unit>()
+        //            });
+        //        }
+        //    }
+        //    return Departments.SelectMany(d => d.Divisions).ToArray();
+        //}
 
 
-        public static Truck[] Trucks { get; } = CreateTruck();
+        //public static Employee[] Employees { get; } = CreateEmployees(Divisions);
 
-        private static Truck[] CreateTruck()
-        {
-            var truck = Enumerable
-                   .Range(1, 3)
-                   .Select(i => new Truck
-                   {
-                       Type = "Автоцистерна пожарная",
-                       Number = "A100AA178",
-                       Water = 100,
-                       Foam = 50,
-                       WaterSupply = 10 * 50
-                   })
-                   .ToArray();
-            return truck.ToArray();
-        }
+        //private static Employee[] CreateEmployees(Division[] divisions)
+        //{
+        //    var random = new Random();
+        //    var employees_id = 1;
+        //    var employees = new List<Employee>(100);
 
-        
+        //    foreach (var division in divisions)
+        //        for (var i = 0; i < 10; i++)
+        //        {
 
-    public static Unit[] Units { get; } = CreateUnit(Divisions);
+        //            division.Employees.Add(new Employee
+        //            {
+        //                Name = $"Имя {employees_id}",
+        //                Surname = $"Фамилия {employees_id}",
+        //                Patronymic = $"Отчество {employees_id}",
+        //                Birthday = DateTime.Now.Subtract(TimeSpan.FromDays(300 * random.Next(19, 30))),
+        //                Position = $"Должность {employees_id++}",
+        //                Rank = $"Звание {random.Next(1, 100)}"
+        //            });
+        //        }
+        //    return divisions.SelectMany(d => d.Employees).ToArray();
+        //}
 
-        private static Unit[] CreateUnit(Division[] divisions)
-        {
-            var unit_id = 1;
 
-            foreach(var division in divisions)
-                for(var i=0; i<2;i++)
-                {
-                    division.Units.Add(new Unit
-                    {
-                        Active = true,
-                        InDivision = true,
-                        Employees = new ObservableCollection<Employee>() { division.Employees.Last() },
-                        Truck = new Truck
-                        {
-                            Type = $"Автомобиль пожарный {unit_id}",
-                            Water = unit_id + 100,
-                            Foam = unit_id + 50,
-                            WaterSupply = 10* unit_id++
-                        }
-                    }); 
-                }
-            return divisions.SelectMany(u => u.Units).ToArray();
-        }
+        //public static Truck[] Trucks { get; } = CreateTruck();
+
+        //private static Truck[] CreateTruck()
+        //{
+        //    var truck = Enumerable
+        //           .Range(1, 3)
+        //           .Select(i => new Truck
+        //           {
+        //               Type = "Автоцистерна пожарная",
+        //               Number = "A100AA178",
+        //               Water = 100,
+        //               Foam = 50,
+        //               WaterSupply = 10 * 50
+        //           })
+        //           .ToArray();
+        //    return truck.ToArray();
+        //}
+
+
+
+        //public static Unit[] Units { get; } = CreateUnit(Divisions);
+
+        //private static Unit[] CreateUnit(Division[] divisions)
+        //{
+        //    var unit_id = 1;
+
+        //    foreach (var division in divisions)
+        //        for (var i = 0; i < 2; i++)
+        //        {
+        //            division.Units.Add(new Unit
+        //            {
+        //                Active = true,
+        //                InDivision = true,
+        //                Staff = new ObservableCollection<Employee>() { division.Employees.Last() },
+        //                Truck = new Truck
+        //                {
+        //                    Type = $"Автомобиль пожарный {unit_id}",
+        //                    Water = unit_id + 100,
+        //                    Foam = unit_id + 50,
+        //                    WaterSupply = 10 * unit_id++
+        //                }
+        //            });
+        //        }
+        //    return divisions.SelectMany(u => u.Units).ToArray();
+        //}
 
 
         public static Fire[] Fires { get; } = Enumerable
@@ -122,7 +152,7 @@ namespace FireStats.WPF.Services
             {
                 Adress = $"Адрес {i}",
                 FireRank = $"Ранг {i}",
-                DateFire = DateTime.Now,
+                DateAccident = DateTime.Now,
                 TimeOfAccident = DateTime.Now,
                 TimeOfCall = DateTime.Now,
                 TimeOfArrival = DateTime.Now,
@@ -136,18 +166,49 @@ namespace FireStats.WPF.Services
                             Name = $"Имя заявителя {i}",
                             Surname = $"Фамилия заявителя {i}",
                             Patronymic = $"Отчество заявителя {i}",
-                            Phone = $" 8-910-900-{i}"
+                            Phone = $" 8-910-900-{i}",
+                            Birthday = DateTime.Now
                         } },
                 Owner = $"Владелец объекта {i}",
                 CauseOfFire = $"Причина пожара {i}",
-                CostOfDamage = (ulong)(1000000+i),
+                CostOfDamage = (ulong)(1000000 + i),
                 LostInFire = $"Уничтоженно {i}",
                 CostOfSalvage = (ulong)(1000000 - i),
+                Injureds = new ObservableCollection<Injured> 
+                {
+                        new Injured {
+                            Name = $"Имя заявителя {i}",
+                            Surname = $"Фамилия заявителя {i}",
+                            Patronymic = $"Отчество заявителя {i}",
+                            IsDead = false,
+                            Birthday = DateTime.Now
+                        } 
+                },
                 Saved = $"Спасено {i}",
-                FightingLeader = new ObservableCollection<Employee> {
-                        Divisions[i].Employees.First()},
-                FireInspector = new ObservableCollection<Employee> {
-                        Divisions[i].Employees.Last()}
+                FightingLeader = new ObservableCollection<Employee>
+                {
+                    new Employee
+                    {
+                        Name = $"Имя РТП",
+                        Surname = $"Фамилия РТП",
+                        Patronymic = $"Отчество РТП",
+                        Birthday = DateTime.Now.Subtract(TimeSpan.FromDays(300 *rnd.Next(19, 30))),
+                        Position = $"Должность РТП",
+                        Rank = $"Звание РТП"
+                    }
+                },
+                FireInspector = new ObservableCollection<Employee>
+                {
+                        new Employee
+                    {
+                        Name = $"Имя Инспектор",
+                        Surname = $"Фамилия Инспектор",
+                        Patronymic = $"Отчество Инспектор",
+                        Birthday = DateTime.Now.Subtract(TimeSpan.FromDays(300 *rnd.Next(19, 30))),
+                        Position = $"Должность Инспектор",
+                        Rank = $"Звание Инспектор"
+                    }
+                }
             })
             .ToArray();
        
@@ -158,10 +219,10 @@ namespace FireStats.WPF.Services
             using (var context = new DataBaseContext())
             {
                 context.Departments.AddRange(Departments);
-                context.Divisions.AddRange(Divisions);
-                context.Employees.AddRange(Employees);
-                context.Trucks.AddRange(Trucks);
-                context.Units.AddRange(Units);
+                //context.Divisions.AddRange(Divisions);
+                //context.Employees.AddRange(Employees);
+                //context.Trucks.AddRange(Trucks);
+                //context.Units.AddRange(Units);
                 context.Fires.AddRange(Fires);
 
                 context.SaveChanges();

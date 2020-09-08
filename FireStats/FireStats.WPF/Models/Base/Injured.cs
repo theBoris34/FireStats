@@ -21,6 +21,10 @@ namespace FireStats.WPF.Models.Base
         /// <summary> Куда направлен (Больница, морг). </summary>
         public string Hospital { get; set; }
 
+        public Injured()
+        {
+
+        }
         public Injured(string name, string surname, string patronymic, bool isDead, string hospital)
         {
             #region Проверка IsNullOrWhiteSpace

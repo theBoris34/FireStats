@@ -6,7 +6,7 @@ namespace FireStats.WPF.Services.Repositories
 
     class EmployeeRepository : RepositoryInMemory<Employee>
     {
-        public EmployeeRepository():base(TestData.Employees) { }
+        //public EmployeeRepository():base(TestData.Employees) { }
 
         protected override void Update(Employee Source, Employee Destination)
         {

@@ -1,11 +1,13 @@
 ﻿using FireStats.WPF.Models.Interface;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FireStats.WPF.Models.Departments
 {
     /// <summary> Управление.</summary>
     class Department : IEntity
     {
+        [Key]
         /// <summary> Id управления. </summary>
         public int Id { get; set; }
 

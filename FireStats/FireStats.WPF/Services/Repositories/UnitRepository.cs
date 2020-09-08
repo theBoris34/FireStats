@@ -5,7 +5,7 @@ namespace FireStats.WPF.Services.Repositories
 {
     class UnitRepository : RepositoryInMemory<Unit>
     {
-        public UnitRepository():base(TestData.Units) { }
+        //public UnitRepository():base(TestData.Units) { }
         protected override void Update(Unit Source, Unit Destination)
         {
             Destination.Active = Source.Active;
