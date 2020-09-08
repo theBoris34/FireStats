@@ -13,7 +13,7 @@ namespace FireStats.WPF.Services.Repositories
     class FireRepository : RepositoryInMemory<Fire>
     {
 
-        public FireRepository() : base(TestData.Fires) { }
+        public FireRepository() { }
         protected override void Update(Fire Source, Fire Destination)
         {
             Destination.Adress = Source.Adress;

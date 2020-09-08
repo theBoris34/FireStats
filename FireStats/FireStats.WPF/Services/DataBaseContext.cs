@@ -8,8 +8,7 @@ namespace FireStats.WPF.Services
     class DataBaseContext : DbContext
     {
         public DataBaseContext() : base("DBConnectionString")
-        {
-        }
+        { }
 
         public DbSet<Employee> Employees { get; set; }
 
@@ -19,11 +18,11 @@ namespace FireStats.WPF.Services
 
         public DbSet<Fire> Fires { get; set; }
 
-        //public DbSet<Accident> Accidents { get; set; }
+        public DbSet<Accident> Accidents { get; set; }
 
-        //public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
 
-        //public DbSet<Injured> Injureds { get; set; }
+        public DbSet<Injured> Injureds { get; set; }
 
         public DbSet<Truck> Trucks { get; set; }
 

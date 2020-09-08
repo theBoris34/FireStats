@@ -80,8 +80,6 @@ namespace FireStats.WPF.Services
                 var longitude = double.Parse(row[3]);
                 var counts = row.Skip(4).Select(int.Parse).ToArray();
 
-               
-
                 yield return (district, area_name, (latitude,longitude), counts);
             }
 
