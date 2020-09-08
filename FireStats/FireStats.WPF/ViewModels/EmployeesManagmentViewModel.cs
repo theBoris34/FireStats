@@ -21,6 +21,7 @@ namespace FireStats.WPF.ViewModels
     {
         private readonly EmployeesManagment _EmployeesManagment;
         private readonly IUserDialogService _UserDialog;
+       
         #region Title : string - Заголовок окна
         /// <summary>
         /// Заголовок окна
@@ -162,7 +163,6 @@ namespace FireStats.WPF.ViewModels
         }
         #endregion
         #endregion
-
 
 
         public IEnumerable<Employee> Employees => _EmployeesManagment.Employees;

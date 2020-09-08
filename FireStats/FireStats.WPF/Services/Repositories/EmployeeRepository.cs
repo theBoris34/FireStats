@@ -1,12 +1,21 @@
 ﻿using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services.Base;
+using System.Collections.Generic;
 
 namespace FireStats.WPF.Services.Repositories
 {
 
     class EmployeeRepository : RepositoryInMemory<Employee>
     {
-        public EmployeeRepository() { }
+        public List<Employee> Employees { get; set; } = new List<Employee>();
+        public EmployeeRepository() 
+        {
+            using (var context = new DataBaseContext())
+            {
+                foreach (Employee employee in context.Employees)
+                    Employees.Add(employee);
+            }
+        }
 
         protected override void Update(Employee Source, Employee Destination)
         {            

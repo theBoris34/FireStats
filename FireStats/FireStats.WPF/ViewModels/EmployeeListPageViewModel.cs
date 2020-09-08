@@ -163,11 +163,12 @@ namespace FireStats.WPF.ViewModels
             LoadingToDataBaseCommand = new LambdaCommand(OnLoadingToDataBaseCommandExecuted, CanLoadingToDataBaseCommandExecuted);
             #endregion
 
-            var er = new EmployeeRepository();
-            var dr = new DivisionRepository();
-            var fr = new FireRepository();
-            _EmployeesManager = new EmployeesManagment(er ,dr);
-            _FiresManager = new FireManagment(fr);
+            var employeeRepository = new EmployeeRepository();
+            var divisionRepository = new DivisionRepository();
+            var departmentRepository = new DepartmentRepository();
+            var fireRepository = new FireRepository();
+            _EmployeesManager = new EmployeesManagment(employeeRepository, divisionRepository);
+            _FiresManager = new FireManagment(fireRepository);
 
         }
 

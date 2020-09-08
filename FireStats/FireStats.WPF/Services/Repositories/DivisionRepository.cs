@@ -1,12 +1,21 @@
 ﻿using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services.Base;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FireStats.WPF.Services.Repositories
 {
     class DivisionRepository : RepositoryInMemory<Division>
     {
-        public DivisionRepository() { }
+        public List<Division> Divisions { get; set; } = new List<Division>();
+        public DivisionRepository() 
+        {
+            using (var context = new DataBaseContext())
+            {
+                foreach (Division division in context.Divisions)
+                    Divisions.Add(division);
+            }
+        }
 
         public Division Get(string DivisionName) => GetAll().FirstOrDefault(d => d.Name == DivisionName);
 

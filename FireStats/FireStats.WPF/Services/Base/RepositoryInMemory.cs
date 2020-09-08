@@ -11,7 +11,9 @@ namespace FireStats.WPF.Services.Base
 
         private List<T> _Items = new List<T>();
         private int _LastId;
-        public RepositoryInMemory() { }
+        public RepositoryInMemory() 
+        {
+        }
 
         public RepositoryInMemory(IEnumerable<T> items)
         {
