@@ -26,7 +26,7 @@ namespace FireStats.WPF.ViewModels
         /// <summary>
         /// Заголовок окна
         /// </summary>
-        private string _Title = "Управление сотрудниками";
+        private string _Title = "Редактирование личного состава";
 
         /// <summary>
         /// Заголовок окна

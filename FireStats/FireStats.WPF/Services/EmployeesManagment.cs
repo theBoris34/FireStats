@@ -1,23 +1,27 @@
-﻿using FireStats.WPF.Models.Departments;
+﻿using FireStats.WPF.Models.Base;
+using FireStats.WPF.Models.Departments;
 using FireStats.WPF.Services.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace FireStats.WPF.Services
 {
     class EmployeesManagment
     {
-        private readonly EmployeeRepository _Employees;
-        private readonly DivisionRepository _Divisions;
 
-        public IEnumerable<Employee> Employees => _Employees.GetAll();
+        private readonly DivisionRepository _Divisions;
+        private readonly EmployeeRepository _Employees;
+
 
         public IEnumerable<Division> Divisions => _Divisions.GetAll();
+        public IEnumerable<Employee> Employees => _Employees.GetAll();
 
-        public EmployeesManagment(EmployeeRepository Employees, DivisionRepository Divisions)
+
+        public EmployeesManagment(DivisionRepository divisions, EmployeeRepository employees)
         {
-            _Employees = Employees;
-            _Divisions = Divisions;
+            _Divisions = divisions;
+            _Employees = employees;
         }
 
         internal void Update(Employee Employee) => _Employees.Update(Employee.Id, Employee);

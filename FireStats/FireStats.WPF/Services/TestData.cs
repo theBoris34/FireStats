@@ -31,6 +31,7 @@ namespace FireStats.WPF.Services
                 {
                     deprtment.Divisions.Add(new Division
                     {
+                        Department = deprtment,
                         Name = $"Подразделение {i}",
                         Employees = new ObservableCollection<Employee>(),
                         Units = new ObservableCollection<Unit>()
@@ -55,6 +56,7 @@ namespace FireStats.WPF.Services
 
                     division.Employees.Add(new Employee
                     {
+                        Division = division,
                         Name = $"Имя {employees_id}",
                         Surname = $"Фамилия {employees_id}",
                         Patronymic = $"Отчество {employees_id}",
@@ -98,6 +100,7 @@ namespace FireStats.WPF.Services
                 {
                     division.Units.Add(new Unit
                     {
+                        Division = division,
                         Active = true,
                         InDivision = true,
                         Staff = new ObservableCollection<Employee>() { },
@@ -187,8 +190,8 @@ namespace FireStats.WPF.Services
             using (var context = new DataBaseContext())
             {
                 context.Departments.AddRange(Departments);
-                //context.Divisions.AddRange(Divisions);
-                //context.Employees.AddRange(Employees);
+                context.Divisions.AddRange(Divisions);
+                context.Employees.AddRange(Employees);
                 //context.Trucks.AddRange(Trucks);
                 //context.Units.AddRange(Units);
                 context.Fires.AddRange(Fires);

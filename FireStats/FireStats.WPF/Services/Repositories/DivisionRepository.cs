@@ -15,13 +15,18 @@ namespace FireStats.WPF.Services.Repositories
                 foreach (Division division in context.Divisions)
                     Divisions.Add(division);
             }
+
+
         }
+
+        public IEnumerable<Division> GetAll() => Divisions;
 
         public Division Get(string DivisionName) => GetAll().FirstOrDefault(d => d.Name == DivisionName);
 
         protected override void Update(Division Source, Division Destination)
         {
             Destination.Name = Source.Name;
+            Destination.Employees = Source.Employees;
             Destination.Note = Source.Note;
             Destination.Department = Source.Department;
         }

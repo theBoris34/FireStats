@@ -17,6 +17,18 @@ namespace FireStats.WPF.ViewModels
 {
     internal class EmployeeListPageViewModel : ViewModel
     {
+        #region Title : string - Заголовок окна
+        /// <summary>
+        /// Заголовок окна
+        /// </summary>
+        private string _Title = "Управление сотрудниками";
+
+        /// <summary>
+        /// Заголовок окна
+        /// </summary>
+        public string Title { get => _Title; set => Set(ref _Title, value);}
+        #endregion
+
         private readonly IDataService _DataService;
         public WindowFireStatsViewModel MainModel { get; internal set; }
 
@@ -90,6 +102,7 @@ namespace FireStats.WPF.ViewModels
             e.Accepted = false;
 
         }
+        
         private CollectionViewSource _SelecedDivisionEmployees = new CollectionViewSource();
 
         public ICollectionView SelecedDivisionEmployees => _SelecedDivisionEmployees?.View;
@@ -152,9 +165,8 @@ namespace FireStats.WPF.ViewModels
         public IEnumerable<Fire> Fires => _FiresManager.Fires;
 
 
-        public EmployeeListPageViewModel(IDataService DataService)
+        public EmployeeListPageViewModel()
         {
-            _DataService = DataService;
             _SelecedDivisionEmployees.Filter += OnEmployeesFilter;
             _SelecedDivisionEmployees.GroupDescriptions.Add(new PropertyGroupDescription("Position"));
 
@@ -163,11 +175,11 @@ namespace FireStats.WPF.ViewModels
             LoadingToDataBaseCommand = new LambdaCommand(OnLoadingToDataBaseCommandExecuted, CanLoadingToDataBaseCommandExecuted);
             #endregion
 
-            var employeeRepository = new EmployeeRepository();
-            var divisionRepository = new DivisionRepository();
             var departmentRepository = new DepartmentRepository();
+            var divisionRepository = new DivisionRepository();
+            var employeeRepository = new EmployeeRepository();
             var fireRepository = new FireRepository();
-            _EmployeesManager = new EmployeesManagment(employeeRepository, divisionRepository);
+            _EmployeesManager = new EmployeesManagment(divisionRepository, employeeRepository);
             _FiresManager = new FireManagment(fireRepository);
 
         }

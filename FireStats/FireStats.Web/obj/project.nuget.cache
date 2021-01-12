@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "B4rUYOXQQvs9JbvaayAVj1Qsb8LOvJY6o0DBXMB1FLg6uvV2pB5OYfT3clCRIk/vtnxKNSM7A3inGVx4WOkuUw==",
+  "dgSpecHash": "1Jn7d2Zes/vwJJKk4+E/kIlNzqbxJ4aR0Xsciwvb8VePnMjkth7OLtTYUxWCeUzTNGbV9/zzM6H7KJC9qP9diQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Anastasiya\\Source\\Repos\\FireStats\\FireStats\\FireStats.Web\\FireStats.Web.csproj",
+  "projectFilePath": "C:\\Users\\Akinf\\source\\repos\\theBoris34\\FireStats\\FireStats\\FireStats.Web\\FireStats.Web.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Anastasiya\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\Anastasiya\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\Akinf\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Akinf\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -17,8 +17,11 @@ namespace FireStats.WPF.Services.Repositories
             }
         }
 
+
+        public IEnumerable<Employee> GetAll() => Employees;
+
         protected override void Update(Employee Source, Employee Destination)
-        {            
+        {   
             Destination.Name = Source.Name;
             Destination.Surname = Source.Surname;
             Destination.Patronymic = Source.Patronymic;

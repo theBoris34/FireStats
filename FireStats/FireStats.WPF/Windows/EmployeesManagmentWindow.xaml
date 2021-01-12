@@ -16,7 +16,7 @@
             <RowDefinition Height="34"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Управление сотрудниками" Grid.Row="0" VerticalAlignment="Center" 
+        <TextBlock Text="{Binding Title}" Grid.Row="0" VerticalAlignment="Center" 
                    HorizontalAlignment="Center" Foreground="#FF9CCAFF"
                    FontSize="25" TextAlignment="Center" 
                    Width="Auto" FontWeight="DemiBold"  Height="34"/>

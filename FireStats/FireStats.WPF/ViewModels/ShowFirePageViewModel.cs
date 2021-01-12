@@ -12,6 +12,7 @@ namespace FireStats.WPF.ViewModels
     {
         private readonly IDataService _DataService;
 
+        public string Title = "Тест";
         public WindowFireStatsViewModel MainModel { get; internal set; }
 
 

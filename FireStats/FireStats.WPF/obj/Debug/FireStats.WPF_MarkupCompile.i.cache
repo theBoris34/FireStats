@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.WPF\obj\Debug\
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\obj\Debug\
 FireStats.WPF
 none
 false
 DEBUG;TRACE
-C:\Users\Anastasiya\Source\Repos\FireStats\FireStats\FireStats.WPF\App.xaml
+C:\Users\Akinf\source\repos\theBoris34\FireStats\FireStats\FireStats.WPF\App.xaml
 14-602293667
 
 73384492339
-661465567886
+662128947508
 Pages\EmployeeListPage.xaml;Pages\EnterEmergancyPage.xaml;Pages\ShowEmergancyPage.xaml;Pages\ShowFirePage.xaml;Pages\ShowPlotPage.xaml;Pages\UserListPage.xaml;Pages\WebServerPage.xaml;Resources\Styles\GridSplitter.xaml;Windows\CheckInWindow.xaml;LoginWindow.xaml;Pages\EnterFirePage.xaml;Windows\EmployeeEditorWindows.xaml;Windows\EmployeesManagmentWindow.xaml;Windows\WindowFireStats.xaml;
 
 True

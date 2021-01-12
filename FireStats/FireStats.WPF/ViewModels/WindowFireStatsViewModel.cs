@@ -10,6 +10,7 @@ using FireStats.WPF.Models;
 using System.Windows.Markup;
 using FireStats.WPF.Services.Interfaces;
 using System.ComponentModel;
+using FireStats.BL.Controller;
 
 namespace FireStats.WPF.ViewModels
 {
@@ -47,8 +48,8 @@ namespace FireStats.WPF.ViewModels
         /// <summary>
         /// Текущий пользователь
         /// </summary>
-        private string _CurrentUser = "Пользователь";
-        public string CurrentUser 
+        private UserController _CurrentUser = new UserController("Тестовый пользователь");
+        public UserController CurrentUser 
         { 
             get { return _CurrentUser; }
             set
@@ -78,7 +79,7 @@ namespace FireStats.WPF.ViewModels
 
         private void OnEnterFirePageShowCommandExecuted(object p)
         {
-            CurrentPage = new EnterFirePage();
+            CurrentPage = new EnterFirePage(CurrentUser);
         }
         private bool CanEnterFirePageShowCommandExecute(object p) => true;
         #endregion
