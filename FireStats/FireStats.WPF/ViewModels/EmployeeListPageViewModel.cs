@@ -103,9 +103,9 @@ namespace FireStats.WPF.ViewModels
 
         }
         
-        private CollectionViewSource _SelecedDivisionEmployees = new CollectionViewSource();
+        private CollectionViewSource _SelectedDivisionEmployees = new CollectionViewSource();
 
-        public ICollectionView SelecedDivisionEmployees => _SelecedDivisionEmployees?.View;
+        public ICollectionView SelectedDivisionEmployees => _SelectedDivisionEmployees?.View;
         #endregion
             
         #region SelectedDivision
@@ -119,8 +119,10 @@ namespace FireStats.WPF.ViewModels
             set
             {
                 if (!Set(ref _SelectedDivision, value)) return;
-                _SelecedDivisionEmployees.Source = value?.Employees;
-                OnPropertyChanged(nameof(SelecedDivisionEmployees));
+                //var emp = from i in Employees where i.Division select i;
+                //_SelectedDivisionEmployees.Source = value?.Employees;
+
+                OnPropertyChanged(nameof(SelectedDivisionEmployees));
             }
         }
         #endregion
@@ -151,7 +153,7 @@ namespace FireStats.WPF.ViewModels
             set
             {
                 if(!Set(ref _EmployesFilterText, value))return;
-                _SelecedDivisionEmployees.View.Refresh(); //System.NullReferenceException: "Ссылка на объект не указывает на экземпляр объекта."
+                _SelectedDivisionEmployees.View.Refresh(); //System.NullReferenceException: "Ссылка на объект не указывает на экземпляр объекта."
             }
         }
 
@@ -167,8 +169,8 @@ namespace FireStats.WPF.ViewModels
 
         public EmployeeListPageViewModel()
         {
-            _SelecedDivisionEmployees.Filter += OnEmployeesFilter;
-            _SelecedDivisionEmployees.GroupDescriptions.Add(new PropertyGroupDescription("Position"));
+            _SelectedDivisionEmployees.Filter += OnEmployeesFilter;
+            _SelectedDivisionEmployees.GroupDescriptions.Add(new PropertyGroupDescription("Position"));
 
             #region Команды           
             ManagmentEmployeesCommand = new LambdaCommand(OnManagmentEmployeesCommandExecuted, CanManagmentEmployeesCommandExecute);

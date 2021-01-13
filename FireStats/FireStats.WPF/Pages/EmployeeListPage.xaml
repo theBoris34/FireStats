@@ -74,7 +74,7 @@
                         <TextBox x:Name="EmployeeFilter"
                                  Text="{Binding EmployesFilterText, UpdateSourceTrigger=PropertyChanged}"/>
                     </DockPanel>
-                    <DataGrid ItemsSource="{Binding SelectedDivision.Employees}"
+                    <DataGrid ItemsSource="{Binding SelectedDivisionEmployees}"
                           SelectedItem="{Binding SelectedEmployee}"
                           AutoGenerateColumns="False"
                           GridLinesVisibility="Vertical"
